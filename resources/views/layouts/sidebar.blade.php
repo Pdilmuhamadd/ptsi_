@@ -12,7 +12,7 @@
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
-        
+
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
@@ -26,22 +26,47 @@
             <li class="header">MASTER</li>
             <li>
                 <a href="{{ route('kategori.index') }}">
-                    <i class="fa fa-cube"></i> <span>Kategori</span>
+                    <i class="fa fa-cube"></i> <span>Studi Kelayakan</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('produk.index') }}">
-                    <i class="fa fa-cubes"></i> <span>Produk</span>
+                    <i class="fa fa-cubes"></i> <span>Perencanaan Proyek</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('member.index') }}">
-                    <i class="fa fa-id-card"></i> <span>Member</span>
+                    <i class="fa fa-cube"></i> <span>Analisis Kebutuhan</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('supplier.index') }}">
-                    <i class="fa fa-truck"></i> <span>Supplier</span>
+                    <i class="fa fa-asterisk"></i> <span>Desain Sistem</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('supplier.index') }}">
+                    <i class="fa fa-cube"></i> <span>Pengembangan</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('supplier.index') }}">
+                    <i class="fa fa-cube"></i> <span>Pengujian</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('supplier.index') }}">
+                    <i class="fa fa-cube"></i> <span>Implementasi</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('supplier.index') }}">
+                    <i class="fa fa-cube"></i> <span>Pemeliharaan dan Dukungan</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('supplier.index') }}">
+                    <i class="fa fa-cube"></i> <span>Post-Implementation Review</span>
                 </a>
             </li>
             <li class="header">TRANSAKSI</li>
