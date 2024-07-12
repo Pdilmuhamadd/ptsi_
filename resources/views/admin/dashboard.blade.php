@@ -18,7 +18,7 @@
             <div class="inner">
                 <h3>{{ $kategori }}</h3>
 
-                <p>Sumber Daya</p>
+                <p>Studi Kelayakan</p>
             </div>
             <div class="icon">
                 <i class="fa fa-cube"></i>
@@ -29,11 +29,11 @@
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-green">
+        <div class="small-box bg-aqua">
             <div class="inner">
                 <h3>{{ $produk }}</h3>
 
-                <p>Total Produk</p>
+                <p>Perencanaan Proyek</p>
             </div>
             <div class="icon">
                 <i class="fa fa-cubes"></i>
@@ -44,11 +44,11 @@
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-yellow">
+        <div class="small-box bg-aqua">
             <div class="inner">
                 <h3>{{ $member }}</h3>
 
-                <p>Total Member</p>
+                <p>Analisis Kebutuhan</p>
             </div>
             <div class="icon">
                 <i class="fa fa-id-card"></i>
@@ -59,11 +59,11 @@
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-purple">
+        <div class="small-box bg-aqua">
             <div class="inner">
                 <h3>{{ $supplier }}</h3>
 
-                <p>Total Supplier</p>
+                <p>Desain Sistem</p>
             </div>
             <div class="icon">
                 <i class="fa fa-truck"></i>
@@ -74,11 +74,11 @@
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-white">
+        <div class="small-box bg-aqua">
             <div class="inner">
                 <h3>{{ $supplier }}</h3>
 
-                <p>Total Supplier</p>
+                <p>Pengembangan</p>
             </div>
             <div class="icon">
                 <i class="fa fa-truck"></i>
@@ -89,11 +89,11 @@
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-purple">
+        <div class="small-box bg-aqua">
             <div class="inner">
                 <h3>{{ $supplier }}</h3>
 
-                <p>Total Supplier</p>
+                <p>Pengujian</p>
             </div>
             <div class="icon">
                 <i class="fa fa-truck"></i>
@@ -104,11 +104,11 @@
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-purple">
+        <div class="small-box bg-aqua">
             <div class="inner">
                 <h3>{{ $supplier }}</h3>
 
-                <p>Total Supplier</p>
+                <p>Implementasi</p>
             </div>
             <div class="icon">
                 <i class="fa fa-truck"></i>
@@ -119,11 +119,11 @@
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-purple">
+        <div class="small-box bg-aqua">
             <div class="inner">
                 <h3>{{ $supplier }}</h3>
 
-                <p>Total Supplier</p>
+                <p>Pemeliharaan dan Dukungan</p>
             </div>
             <div class="icon">
                 <i class="fa fa-truck"></i>
@@ -134,11 +134,11 @@
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-purple">
+        <div class="small-box bg-aqua">
             <div class="inner">
                 <h3>{{ $supplier }}</h3>
 
-                <p>Total Supplier</p>
+                <p>Post-Implementation Review</p>
             </div>
             <div class="icon">
                 <i class="fa fa-truck"></i>
@@ -147,24 +147,8 @@
         </div>
     </div>
     <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-purple">
-            <div class="inner">
-                <h3>{{ $supplier }}</h3>
-
-                <p>Total Supplier</p>
-            </div>
-            <div class="icon">
-                <i class="fa fa-truck"></i>
-            </div>
-            <a href="{{ route('supplier.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
 </div>
 <!-- ./col -->
-
-<!-- /.row -->
-<!-- Main row -->
 
 @endsection
 
