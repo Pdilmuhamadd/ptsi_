@@ -21,7 +21,7 @@
                 <p>Studi Kelayakan</p>
             </div>
             <div class="icon">
-                <i class="fa fa-cube"></i>
+                <i class="fa fa-envelope-o"></i>
             </div>
             <a href="{{ route('kategori.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -36,7 +36,7 @@
                 <p>Perencanaan Proyek</p>
             </div>
             <div class="icon">
-                <i class="fa fa-cubes"></i>
+                <i class="fa fa-map-o"></i>
             </div>
             <a href="{{ route('produk.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -51,7 +51,7 @@
                 <p>Analisis Kebutuhan</p>
             </div>
             <div class="icon">
-                <i class="fa fa-id-card"></i>
+                <i class="fa fa-check-square-o"></i>
             </div>
             <a href="{{ route('member.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -66,7 +66,7 @@
                 <p>Desain Sistem</p>
             </div>
             <div class="icon">
-                <i class="fa fa-truck"></i>
+                <i class="fa fa-edit"></i>
             </div>
             <a href="{{ route('supplier.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -81,7 +81,7 @@
                 <p>Pengembangan</p>
             </div>
             <div class="icon">
-                <i class="fa fa-truck"></i>
+                <i class="fa fa-line-chart"></i>
             </div>
             <a href="{{ route('supplier.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -96,7 +96,7 @@
                 <p>Pengujian</p>
             </div>
             <div class="icon">
-                <i class="fa fa-truck"></i>
+                <i class="fa fa-book"></i>
             </div>
             <a href="{{ route('supplier.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -111,7 +111,7 @@
                 <p>Implementasi</p>
             </div>
             <div class="icon">
-                <i class="fa fa-truck"></i>
+                <i class="fa fa-clone"></i>
             </div>
             <a href="{{ route('supplier.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -126,7 +126,7 @@
                 <p>Pemeliharaan dan Dukungan</p>
             </div>
             <div class="icon">
-                <i class="fa fa-truck"></i>
+                <i class="fa fa-folder-o"></i>
             </div>
             <a href="{{ route('supplier.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -141,7 +141,7 @@
                 <p>Post-Implementation Review</p>
             </div>
             <div class="icon">
-                <i class="fa fa-truck"></i>
+                <i class="fa fa-bar-chart-o"></i>
             </div>
             <a href="{{ route('supplier.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
