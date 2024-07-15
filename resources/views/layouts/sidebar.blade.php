@@ -26,47 +26,47 @@
             <li class="header">MASTER</li>
             <li>
                 <a href="{{ route('kategori.index') }}">
-                    <i class="fa fa-cube"></i> <span>Studi Kelayakan</span>
+                    <i class="fa fa-envelope-o"></i> <span>Studi Kelayakan</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('produk.index') }}">
-                    <i class="fa fa-cubes"></i> <span>Perencanaan Proyek</span>
+                    <i class="fa fa-map-o"></i> <span>Perencanaan Proyek</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('member.index') }}">
-                    <i class="fa fa-cube"></i> <span>Analisis Kebutuhan</span>
+                    <i class="fa fa-check-square-o"></i> <span>Analisis Kebutuhan</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('supplier.index') }}">
-                    <i class="fa fa-asterisk"></i> <span>Desain Sistem</span>
+                    <i class="fa fa-edit"></i> <span>Desain Sistem</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('supplier.index') }}">
-                    <i class="fa fa-cube"></i> <span>Pengembangan</span>
+                    <i class="fa fa-line-chart"></i> <span>Pengembangan</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('supplier.index') }}">
-                    <i class="fa fa-cube"></i> <span>Pengujian</span>
+                    <i class="fa fa-book"></i> <span>Pengujian</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('supplier.index') }}">
-                    <i class="fa fa-cube"></i> <span>Implementasi</span>
+                    <i class="fa fa-clone"></i> <span>Implementasi</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('supplier.index') }}">
-                    <i class="fa fa-cube"></i> <span>Pemeliharaan dan Dukungan</span>
+                    <i class="fa fa-folder-o"></i> <span>Pemeliharaan dan Dukungan</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('supplier.index') }}">
-                    <i class="fa fa-cube"></i> <span>Post-Implementation Review</span>
+                    <i class="fa fa-bar-chart-o"></i> <span>Post-Implementation Review</span>
                 </a>
             </li>
             <li class="header">TRANSAKSI</li>
