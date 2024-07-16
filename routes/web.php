@@ -11,6 +11,7 @@ use App\Http\Controllers\{
     PembelianDetailController,
     PenjualanController,
     PenjualanDetailController,
+    StudiKelayakanController,
     SettingController,
     SupplierController,
     UserController,
@@ -37,7 +38,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['middleware' => 'level:1'], function () {
         Route::get('/kategori/data', [KategoriController::class, 'data'])->name('kategori.data');
+        Route::post('/kategori/delete-selected', [KategoriController::class, 'deleteSelected'])->name('kategori.delete_selected');
         Route::resource('/kategori', KategoriController::class);
+
+        Route::get('/studi_kelayakan', [StudiKelayakanController::class, 'index'])->name('studi_kelayakan.index');
+        Route::get('/studi_kelayakan/data', [StudiKelayakanController::class, 'data'])->name('studi_kelayakan.data');
+        Route::post('/studi_kelayakan/delete-selected', [StudiKelayakanController::class, 'deleteSelected'])->name('studi_kelayakan.delete_selected');
+        Route::resource('/studi_kelayakan', StudiKelayakanController::class);
 
         Route::get('/produk/data', [ProdukController::class, 'data'])->name('produk.data');
         Route::post('/produk/delete-selected', [ProdukController::class, 'deleteSelected'])->name('produk.delete_selected');
@@ -95,7 +102,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/setting/first', [SettingController::class, 'show'])->name('setting.show');
         Route::post('/setting', [SettingController::class, 'update'])->name('setting.update');
     });
- 
+
     Route::group(['middleware' => 'level:1,2'], function () {
         Route::get('/profil', [UserController::class, 'profil'])->name('user.profil');
         Route::post('/profil', [UserController::class, 'updateProfil'])->name('user.update_profil');
