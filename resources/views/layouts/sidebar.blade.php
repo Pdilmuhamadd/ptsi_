@@ -25,7 +25,7 @@
             @if (auth()->user()->level == 1)
             <li class="header">MASTER</li>
             <li>
-                <a href="{{ route('kategori.index') }}">
+                <a href="{{ route('studi_kelayakan.index') }}">
                     <i class="fa fa-envelope-o"></i> <span>Studi Kelayakan</span>
                 </a>
             </li>
