@@ -16,14 +16,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>{{ $kategori }}</h3>
+                <h3>{{ $trx_studi_kelayakan }}</h3>
 
                 <p>Studi Kelayakan</p>
             </div>
             <div class="icon">
                 <i class="fa fa-envelope-o"></i>
             </div>
-            <a href="{{ route('kategori.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('studi_kelayakan.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
