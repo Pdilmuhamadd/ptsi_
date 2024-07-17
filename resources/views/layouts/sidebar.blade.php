@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('produk.index') }}">
+                <a href="{{ route('perencanaan_proyek.index') }}">
                     <i class="fa fa-map-o"></i> <span>Perencanaan Proyek</span>
                 </a>
             </li>
