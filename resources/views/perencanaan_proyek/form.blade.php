@@ -40,9 +40,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="tanggung_jawab_tim" class="col-lg-2 col-lg-offset-1 control-label">Tanggung Jawab Anggota Tim</label>
+                        <label for="tanggung_jawab_anggota_tim" class="col-lg-2 col-lg-offset-1 control-label">Tanggung Jawab Anggota Tim</label>
                         <div class="col-lg-6">
-                            <input type="text" name="tanggung_jawab_tim" id="tanggung_jawab_tim" class="form-control" required autofocus></input>
+                            <input type="text" name="tanggung_jawab_anggota_tim" id="tanggung_jawab_anggota_tim" class="form-control" required autofocus></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -82,9 +82,16 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="milestones" class="col-lg-2 col-lg-offset-1 control-label">milestones</label>
+                        <label for="milestones" class="col-lg-2 col-lg-offset-1 control-label">Milestones</label>
                         <div class="col-lg-6">
                             <input type="text" name="milestones" id="milestones" class="form-control" required autofocus></input>
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="estimasi_biaya" class="col-lg-2 col-lg-offset-1 control-label">Estimasi Biaya</label>
+                        <div class="col-lg-6">
+                            <input type="number" name="estimasi_biaya" id="estimasi_biaya" class="form-control" required autofocus></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>

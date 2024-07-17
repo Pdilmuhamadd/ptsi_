@@ -67,6 +67,7 @@ class PerencanaanProyekController extends Controller
         $trx_perencanaan_proyek->fase_proyek = $request->fase_proyek;
         $trx_perencanaan_proyek->kegiatan_utama = $request->kegiatan_utama;
         $trx_perencanaan_proyek->milestones = $request->milestones;
+        $trx_perencanaan_proyek->estimasi_biaya = $request->estimasi_biaya;
         $trx_perencanaan_proyek->sumber_pendanaan = $request->sumber_pendanaan;
         $trx_perencanaan_proyek->pengendalian_biaya = $request->pengendalian_biaya;
         $trx_perencanaan_proyek->standar_kualitas = $request->standar_kualitas;

@@ -23,27 +23,27 @@
                             <thead>
                             <th width="5%">No</th>
                             <th>ID</th>
-                            <th>latar_belakang_proyek</th>
-                            <th>tujuan_proyek</th>
-                            <th>ruang_lingkup_proyek</th>
-                            <th>struktur_tim</th>
-                            <th>tanggung_jawab_anggota_tim</th>
-                            <th>identifikasi_risiko</th>
-                            <th>analisis_risiko</th>
-                            <th>strategi_mitigasi_risiko</th>
-                            <th>fase_proyek</th>
-                            <th>kegiatan_utama</th>
-                            <th>milestones</th>
-                            <th>sumber_pendanaan</th>
-                            <th>pengendalian_biaya</th>
-                            <th>standar_kualitas</th>
-                            <th>metriks_kualitas</th>
-                            <th>audit_review_kualitas</th>
-                            <th>rencana_komunikasi</th>
-                            <th>laporan_status</th>
-                            <th>pertemuan_tim</th>
-                            <th>kebutuhan_sdm</th>
-                            <th>kebutuhan_teknologi_komunikasi</th>
+                            <th>Latar Belakang Proyek</th>
+                            <th>Tujuan Proyek</th>
+                            <th>Ruang Lingkup Proyek</th>
+                            <th>Struktur Tim</th>
+                            <th>Tanggung Jawab Anggota Tim</th>
+                            <th>Identifikasi Risiko</th>
+                            <th>Analisis Risiko</th>
+                            <th>Strategi Mitigasi Risiko</th>
+                            <th>Fase Proyek</th>
+                            <th>Kegiatan Utama</th>
+                            <th>Milestones</th>
+                            <th>Sumber Pendanaan</th>
+                            <th>Pengendalian Biaya</th>
+                            <th>Standar Kualitas</th>
+                            <th>Metriks Kualitas</th>
+                            <th>Audit Review Kualitas</th>
+                            <th>Rencana Komunikasi</th>
+                            <th>Laporan Status</th>
+                            <th>Pertemuan Tim</th>
+                            <th>Kebutuhan SDM</th>
+                            <th>Kebutuhan Teknologi Komunikasi</th>
                             <th width="15%"><i class="fa fa-cog"></i>
                         </thead>
                     </table>
@@ -71,7 +71,7 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'ID'},
+                {data: 'id'},
                 {data: 'latar_belakang_proyek'},
                 {data: 'tujuan_proyek'},
                 {data: 'ruang_lingkup_proyek'},
@@ -83,6 +83,7 @@
                 {data: 'fase_proyek'},
                 {data: 'kegiatan_utama'},
                 {data: 'milestones'},
+                {data: 'estimasi_biaya'},
                 {data: 'sumber_pendanaan'},
                 {data: 'pengendalian_biaya'},
                 {data: 'standar_kualitas'},
@@ -145,6 +146,7 @@
                 $('#modal-form [name=fase_proyek]').val(response.fase_proyek);
                 $('#modal-form [name=kegiatan_utama]').val(response.kegiatan_utama);
                 $('#modal-form [name=milestones]').val(response.milestones);
+                $('#modal-form [name=estimasi_biaya]').val(response.estimasi_biaya);
                 $('#modal-form [name=sumber_pendanaan]').val(response.sumber_pendanaan);
                 $('#modal-form [name=pengendalian_biaya]').val(response.pengendalian_biaya);
                 $('#modal-form [name=standar_kualitas]').val(response.standar_kualitas);

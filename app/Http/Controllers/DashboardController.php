@@ -46,7 +46,7 @@ class DashboardController extends Controller
         $tanggal_awal = date('Y-m-01');
 
         if (auth()->user()->level == 1) {
-            return view('admin.dashboard', compact('kategori', 'trx_studi_kelayakan','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
+            return view('admin.dashboard', compact('kategori', 'trx_studi_kelayakan', 'trx_perencanaan_proyek', 'produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
         } else {
             return view('kasir.dashboard');
         }
