@@ -10,6 +10,7 @@ use App\Models\Penjualan;
 use App\Models\Produk;
 use App\Models\Supplier;
 use App\Models\StudiKelayakan;
+use App\Models\PerencanaanProyek;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -18,6 +19,7 @@ class DashboardController extends Controller
     {
         $kategori = Kategori::count();
         $trx_studi_kelayakan = StudiKelayakan::count();
+        $trx_perencanaan_proyek = PerencanaanProyek::count();
         $produk = Produk::count();
         $supplier = Supplier::count();
         $member = Member::count();
