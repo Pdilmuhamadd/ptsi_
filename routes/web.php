@@ -17,6 +17,7 @@ use App\Http\Controllers\{
     SupplierController,
     UserController,
 };
+use App\Http\Controllers\DesainSistemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/perencanaan_proyek/data', [PerencanaanProyekController::class, 'data'])->name('perencanaan_proyek.data');
         Route::post('/perencanaan_proyek/delete-selected', [PerencanaanProyekController::class, 'deleteSelected'])->name('perencanaan_proyek.delete_selected');
         Route::resource('/perencanaan_proyek', PerencanaanProyekController::class);
+
+        Route::get('/desain_sistem', [DesainSistemController::class, 'index'])->name('desain_sistem.index');
+        Route::get('/desain_sistem/data', [DesainSistemController::class, 'data'])->name('desain_sistem.data');
+        Route::post('/desain_sistem/delete-selected', [DesainSistemController::class, 'deleteSelected'])->name('desain_sistem.delete_selected');
+        Route::resource('/desain_sistem', DesainSistemController::class);
 
         Route::get('/produk/data', [ProdukController::class, 'data'])->name('produk.data');
         Route::post('/produk/delete-selected', [ProdukController::class, 'deleteSelected'])->name('produk.delete_selected');

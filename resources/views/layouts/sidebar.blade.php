@@ -40,7 +40,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('supplier.index') }}">
+                <a href="{{ route('desain_sistem.index') }}">
                     <i class="fa fa-edit"></i> <span>Desain Sistem</span>
                 </a>
             </li>

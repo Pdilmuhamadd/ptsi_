@@ -61,14 +61,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>{{ $supplier }}</h3>
+                <h3>{{ $trx_desain_sistem }}</h3>
 
                 <p>Desain Sistem</p>
             </div>
             <div class="icon">
                 <i class="fa fa-edit"></i>
             </div>
-            <a href="{{ route('supplier.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('desain_sistem.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
