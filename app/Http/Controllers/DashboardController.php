@@ -11,7 +11,7 @@ use App\Models\Produk;
 use App\Models\Supplier;
 use App\Models\StudiKelayakan;
 use Illuminate\Http\Request;
-// test github dekstop
+
 class DashboardController extends Controller
 {
     public function index()
