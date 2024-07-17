@@ -8,7 +8,7 @@
     @parent
     <li class="active">Dashboard</li>
 @endsection
-
+<!-- m -->
 @section('content')
 <!-- Small boxes (Stat box) -->
 <div class="row">
