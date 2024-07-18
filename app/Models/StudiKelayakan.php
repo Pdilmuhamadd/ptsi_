@@ -10,7 +10,7 @@ class StudiKelayakan extends Model
     use HasFactory;
 
     protected $table = 'trx_studi_kelayakan';
-
+    protected $primaryKey = 'id_studi_kelayakan';
     protected $fillable = [
         'tujuan_dokumen', 'ikhtisar', 'latar_belakang', 'konteks_bisnis', 'tujuan',
         'sasaran', 'analisis_opsi', 'lingkup_fungsional', 'lingkup_nonfungsional',

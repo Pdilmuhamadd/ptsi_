@@ -93,7 +93,7 @@
             <div class="inner">
                 <h3>{{ $supplier }}</h3>
 
-                <p>Pengujian <br>5%</br> </p>
+                <p>Pengujian<br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-book"></i>
@@ -106,14 +106,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>{{ $supplier }}</h3>
+                <h3>{{ $trx_implementasi }}</h3>
 
                 <p>Implementasi <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-clone"></i>
             </div>
-            <a href="{{ route('supplier.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('implementasi.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->

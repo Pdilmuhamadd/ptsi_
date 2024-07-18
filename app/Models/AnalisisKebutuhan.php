@@ -8,10 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class AnalisisKebutuhan extends Model
 {
     use HasFactory;
-
     
     protected $table = 'trx_analisis_kebutuhan';
-
+    protected $primaryKey = 'id';
     protected $fillable = [
         'NamaProyek', 'TujuandanDeskripsi', 'fungsiproyekproduk',  'KebutuhanFungsional',  'acc'
     ];

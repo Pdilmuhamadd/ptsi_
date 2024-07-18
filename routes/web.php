@@ -71,6 +71,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/analisis_kebutuhan/delete-selected', [AnalisisKebutuhanController::class, 'deleteSelected'])->name('analisis_kebutuhan.delete_selected');
         Route::resource('/analisis_kebutuhan', AnalisisKebutuhanController::class);
 
+        Route::get('/implementasi', [ImplementasiController::class, 'index'])->name('implementasi.index');
+        Route::get('/implementasi/data', [ImplementasiController::class, 'data'])->name('implementasi.data');
+        Route::post('/implementasi/delete-selected', [ImplementasiController::class, 'deleteSelected'])->name('implementasi.delete_selected');
+        Route::resource('/implementasi', ImplementasiController::class);
+
         Route::get('/produk/data', [ProdukController::class, 'data'])->name('produk.data');
         Route::post('/produk/delete-selected', [ProdukController::class, 'deleteSelected'])->name('produk.delete_selected');
         Route::post('/produk/cetak-barcode', [ProdukController::class, 'cetakBarcode'])->name('produk.cetak_barcode');

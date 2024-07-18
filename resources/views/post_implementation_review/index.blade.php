@@ -17,7 +17,6 @@
                 <button onclick="addForm('{{ route('post_implementation_review.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
             </div>
             <div class="box-body table-responsive">
-                <form action="" method="post" class="form-post-implementation-review">
                     @csrf
                     <table class="table table-stiped table-bordered">
                             <thead>

@@ -9,10 +9,8 @@ class DesainSistem extends Model
 {
     use HasFactory;
 
-    // Definisikan nama tabel jika tidak mengikuti konvensi penamaan
     protected $table = 'trx_desain_sistem';
-
-    // Kolom yang dapat diisi
+    protected $primaryKey = 'id';
     protected $fillable = [
         'tujuan','ruang_lingkup','definisi_akronim_singkatan','referensi',
         'tanggung_jawab_anggota_tim','gambaran_dokumen','deskripsi_sistem','lingkungan_operasional','diagram_arsitektur','komponen_sistem','hubungan_antar_komponen',

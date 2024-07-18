@@ -17,7 +17,6 @@
             <button onclick="addForm('{{ route('analisis_kebutuhan.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
         </div>
             <div class="box-body table-responsive">
-                <form action="" method="post" class="form-analisis-kebutuhan">
                     @csrf
                     <table class="table table-stiped table-bordered">
                             <thead>

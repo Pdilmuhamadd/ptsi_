@@ -55,7 +55,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('supplier.index') }}">
+                <a href="{{ route('implementasi.index') }}">
                     <i class="fa fa-clone"></i> <span>Implementasi</span>
                 </a>
             </li>
