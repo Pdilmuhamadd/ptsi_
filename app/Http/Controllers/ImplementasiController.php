@@ -15,21 +15,21 @@ class ImplementasiController extends Controller
      */
     public function index()
     {
-        return view('Implementasi.index');
+        return view('implementasi.index');
     }
 
     public function data()
     {
-        $trx_Implementasi = Implementasi::orderBy('id')->get();
+        $trx_implementasi = Implementasi::orderBy('id')->get();
 
         return datatables()
-            ->of($trx_Implementasi)
+            ->of($trx_implementasi)
             ->addIndexColumn()
-            ->addColumn('aksi', function ($trx_Implementasi) {
+            ->addColumn('aksi', function ($trx_implementasi) {
                 return '
                 <div class="btn-group">
-                    <button onclick="editForm(`'. route('Implementasi.update', $trx_Implementasi->id) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                    <button onclick="deleteData(`'. route('Implementasi.destroy', $trx_Implementasi->id) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button onclick="editForm(`'. route('implementasi.update', $trx_implementasi->id) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                    <button onclick="deleteData(`'. route('implementasi.destroy', $trx_implementasi->id) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                 </div>
                 ';
             })
@@ -55,32 +55,32 @@ class ImplementasiController extends Controller
      */
     public function store(Request $request)
     {
-        $trx_Implementasi = new Implementasi();
-        $trx_Implementasi->id = $request->id;
-        $trx_Implementasi->nama_proyek = $request->nama_proyek;
-        $trx_Implementasi->manajer_proyek = $request->manajer_proyek;
-        $trx_Implementasi->tim_implementasi = $request->tim_implementasi;
-        $trx_Implementasi->tgl_laporan_implementasi = $request->tgl_laporan_implementasi;
-        $trx_Implementasi->tujuan_implementasi = $request->tujuan_implementasi;
-        $trx_Implementasi->lingkup_implementasi = $request->lingkup_implementasi;
-        $trx_Implementasi->aktivitas_implementasi = $request->aktivitas_implementasi;
-        $trx_Implementasi->tgl_aktivitas_implementasi = $request->tgl_aktivitas_implementasi;
-        $trx_Implementasi->deskripsi_aktivitas_implementasi = $request->deskripsi_aktivitas_implementasi;
-        $trx_Implementasi->status_aktivitas = $request->status_aktivitas;
-        $trx_Implementasi->risiko = $request->risiko;
-        $trx_Implementasi->deskripsi_risiko = $request->deskripsi_risiko;
-        $trx_Implementasi->mitigasi = $request->mitigasi;
-        $trx_Implementasi->status_risiko = $request->status_risiko;
-        $trx_Implementasi->masalah_ditemui = $request->masalah_ditemui;
-        $trx_Implementasi->deskripsi_masalah = $request->deskripsi_masalah;
-        $trx_Implementasi->solusi = $request->solusi;
-        $trx_Implementasi->status_masalah = $request->status_masalah;
-        $trx_Implementasi->rencana_tindak_lanjut = $request->rencana_tindak_lanjut;
-        $trx_Implementasi->dokumentasi = $request->dokumentasi;
-        $trx_Implementasi->rencana_dukungan = $request->rencana_dukungan;
-        $trx_Implementasi->kriteria_kesuksesan = $request->kriteria_kesuksesan;
-        $trx_Implementasi->perstujuan = $request->persetujuan;
-        $trx_Implementasi->save();
+        $trx_implementasi = new Implementasi();
+        $trx_implementasi->id = $request->id;
+        $trx_implementasi->nama_proyek = $request->nama_proyek;
+        $trx_implementasi->manajer_proyek = $request->manajer_proyek;
+        $trx_implementasi->tim_implementasi = $request->tim_implementasi;
+        $trx_implementasi->tgl_laporan_implementasi = $request->tgl_laporan_implementasi;
+        $trx_implementasi->tujuan_implementasi = $request->tujuan_implementasi;
+        $trx_implementasi->lingkup_implementasi = $request->lingkup_implementasi;
+        $trx_implementasi->aktivitas_implementasi = $request->aktivitas_implementasi;
+        $trx_implementasi->tgl_aktivitas_implementasi = $request->tgl_aktivitas_implementasi;
+        $trx_implementasi->deskripsi_aktivitas_implementasi = $request->deskripsi_aktivitas_implementasi;
+        $trx_implementasi->status_aktivitas = $request->status_aktivitas;
+        $trx_implementasi->risiko = $request->risiko;
+        $trx_implementasi->deskripsi_risiko = $request->deskripsi_risiko;
+        $trx_implementasi->mitigasi = $request->mitigasi;
+        $trx_implementasi->status_risiko = $request->status_risiko;
+        $trx_implementasi->masalah_ditemui = $request->masalah_ditemui;
+        $trx_implementasi->deskripsi_masalah = $request->deskripsi_masalah;
+        $trx_implementasi->solusi = $request->solusi;
+        $trx_implementasi->status_masalah = $request->status_masalah;
+        $trx_implementasi->rencana_tindak_lanjut = $request->rencana_tindak_lanjut;
+        $trx_implementasi->dokumentasi = $request->dokumentasi;
+        $trx_implementasi->rencana_dukungan = $request->rencana_dukungan;
+        $trx_implementasi->kriteria_kesuksesan = $request->kriteria_kesuksesan;
+        $trx_implementasi->perstujuan = $request->persetujuan;
+        $trx_implementasi->save();
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -93,9 +93,9 @@ class ImplementasiController extends Controller
      */
     public function show($id)
     {
-        $trx_Implementasi = Implementasi::find($id);
+        $trx_implementasi = Implementasi::find($id);
 
-        return response()->json($trx_Implementasi);
+        return response()->json($trx_implementasi);
     }
 
     /**
@@ -118,7 +118,7 @@ class ImplementasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $trx_Implementasi = Implementasi::find($id)->update($request->all());
+        $trx_implementasi = Implementasi::find($id)->update($request->all());
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -131,8 +131,8 @@ class ImplementasiController extends Controller
      */
     public function destroy($id)
     {
-        $trx_Implementasi = Implementasi::find($id);
-        $trx_Implementasi->delete();
+        $trx_implementasi = Implementasi::find($id);
+        $trx_implementasi->delete();
 
         return response(null, 204);
     }
