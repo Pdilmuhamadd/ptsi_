@@ -12,11 +12,14 @@ use App\Http\Controllers\{
     PenjualanController,
     PenjualanDetailController,
     StudiKelayakanController,
+    PerencanaanProyekController,
+    PostImplementationReviewController,
     SettingController,
     SupplierController,
     UserController,
     AnalisisKebutuhanController,
 };
+use App\Http\Controllers\DesainSistemController;
 use App\Models\AnalisisKebutuhan;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +50,21 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/studi_kelayakan/data', [StudiKelayakanController::class, 'data'])->name('studi_kelayakan.data');
         Route::post('/studi_kelayakan/delete-selected', [StudiKelayakanController::class, 'deleteSelected'])->name('studi_kelayakan.delete_selected');
         Route::resource('/studi_kelayakan', StudiKelayakanController::class);
+
+        Route::get('/perencanaan_proyek', [PerencanaanProyekController::class, 'index'])->name('perencanaan_proyek.index');
+        Route::get('/perencanaan_proyek/data', [PerencanaanProyekController::class, 'data'])->name('perencanaan_proyek.data');
+        Route::post('/perencanaan_proyek/delete-selected', [PerencanaanProyekController::class, 'deleteSelected'])->name('perencanaan_proyek.delete_selected');
+        Route::resource('/perencanaan_proyek', PerencanaanProyekController::class);
+
+        Route::get('/desain_sistem', [DesainSistemController::class, 'index'])->name('desain_sistem.index');
+        Route::get('/desain_sistem/data', [DesainSistemController::class, 'data'])->name('desain_sistem.data');
+        Route::post('/desain_sistem/delete-selected', [DesainSistemController::class, 'deleteSelected'])->name('desain_sistem.delete_selected');
+        Route::resource('/desain_sistem', DesainSistemController::class);
+
+        Route::get('/post_implementation_review', [PostImplementationReviewController::class, 'index'])->name('post_implementation_review.index');
+        Route::get('/post_implementation_review/data', [PostImplementationReviewController::class, 'data'])->name('post_implementation_review.data');
+        Route::post('/post_implementation_review/delete-selected', [PostImplementationReviewController::class, 'deleteSelected'])->name('post_implementation_review.delete_selected');
+        Route::resource('/post_implementation_review', PostImplementationReviewController::class);
 
         Route::get('/analisis_kebutuhan', [AnalisisKebutuhanController::class, 'index'])->name('analisis_kebutuhan.index');
         Route::get('/analisis_kebutuhan/data', [AnalisisKebutuhanController::class, 'data'])->name('analisis_kebutuhan.data');

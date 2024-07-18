@@ -31,14 +31,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>{{ $produk }}</h3>
+                <h3>{{ $trx_perencanaan_proyek }}</h3>
 
                 <p>Perencanaan Proyek <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-map-o"></i>
             </div>
-            <a href="{{ route('produk.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('perencanaan_proyek.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -61,14 +61,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>{{ $supplier }}</h3>
+                <h3>{{ $trx_desain_sistem }}</h3>
 
                 <p>Desain Sistem <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-edit"></i>
             </div>
-            <a href="{{ route('supplier.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('desain_sistem.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -136,14 +136,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>{{ $supplier }}</h3>
+                <h3>{{ $trx_post_implementation_review }}</h3>
 
                 <p>Post-Implementation Review <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-bar-chart-o"></i>
             </div>
-            <a href="{{ route('supplier.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('post_implementation_review.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->

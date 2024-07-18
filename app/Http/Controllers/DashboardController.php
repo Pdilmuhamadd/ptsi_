@@ -11,6 +11,9 @@ use App\Models\Penjualan;
 use App\Models\Produk;
 use App\Models\Supplier;
 use App\Models\StudiKelayakan;
+use App\Models\PerencanaanProyek;
+use App\Models\DesainSistem;
+use App\Models\PostImplementationReview;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -19,6 +22,9 @@ class DashboardController extends Controller
     {
         $kategori = Kategori::count();
         $trx_studi_kelayakan = StudiKelayakan::count();
+        $trx_perencanaan_proyek = PerencanaanProyek::count();
+        $trx_desain_sistem = DesainSistem::count();
+        $trx_post_implementation_review = PostImplementationReview::count();
         $produk = Produk::count();
         $trx_analisis_kebutuhan = AnalisisKebutuhan::count();
         $supplier = Supplier::count();
@@ -46,7 +52,7 @@ class DashboardController extends Controller
         $tanggal_awal = date('Y-m-01');
 
         if (auth()->user()->level == 1) {
-            return view('admin.dashboard', compact('kategori', 'trx_studi_kelayakan', 'trx_analisis_kebutuhan','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
+            return view('admin.dashboard', compact('kategori', 'trx_studi_kelayakan', 'trx_perencanaan_proyek', 'trx_desain_sistem', 'trx_post_implementation_review',  'trx_analisis_kebutuhan','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
         } else {
             return view('kasir.dashboard');
         }

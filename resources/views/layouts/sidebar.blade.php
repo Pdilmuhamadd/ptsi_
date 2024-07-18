@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('produk.index') }}">
+                <a href="{{ route('perencanaan_proyek.index') }}">
                     <i class="fa fa-map-o"></i> <span>Perencanaan Proyek</span>
                 </a>
             </li>
@@ -40,7 +40,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('supplier.index') }}">
+                <a href="{{ route('desain_sistem.index') }}">
                     <i class="fa fa-edit"></i> <span>Desain Sistem</span>
                 </a>
             </li>
@@ -65,7 +65,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('supplier.index') }}">
+                <a href="{{ route('post_implementation_review.index') }}">
                     <i class="fa fa-bar-chart-o"></i> <span>Post-Implementation Review</span>
                 </a>
             </li>
