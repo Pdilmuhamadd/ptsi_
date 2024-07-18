@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="deskripsi_risiko" class="col-lg-2 col-lg-offset-1 control-label">DeskripsiRisiko</label>
+                        <label for="deskripsi_risiko" class="col-lg-2 col-lg-offset-1 control-label">Deskripsi Risiko</label>
                         <div class="col-lg-6">
                             <input type="text" name="deskripsi_risiko" id="deskripsi_risiko" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>

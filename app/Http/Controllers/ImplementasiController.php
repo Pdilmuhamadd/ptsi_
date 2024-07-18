@@ -79,7 +79,7 @@ class ImplementasiController extends Controller
         $trx_implementasi->dokumentasi = $request->dokumentasi;
         $trx_implementasi->rencana_dukungan = $request->rencana_dukungan;
         $trx_implementasi->kriteria_kesuksesan = $request->kriteria_kesuksesan;
-        $trx_implementasi->perstujuan = $request->persetujuan;
+        $trx_implementasi->persetujuan = $request->persetujuan;
         $trx_implementasi->save();
 
         return response()->json('Data berhasil disimpan', 200);
