@@ -20,7 +20,7 @@ class AnalisisKebutuhanController extends Controller
 
     public function data()
     {
-        $trx_analisis_kebutuhan = AnalisisKebutuhan::orderBy('id_analisis_kebutuhan')->get();
+        $trx_analisis_kebutuhan = AnalisisKebutuhan::orderBy('id')->get();
 
         return datatables()
             ->of($trx_analisis_kebutuhan)
@@ -28,8 +28,8 @@ class AnalisisKebutuhanController extends Controller
             ->addColumn('aksi', function ($trx_analisis_kebutuhan) {
                 return '
                 <div class="btn-group">
-                    <button onclick="editForm(`'. route('analisis_kebutuhan.update', $trx_analisis_kebutuhan->id_analisis_kebutuhan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                    <button onclick="deleteData(`'. route('analisis_kebutuhan.destroy', $trx_analisis_kebutuhan->id_analisis_kebutuhan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button onclick="editForm(`'. route('analisis_kebutuhan.update', $trx_analisis_kebutuhan->id) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                    <button onclick="deleteData(`'. route('analisis_kebutuhan.destroy', $trx_analisis_kebutuhan->id) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                 </div>
                 ';
             })
@@ -56,7 +56,7 @@ class AnalisisKebutuhanController extends Controller
     public function store(Request $request)
     {
         $trx_analisis_kebutuhan = new AnalisisKebutuhan();
-        $trx_analisis_kebutuhan->id_analisis_kebutuhan = $request->id_analisis_kebutuhan;
+        $trx_analisis_kebutuhan->id = $request->id;
         $trx_analisis_kebutuhan->NamaProyek = $request->NamaProyek;
         $trx_analisis_kebutuhan->TujuandanDeskripsi = $request->TujuandanDeskripsi;
         $trx_analisis_kebutuhan->fungsiproyekproduk = $request->fungsiproyekproduk;
@@ -73,9 +73,9 @@ class AnalisisKebutuhanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_analisis_kebutuhan)
+    public function show($id)
     {
-        $trx_analisis_kebutuhan = AnalisisKebutuhan::find($id_analisis_kebutuhan);
+        $trx_analisis_kebutuhan = AnalisisKebutuhan::find($id);
 
         return response()->json($trx_analisis_kebutuhan);
     }
@@ -98,9 +98,9 @@ class AnalisisKebutuhanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_analisis_kebutuhan)
+    public function update(Request $request, $id)
     {
-        $trx_analisis_kebutuhan = AnalisisKebutuhan::find($id_analisis_kebutuhan)->update($request->all());
+        $trx_analisis_kebutuhan = AnalisisKebutuhan::find($id)->update($request->all());
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -111,9 +111,9 @@ class AnalisisKebutuhanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_analisis_kebutuhan)
+    public function destroy($id)
     {
-        $trx_analisis_kebutuhan = AnalisisKebutuhan::find($id_analisis_kebutuhan);
+        $trx_analisis_kebutuhan = AnalisisKebutuhan::find($id);
         $trx_analisis_kebutuhan->delete();
 
         return response(null, 204);
