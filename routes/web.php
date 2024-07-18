@@ -13,6 +13,7 @@ use App\Http\Controllers\{
     PenjualanDetailController,
     StudiKelayakanController,
     PerencanaanProyekController,
+    PostImplementationReviewController,
     SettingController,
     SupplierController,
     UserController,
@@ -57,6 +58,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/desain_sistem/data', [DesainSistemController::class, 'data'])->name('desain_sistem.data');
         Route::post('/desain_sistem/delete-selected', [DesainSistemController::class, 'deleteSelected'])->name('desain_sistem.delete_selected');
         Route::resource('/desain_sistem', DesainSistemController::class);
+
+        Route::get('/post_implementation_review', [PostImplementationReviewController::class, 'index'])->name('post_implementation_review.index');
+        Route::get('/post_implementation_review/data', [PostImplementationReviewController::class, 'data'])->name('post_implementation_review.data');
+        Route::post('/post_implementation_review/delete-selected', [PostImplementationReviewController::class, 'deleteSelected'])->name('post_implementation_review.delete_selected');
+        Route::resource('/post_implementation_review', PostImplementationReviewController::class);
 
         Route::get('/produk/data', [ProdukController::class, 'data'])->name('produk.data');
         Route::post('/produk/delete-selected', [ProdukController::class, 'deleteSelected'])->name('produk.delete_selected');

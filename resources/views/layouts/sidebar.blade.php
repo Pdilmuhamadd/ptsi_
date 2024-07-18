@@ -65,7 +65,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('supplier.index') }}">
+                <a href="{{ route('post_implementation_review.index') }}">
                     <i class="fa fa-bar-chart-o"></i> <span>Post-Implementation Review</span>
                 </a>
             </li>
