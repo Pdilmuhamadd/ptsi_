@@ -42,7 +42,12 @@
                     <div class="form-group row">
                         <label for="acc" class="col-lg-2 col-lg-offset-1 control-label">Persetujuan</label>
                         <div class="col-lg-6">
-                            <input type="text" name="acc" id="acc" class="form-control" required autofocus></input>
+                            <select name="acc" id="acc" class="form-control" required>
+                                <option value="">-- Pilih Persetujuan --</option>
+                                <option value="ya">Disetujui</option>
+                                <option value="tidak">Tidak Disetujui</option>
+                                <option value="ditunda">Ditunda</option>
+                            </select>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
