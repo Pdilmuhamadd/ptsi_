@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnalisisKebutuhan;
 use App\Models\Kategori;
 use App\Models\Member;
 use App\Models\Pembelian;
@@ -19,6 +20,7 @@ class DashboardController extends Controller
         $kategori = Kategori::count();
         $trx_studi_kelayakan = StudiKelayakan::count();
         $produk = Produk::count();
+        $trx_analisis_kebutuhan = AnalisisKebutuhan::count();
         $supplier = Supplier::count();
         $member = Member::count();
 
@@ -44,7 +46,7 @@ class DashboardController extends Controller
         $tanggal_awal = date('Y-m-01');
 
         if (auth()->user()->level == 1) {
-            return view('admin.dashboard', compact('kategori', 'trx_studi_kelayakan','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
+            return view('admin.dashboard', compact('kategori', 'trx_studi_kelayakan', 'trx_analisis_kebutuhan','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
         } else {
             return view('kasir.dashboard');
         }

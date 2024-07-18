@@ -18,7 +18,7 @@
             <div class="inner">
                 <h3>{{ $trx_studi_kelayakan }}</h3>
 
-                <p>Studi Kelayakan</p>
+                <p>Studi Kelayakan <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-envelope-o"></i>
@@ -33,7 +33,7 @@
             <div class="inner">
                 <h3>{{ $produk }}</h3>
 
-                <p>Perencanaan Proyek</p>
+                <p>Perencanaan Proyek <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-map-o"></i>
@@ -46,14 +46,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>{{ $member }}</h3>
+                <h3>{{ $trx_analisis_kebutuhan}}</h3>
 
-                <p>Analisis Kebutuhan</p>
+                <p>Analisis Kebutuhan <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-check-square-o"></i>
             </div>
-            <a href="{{ route('member.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('analisis_kebutuhan.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -63,7 +63,7 @@
             <div class="inner">
                 <h3>{{ $supplier }}</h3>
 
-                <p>Desain Sistem</p>
+                <p>Desain Sistem <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-edit"></i>
@@ -78,7 +78,7 @@
             <div class="inner">
                 <h3>{{ $supplier }}</h3>
 
-                <p>Pengembangan</p>
+                <p>Pengembangan <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-line-chart"></i>
@@ -93,7 +93,7 @@
             <div class="inner">
                 <h3>{{ $supplier }}</h3>
 
-                <p>Pengujian</p>
+                <p>Pengujian <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-book"></i>
@@ -108,7 +108,7 @@
             <div class="inner">
                 <h3>{{ $supplier }}</h3>
 
-                <p>Implementasi</p>
+                <p>Implementasi <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-clone"></i>
@@ -123,7 +123,7 @@
             <div class="inner">
                 <h3>{{ $supplier }}</h3>
 
-                <p>Pemeliharaan dan Dukungan</p>
+                <p>Pemeliharaan dan Dukungan <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-folder-o"></i>
@@ -138,7 +138,7 @@
             <div class="inner">
                 <h3>{{ $supplier }}</h3>
 
-                <p>Post-Implementation Review</p>
+                <p>Post-Implementation Review <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-bar-chart-o"></i>

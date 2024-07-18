@@ -15,7 +15,9 @@ use App\Http\Controllers\{
     SettingController,
     SupplierController,
     UserController,
+    AnalisisKebutuhanController,
 };
+use App\Models\AnalisisKebutuhan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,6 +47,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/studi_kelayakan/data', [StudiKelayakanController::class, 'data'])->name('studi_kelayakan.data');
         Route::post('/studi_kelayakan/delete-selected', [StudiKelayakanController::class, 'deleteSelected'])->name('studi_kelayakan.delete_selected');
         Route::resource('/studi_kelayakan', StudiKelayakanController::class);
+
+        Route::get('/analisis_kebutuhan', [AnalisisKebutuhanController::class, 'index'])->name('analisis_kebutuhan.index');
+        Route::get('/analisis_kebutuhan/data', [AnalisisKebutuhanController::class, 'data'])->name('analisis_kebutuhan.data');
+        Route::post('/analisis_kebutuhan/delete-selected', [AnalisisKebutuhanController::class, 'deleteSelected'])->name('analisis_kebutuhan.delete_selected');
+        Route::resource('/analisis_kebutuhan', AnalisisKebutuhanController::class);
 
         Route::get('/produk/data', [ProdukController::class, 'data'])->name('produk.data');
         Route::post('/produk/delete-selected', [ProdukController::class, 'deleteSelected'])->name('produk.delete_selected');
