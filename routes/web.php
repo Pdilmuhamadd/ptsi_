@@ -14,6 +14,7 @@ use App\Http\Controllers\{
     StudiKelayakanController,
     PerencanaanProyekController,
     PostImplementationReviewController,
+    ImplementasiController,
     SettingController,
     SupplierController,
     UserController,

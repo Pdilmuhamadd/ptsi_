@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
 @section('title')
-    Daftar Pengujian
+    Daftar Implementasi
 @endsection
 
 @section('breadcrumb')
     @parent
-    <li class="active">Daftar Pengujian</li>
+    <li class="active">Daftar Implementasi</li>
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
     <div class="col-lg-12">
         <div class="box">
             <div class="box-header with-border">
-                <button onclick="addForm('{{ route('pengujian.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
+                <button onclick="addForm('{{ route('implementasi.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
             </div>
             <div class="box-body table-responsive">
                     @csrf
@@ -54,7 +54,7 @@
     </div>
 </div>
 
-@includeIf('pengujian.form')
+@includeIf('implementasi.form')
 @endsection
 
 @push('scripts')
@@ -68,7 +68,7 @@
             serverSide: true,
             autoWidth: false,
             ajax: {
-                url: '{{ route('pengujian.data') }}',
+                url: '{{ route('implementasi.data') }}',
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
@@ -118,22 +118,22 @@
 
     function addForm(url) {
         $('#modal-form').modal('show');
-        $('#modal-form .modal-title').text('Tambah Pengujian');
+        $('#modal-form .modal-title').text('Tambah Implementasi');
 
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('post');
-        $('#modal-form [name=latar_belakang_proyek]').focus();
+        $('#modal-form [name=nama_proyek]').focus();
     }
 
     function editForm(url) {
         $('#modal-form').modal('show');
-        $('#modal-form .modal-title').text('Edit Pengujian');
+        $('#modal-form .modal-title').text('Edit Implementasi');
 
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('put');
-        $('#modal-form [name=latar_belakang_proyek]').focus();
+        $('#modal-form [name=nama_proyek]').focus();
 
         $.get(url)
             .done((response) => {
