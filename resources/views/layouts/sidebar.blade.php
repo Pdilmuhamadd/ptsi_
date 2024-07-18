@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('member.index') }}">
+                <a href="{{ route('analisis_kebutuhan.index') }}">
                     <i class="fa fa-check-square-o"></i> <span>Analisis Kebutuhan</span>
                 </a>
             </li>

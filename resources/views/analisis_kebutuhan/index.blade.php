@@ -55,7 +55,7 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'id_analisis_kebutuhan'},
+                {data: 'id'},
                 {data: 'NamaProyek'},
                 {data: 'TujuandanDeskripsi'},
                 {data: 'fungsiproyekproduk'},
