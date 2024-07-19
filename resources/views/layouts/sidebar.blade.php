@@ -40,7 +40,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('analisis_kebutuhan.index') }}">
+                <a href="{{ route('analisis_desain.index') }}">
                     <i class="fa fa-check-square-o"></i> <span>Analisis & Desain</span>
                 </a>
             </li>

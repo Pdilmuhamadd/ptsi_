@@ -18,10 +18,10 @@ use App\Http\Controllers\{
     SettingController,
     SupplierController,
     UserController,
+    AnalisisDesainController,
     AnalisisKebutuhanController,
 };
 use App\Http\Controllers\DesainSistemController;
-use App\Models\AnalisisKebutuhan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -71,6 +71,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/analisis_kebutuhan/data', [AnalisisKebutuhanController::class, 'data'])->name('analisis_kebutuhan.data');
         Route::post('/analisis_kebutuhan/delete-selected', [AnalisisKebutuhanController::class, 'deleteSelected'])->name('analisis_kebutuhan.delete_selected');
         Route::resource('/analisis_kebutuhan', AnalisisKebutuhanController::class);
+
+        Route::get('/analisis_desain', [AnalisisDesainController::class, 'index'])->name('analisis_desain.index');
+        Route::get('/analisis_desain/data', [AnalisisDesainController::class, 'data'])->name('analisis_desain.data');
+        Route::post('/analisis_desain/delete-selected', [AnalisisDesainController::class, 'deleteSelected'])->name('analisis_desain.delete_selected');
+        Route::resource('/analisis_desain', AnalisisDesainController::class);
 
         Route::get('/implementasi', [ImplementasiController::class, 'index'])->name('implementasi.index');
         Route::get('/implementasi/data', [ImplementasiController::class, 'data'])->name('implementasi.data');

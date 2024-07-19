@@ -14,6 +14,7 @@ use App\Models\StudiKelayakan;
 use App\Models\PermintaanPengembangan;
 use App\Models\DesainSistem;
 use App\Models\Implementasi;
+use App\Models\AnalisisDesain;
 use App\Models\PostImplementationReview;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,7 @@ class DashboardController extends Controller
         $trx_post_implementation_review = PostImplementationReview::count();
         $produk = Produk::count();
         $trx_analisis_kebutuhan = AnalisisKebutuhan::count();
+        $trx_analisis_desain = AnalisisDesain::count();
         $supplier = Supplier::count();
         $member = Member::count();
 
@@ -54,7 +56,7 @@ class DashboardController extends Controller
         $tanggal_awal = date('Y-m-01');
 
         if (auth()->user()->level == 1) {
-            return view('admin.dashboard', compact('kategori', 'trx_studi_kelayakan', 'trx_permintaan_pengembangan', 'trx_desain_sistem', 'trx_implementasi', 'trx_post_implementation_review',  'trx_analisis_kebutuhan','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
+            return view('admin.dashboard', compact('kategori', 'trx_studi_kelayakan', 'trx_permintaan_pengembangan', 'trx_desain_sistem', 'trx_implementasi', 'trx_post_implementation_review',  'trx_analisis_desain','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
         } else {
             return view('kasir.dashboard');
         }
