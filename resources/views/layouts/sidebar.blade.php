@@ -25,17 +25,17 @@
             @if (auth()->user()->level == 1)
             <li class="header">MASTER</li>
             <li>
-                <a href="{{ route('studi_kelayakan.index') }}">
+                <a href="{{ route('permintaan_pengembangan.index') }}">
                     <i class="fa fa-envelope-o"></i> <span>Permintaan Pengembangan</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('perencanaan_proyek.index') }}">
+                <a href="{{ route('permintaan_pengembangan.index') }}">
                     <i class="fa fa-map-o"></i> <span>Perencanaan Proyek</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('perencanaan_proyek.index') }}">
+                <a href="{{ route('permintaan_pengembangan.index') }}">
                     <i class="fa fa-map-o"></i> <span>Perencanaan Kebutuhan</span>
                 </a>
             </li>
