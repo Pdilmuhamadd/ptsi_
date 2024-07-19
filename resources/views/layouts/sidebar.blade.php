@@ -36,15 +36,9 @@
             </li>
             <li>
                 <a href="{{ route('analisis_kebutuhan.index') }}">
-                    <i class="fa fa-check-square-o"></i> <span>Analisis Kebutuhan</span>
+                    <i class="fa fa-check-square-o"></i> <span>Analisis & Desain Sistem Informasi</span>
                 </a>
             </li>
-            <li>
-                <a href="{{ route('desain_sistem.index') }}">
-                    <i class="fa fa-edit"></i> <span>Desain Sistem</span>
-                </a>
-            </li>
-            <li>
                 <a href="{{ route('supplier.index') }}">
                     <i class="fa fa-line-chart"></i> <span>Pengembangan</span>
                 </a>
