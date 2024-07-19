@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('permintaan_pengembangan.index') }}">
+                <a href="{{ route('perencanaan_kebutuhan.index') }}">
                     <i class="fa fa-map-o"></i> <span>Perencanaan Kebutuhan</span>
                 </a>
             </li>
