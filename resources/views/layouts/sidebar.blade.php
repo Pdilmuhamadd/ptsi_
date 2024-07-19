@@ -26,41 +26,22 @@
             <li class="header">MASTER</li>
             <li>
                 <a href="{{ route('studi_kelayakan.index') }}">
-                    <i class="fa fa-envelope-o"></i> <span>Permintaan Pengembangan Sistem Informasi</span>
+                    <i class="fa fa-envelope-o"></i> <span>Permintaan Pengembangan</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('perencanaan_proyek.index') }}">
-                    <i class="fa fa-map-o"></i> <span>Perencanaan Proyek Permintaan Pengembangan Sistem Informasi</span>
+                    <i class="fa fa-map-o"></i> <span>Perencanaan Proyek</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('perencanaan_proyek.index') }}">
+                    <i class="fa fa-map-o"></i> <span>Perencanaan Kebutuhan</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('analisis_kebutuhan.index') }}">
-                    <i class="fa fa-check-square-o"></i> <span>Analisis & Desain Sistem Informasi</span>
-                </a>
-            </li>
-                <a href="{{ route('supplier.index') }}">
-                    <i class="fa fa-line-chart"></i> <span>Pengembangan</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('supplier.index') }}">
-                    <i class="fa fa-book"></i> <span>Pengujian</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('implementasi.index') }}">
-                    <i class="fa fa-clone"></i> <span>Implementasi</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('supplier.index') }}">
-                    <i class="fa fa-folder-o"></i> <span>Pemeliharaan dan Dukungan</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('post_implementation_review.index') }}">
-                    <i class="fa fa-bar-chart-o"></i> <span>Post-Implementation Review</span>
+                    <i class="fa fa-check-square-o"></i> <span>Analisis & Desain</span>
                 </a>
             </li>
             <li class="header">TRANSAKSI</li>
