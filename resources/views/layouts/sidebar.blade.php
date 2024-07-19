@@ -26,22 +26,22 @@
             <li class="header">MASTER</li>
             <li>
                 <a href="{{ route('studi_kelayakan.index') }}">
-                    <i class="fa fa-envelope-o"></i> <span>Studi Kelayakan</span>
+                    <i class="fa fa-envelope-o"></i> <span>Permintaan Pengembangan Sistem Informasi</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('perencanaan_proyek.index') }}">
-                    <i class="fa fa-map-o"></i> <span>Perencanaan Proyek</span>
+                    <i class="fa fa-map-o"></i> <span>Perencanaan Proyek Permintaan Pengembangan Sistem Informasi</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('analisis_kebutuhan.index') }}">
-                    <i class="fa fa-check-square-o"></i> <span>Analisis Kebutuhan</span>
+                    <i class="fa fa-check-square-o"></i> <span>Perencanaan Kebutuhan Sistem Informasi</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('desain_sistem.index') }}">
-                    <i class="fa fa-edit"></i> <span>Desain Sistem</span>
+                    <i class="fa fa-edit"></i> <span>Analisis & Desain Sistem Informasi</span>
                 </a>
             </li>
             <li>
