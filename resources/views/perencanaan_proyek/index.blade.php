@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
 @section('title')
-    Daftar Perencanaan Kebutuhan
+    Daftar Perencanaan Proyek
 @endsection
 
 @section('breadcrumb')
     @parent
-    <li class="active">Daftar Perencanaan Kebutuhan</li>
+    <li class="active">Daftar Perencanaan Proyek</li>
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
     <div class="col-lg-12">
         <div class="box">
             <div class="box-header with-border">
-                <button onclick="addForm('{{ route('perencanaan_kebutuhan.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
+                <button onclick="addForm('{{ route('perencanaan_proyek.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
             </div>
             <div class="box-body table-responsive">
                     @csrf
@@ -26,10 +26,10 @@
                             <th>Deskripsi</th>
                             <th>Pemilik Proyek</th>
                             <th>Manajer Proyek</th>
-                            <th>Stakeholders</th>
-                            <th>Kebutuhan Fungsional</th>
-                            <th>Kebutuhan Non-fungsiona</th>
-                            <th>Lampiran</th>
+                            <th>Ruang Lingkup</th>
+                            <th>Tanggal Mulai</th>
+                            <th>Target Selesai</th>
+                            <th>Estimasi Biaya</th>
                             <th>Nama Pemohon</th>
                             <th>Jabatan Pemohon</th>
                             <th>Tanggal Disiapkan</th>
@@ -45,7 +45,7 @@
     </div>
 </div>
 
-@includeIf('perencanaan_kebutuhan.form')
+@includeIf('perencanaan_proyek.form')
 @endsection
 
 @push('scripts')
@@ -59,7 +59,7 @@
             serverSide: true,
             autoWidth: false,
             ajax: {
-                url: '{{ route('perencanaan_kebutuhan.data') }}',
+                url: '{{ route('perencanaan_proyek.data') }}',
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
@@ -68,10 +68,10 @@
                 {data: 'deskripsi'},
                 {data: 'pemilik_proyek'},
                 {data: 'manajer_proyek'},
-                {data: 'stakeholders'},
-                {data: 'kebutuhan_fungsional'},
-                {data: 'kebutuhan_nonfungsional'},
-                {data: 'lampiran'},
+                {data: 'ruang_lingkup'},
+                {data: 'tanggal_mulai'},
+                {data: 'target_selesai'},
+                {data: 'estimasi_biaya'},
                 {data: 'nama_pemohon'},
                 {data: 'jabatan_pemohon'},
                 {data: 'tanggal_disiapkan'},
@@ -100,7 +100,7 @@
 
     function addForm(url) {
         $('#modal-form').modal('show');
-        $('#modal-form .modal-title').text('Tambah Perencanaan Kebutuhan');
+        $('#modal-form .modal-title').text('Tambah Perencanaan Proyek');
 
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
@@ -110,7 +110,7 @@
 
     function editForm(url) {
         $('#modal-form').modal('show');
-        $('#modal-form .modal-title').text('Edit Perencanaan Kebutuhan');
+        $('#modal-form .modal-title').text('Edit Perencanaan Proyek');
 
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
@@ -123,10 +123,10 @@
                 $('#modal-form [name=deskripsi]').val(response.deskripsi);
                 $('#modal-form [name=pemilik_proyek]').val(response.pemilik_proyek);
                 $('#modal-form [name=manajer_proyek]').val(response.manajer_proyek);
-                $('#modal-form [name=stakeholders]').val(response.stakeholders);
-                $('#modal-form [name=kebutuhan_fungsional]').val(response.kebutuhan_fungsional);
-                $('#modal-form [name=kebutuhan_nonfungsional]').val(response.kebutuhan_nonfungsional);
-                $('#modal-form [name=lampiran]').val(response.lampiran);
+                $('#modal-form [name=ruang_lingkup]').val(response.ruang_lingkup);
+                $('#modal-form [name=tanggal_mulai]').val(response.tanggal_mulai);
+                $('#modal-form [name=target_selesai]').val(response.target_selesai);
+                $('#modal-form [name=estimasi_biaya]').val(response.estimasi_biaya);
                 $('#modal-form [name=nama_pemohon]').val(response.nama_pemohon);
                 $('#modal-form [name=jabatan_pemohon]').val(response.jabatan_pemohon);
                 $('#modal-form [name=tanggal_disiapkan]').val(response.tanggal_disiapkan);
