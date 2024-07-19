@@ -18,7 +18,7 @@
             <div class="inner">
                 <h3>{{ $trx_studi_kelayakan }}</h3>
 
-                <p>Studi Kelayakan <br>5%</br> </p>
+                <p>Permintaan Pengembangan <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-envelope-o"></i>
@@ -48,7 +48,7 @@
             <div class="inner">
                 <h3>{{ $trx_analisis_kebutuhan}}</h3>
 
-                <p>Analisis Kebutuhan <br>5%</br> </p>
+                <p>Perencanaan Kebutuhan <br>5%</br> </p>
             </div>
             <div class="icon">
                 <i class="fa fa-check-square-o"></i>
@@ -61,89 +61,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>{{ $trx_desain_sistem }}</h3>
+                <h3>{{ $trx_analisis_kebutuhan}}</h3>
 
-                <p>Desain Sistem <br>5%</br> </p>
+                <p>Analisis & Desain Sistem Informasi <br>5%</br> </p>
             </div>
             <div class="icon">
-                <i class="fa fa-edit"></i>
+                <i class="fa fa-check-square-o"></i>
             </div>
-            <a href="{{ route('desain_sistem.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-aqua">
-            <div class="inner">
-                <h3>{{ $supplier }}</h3>
-
-                <p>Pengembangan <br>5%</br> </p>
-            </div>
-            <div class="icon">
-                <i class="fa fa-line-chart"></i>
-            </div>
-            <a href="{{ route('supplier.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-aqua">
-            <div class="inner">
-                <h3>{{ $supplier }}</h3>
-
-                <p>Pengujian<br>5%</br> </p>
-            </div>
-            <div class="icon">
-                <i class="fa fa-book"></i>
-            </div>
-            <a href="{{ route('supplier.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-aqua">
-            <div class="inner">
-                <h3>{{ $trx_implementasi }}</h3>
-
-                <p>Implementasi <br>5%</br> </p>
-            </div>
-            <div class="icon">
-                <i class="fa fa-clone"></i>
-            </div>
-            <a href="{{ route('implementasi.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-aqua">
-            <div class="inner">
-                <h3>{{ $supplier }}</h3>
-
-                <p>Pemeliharaan dan Dukungan <br>5%</br> </p>
-            </div>
-            <div class="icon">
-                <i class="fa fa-folder-o"></i>
-            </div>
-            <a href="{{ route('supplier.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-aqua">
-            <div class="inner">
-                <h3>{{ $trx_post_implementation_review }}</h3>
-
-                <p>Post-Implementation Review <br>5%</br> </p>
-            </div>
-            <div class="icon">
-                <i class="fa fa-bar-chart-o"></i>
-            </div>
-            <a href="{{ route('post_implementation_review.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('analisis_kebutuhan.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
