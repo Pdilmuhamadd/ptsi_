@@ -42,7 +42,7 @@
         </div>
     </div>
     <!-- ./col -->
-    <!-- <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
@@ -51,11 +51,11 @@
                 <p>Perencanaan Kebutuhan <br>5%</br> </p>
             </div>
             <div class="icon">
-                <i class="fa fa-check-square-o"></i>
+                <i class="fa fa-book"></i>
             </div>
             <a href="{{ route('perencanaan_kebutuhan.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
-    </div> -->
+    </div>
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
@@ -63,10 +63,10 @@
             <div class="inner">
                 <h3>{{ $trx_analisis_desain}}</h3>
 
-                <p>Analisis & Desain Sistem Informasi <br>5%</br> </p>
+                <p>Analisis & Desain<br>5%</br> </p>
             </div>
             <div class="icon">
-                <i class="fa fa-check-square-o"></i>
+                <i class="fa fa-pencil-square-o"></i>
             </div>
             <a href="{{ route('analisis_desain.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>

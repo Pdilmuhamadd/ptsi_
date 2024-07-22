@@ -21,42 +21,42 @@
                     <div class="form-group row">
                         <label for="Deskripsi_Proyek" class="col-lg-2 col-lg-offset-1 control-label">Deskripsi Proyek</label>
                         <div class="col-lg-6">
-                            <input type="text-area" name="Deskripsi_Proyek" id="Deskripsi_Proyek" class="form-control" required autofocus>
+                            <input type="text" name="Deskripsi_Proyek" id="Deskripsi_Proyek" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="ManajerProyek" class="col-lg-2 col-lg-offset-1 control-label">Manajer Proyek</label>
                         <div class="col-lg-6">
-                            <input type="textarea" name="ManajerProyek" id="ManajerProyek" class="form-control" required autofocus>
+                            <input type="text" name="ManajerProyek" id="ManajerProyek" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="Kebutuhan_Fungsi" class="col-lg-2 col-lg-offset-1 control-label">Kebutuhan Fungsional</label>
                         <div class="col-lg-6">
-                            <input type="textarea" name="Kebutuhan_Fungsi" id="Kebutuhan_Fungsi" class="form-control" required autofocus>
+                            <input type="text" name="Kebutuhan_Fungsi" id="Kebutuhan_Fungsi" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="gambaran_arsitektur" class="col-lg-2 col-lg-offset-1 control-label">Gambaran Arsitektur Sistem</label>
                         <div class="col-lg-6">
-                            <input type="textarea" name="gambaran_arsitektur" id="gambaran_arsitektur" class="form-control" required autofocus>
+                            <input type="text" name="gambaran_arsitektur" id="gambaran_arsitektur" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="detil_arsitektur" class="col-lg-2 col-lg-offset-1 control-label">Detail Arsitektur Sistem</label>
                         <div class="col-lg-6">
-                            <input type="textarea" name="detil_arsitektur" id="detil_arsitektur" class="form-control" required autofocus>
+                            <input type="text" name="detil_arsitektur" id="detil_arsitektur" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="lampiran_mockup" class="col-lg-2 col-lg-offset-1 control-label">Lampiran Mockup (Link canva, figma, atau lainnya)</label>
                         <div class="col-lg-6">
-                            <input type="textarea" name="lampiran_mockup" id="lampiran_mockup" class="form-control" required autofocus>
+                            <input type="text" name="lampiran_mockup" id="lampiran_mockup" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>

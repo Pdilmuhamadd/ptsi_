@@ -36,12 +36,12 @@
             </li>
             <li>
                 <a href="{{ route('perencanaan_kebutuhan.index') }}">
-                    <i class="fa fa-map-o"></i> <span>Perencanaan Kebutuhan</span>
+                    <i class="fa fa-book"></i> <span>Perencanaan Kebutuhan</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('analisis_desain.index') }}">
-                    <i class="fa fa-check-square-o"></i> <span>Analisis & Desain</span>
+                    <i class="fa fa-pencil-square-o"></i> <span>Analisis & Desain</span>
                 </a>
             </li>
             <li class="header">TRANSAKSI</li>
