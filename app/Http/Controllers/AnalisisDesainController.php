@@ -20,7 +20,7 @@ class AnalisisDesainController extends Controller
 
     public function data()
     {
-        $trx_analisis_desain = AnalisisDesain::orderBy('id')->get();
+        $trx_analisis_desain = AnalisisDesain::orderBy('id_analisis_desain')->get();
 
         return datatables()
             ->of($trx_analisis_desain)
@@ -28,8 +28,8 @@ class AnalisisDesainController extends Controller
             ->addColumn('aksi', function ($trx_analisis_desain) {
                 return '
                 <div class="btn-group">
-                    <button onclick="editForm(`'. route('analisis_desain.update', $trx_analisis_desain->id) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                    <button onclick="deleteData(`'. route('analisis_desain.destroy', $trx_analisis_desain->id) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button onclick="editForm(`'. route('analisis_desain.update', $trx_analisis_desain->id_analisis_desain) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                    <button onclick="deleteData(`'. route('analisis_desain.destroy', $trx_analisis_desain->id_analisis_desain) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                 </div>
                 ';
             })
@@ -71,10 +71,10 @@ class AnalisisDesainController extends Controller
         $trx_analisis_desain->tanggal_disetujui = $request->tanggal_disetujui;
         $trx_analisis_desain->status = $request->status;
         $trx_analisis_desain->save();
-    
+
         return response()->json('Data berhasil disimpan', 200);
     }
-    
+
 
     /**
      * Display the specified resource.
@@ -82,9 +82,9 @@ class AnalisisDesainController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_analisis_desain)
     {
-        $trx_analisis_desain = AnalisisDesain::find($id);
+        $trx_analisis_desain = AnalisisDesain::find($id_analisis_desain);
 
         return response()->json($trx_analisis_desain);
     }
@@ -95,7 +95,7 @@ class AnalisisDesainController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_analisis_desain)
     {
         //
     }
@@ -107,9 +107,9 @@ class AnalisisDesainController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_analisis_desain)
     {
-        $trx_analisis_desain = AnalisisDesain::find($id)->update($request->all());
+        $trx_analisis_desain = AnalisisDesain::find($id_analisis_desain)->update($request->all());
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -120,9 +120,9 @@ class AnalisisDesainController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_analisis_desain)
     {
-        $trx_analisis_desain = AnalisisDesain::find($id);
+        $trx_analisis_desain = AnalisisDesain::find($id_analisis_desain);
         $trx_analisis_desain->delete();
 
         return response(null, 204);

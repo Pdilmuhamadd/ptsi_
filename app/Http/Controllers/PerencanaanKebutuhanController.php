@@ -19,7 +19,7 @@ class PerencanaanKebutuhanController extends Controller
 
     public function data()
     {
-        $trx_perencanaan_kebutuhan = PerencanaanKebutuhan::orderBy('id')->get();
+        $trx_perencanaan_kebutuhan = PerencanaanKebutuhan::orderBy('id_perencanaan_kebutuhan')->get();
 
         return datatables()
             ->of($trx_perencanaan_kebutuhan)
@@ -27,8 +27,8 @@ class PerencanaanKebutuhanController extends Controller
             ->addColumn('aksi', function ($trx_perencanaan_kebutuhan) {
                 return '
                 <div class="btn-group">
-                    <button onclick="editForm(`'. route('perencanaan_kebutuhan.update', $trx_perencanaan_kebutuhan->id) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                    <button onclick="deleteData(`'. route('perencanaan_kebutuhan.destroy', $trx_perencanaan_kebutuhan->id) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button onclick="editForm(`'. route('perencanaan_kebutuhan.update', $trx_perencanaan_kebutuhan->id_perencanaan_kebutuhan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                    <button onclick="deleteData(`'. route('perencanaan_kebutuhan.destroy', $trx_perencanaan_kebutuhan->id_perencanaan_kebutuhan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                 </div>
                 ';
             })

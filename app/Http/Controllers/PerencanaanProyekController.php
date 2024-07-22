@@ -19,7 +19,7 @@ class PerencanaanProyekController extends Controller
 
     public function data()
     {
-        $trx_perencanaan_proyek = PerencanaanProyek::orderBy('id')->get();
+        $trx_perencanaan_proyek = PerencanaanProyek::orderBy('id_perencanaan_proyek')->get();
 
         return datatables()
             ->of($trx_perencanaan_proyek)
@@ -27,8 +27,8 @@ class PerencanaanProyekController extends Controller
             ->addColumn('aksi', function ($trx_perencanaan_proyek) {
                 return '
                 <div class="btn-group">
-                    <button onclick="editForm(`'. route('perencanaan_proyek.update', $trx_perencanaan_proyek->id) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                    <button onclick="deleteData(`'. route('perencanaan_proyek.destroy', $trx_perencanaan_proyek->id) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button onclick="editForm(`'. route('perencanaan_proyek.update', $trx_perencanaan_proyek->id_perencanaan_proyek) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                    <button onclick="deleteData(`'. route('perencanaan_proyek.destroy', $trx_perencanaan_proyek->id_perencanaan_proyek) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                 </div>
                 ';
             })
@@ -55,7 +55,7 @@ class PerencanaanProyekController extends Controller
     public function store(Request $request)
     {
         $trx_perencanaan_proyek = new PerencanaanProyek();
-        $trx_perencanaan_proyek->id = $request->id;
+        $trx_perencanaan_proyek->id_perencanaan_proyek = $request->id_perencanaan_proyek;
         $trx_perencanaan_proyek->nama_proyek = $request->nama_proyek;
         $trx_perencanaan_proyek->deskripsi = $request->deskripsi;
         $trx_perencanaan_proyek->pemilik_proyek = $request->pemilik_proyek;
@@ -82,9 +82,9 @@ class PerencanaanProyekController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_perencanaan_proyek)
     {
-        $trx_perencanaan_proyek = PerencanaanProyek::find($id);
+        $trx_perencanaan_proyek = PerencanaanProyek::find($id_perencanaan_proyek);
 
         return response()->json($trx_perencanaan_proyek);
     }
@@ -95,7 +95,7 @@ class PerencanaanProyekController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_perencanaan_proyek)
     {
         //
     }
@@ -107,9 +107,9 @@ class PerencanaanProyekController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_perencanaan_proyek)
     {
-        $trx_perencanaan_proyek = PerencanaanProyek::find($id)->update($request->all());
+        $trx_perencanaan_proyek = PerencanaanProyek::find($id_perencanaan_proyek)->update($request->all());
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -120,9 +120,9 @@ class PerencanaanProyekController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_perencanaan_proyek)
     {
-        $trx_perencanaan_proyek = PerencanaanProyek::find($id);
+        $trx_perencanaan_proyek = PerencanaanProyek::find($id_perencanaan_proyek);
         $trx_perencanaan_proyek->delete();
 
         return response(null, 204);

@@ -63,7 +63,7 @@
         },
         columns: [
             {data: 'DT_RowIndex', searchable: false, sortable: false},
-            {data: 'id'},
+            {data: 'id_analisis_desain'},
             {data: 'nama_proyek'},
             {data: 'deskripsi_proyek'},
             {data: 'manajer_proyek'},
@@ -97,26 +97,26 @@
         }
     });
     });
-    
+
     function addForm(url) {
         $('#modal-form').modal('show');
         $('#modal-form .modal-title').text('Tambah Analisis dan Desain');
-    
+
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('post');
         $('#modal-form [name=nama_proyek]').focus();
     }
-    
+
     function editForm(url) {
         $('#modal-form').modal('show');
         $('#modal-form .modal-title').text('Edit Analisis dan Desain');
-    
+
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('put');
         $('#modal-form [name=nama_proyek]').focus();
-    
+
         $.get(url)
             .done((response) => {
                 $('#modal-form [name=nama_proyek]').val(response.nama_proyek);
@@ -139,7 +139,7 @@
                 alert('Tidak dapat menampilkan data');
             });
     }
-    
+
     function deleteData(url) {
         if (confirm('Yakin ingin menghapus data terpilih?')) {
             $.post(url, {
