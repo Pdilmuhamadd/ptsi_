@@ -12,30 +12,30 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="Nama_Proyek" class="col-lg-2 col-lg-offset-1 control-label">Nama Proyek</label>
+                        <label for="nama_proyek" class="col-lg-2 col-lg-offset-1 control-label">Nama Proyek</label>
                         <div class="col-lg-6">
-                            <input type="text" name="Nama_Proyek" id="Nama_Proyek" class="form-control" required autofocus>
+                            <input type="text" name="nama_proyek" id="nama_proyek" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="Deskripsi_Proyek" class="col-lg-2 col-lg-offset-1 control-label">Deskripsi Proyek</label>
+                        <label for="deskripsi_proyek" class="col-lg-2 col-lg-offset-1 control-label">Deskripsi Proyek</label>
                         <div class="col-lg-6">
-                            <input type="text" name="Deskripsi_Proyek" id="Deskripsi_Proyek" class="form-control" required autofocus>
+                            <input type="text" name="deskripsi_proyek" id="deskripsi_proyek" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="ManajerProyek" class="col-lg-2 col-lg-offset-1 control-label">Manajer Proyek</label>
+                        <label for="manajer_proyek" class="col-lg-2 col-lg-offset-1 control-label">Manajer Proyek</label>
                         <div class="col-lg-6">
-                            <input type="text" name="ManajerProyek" id="ManajerProyek" class="form-control" required autofocus>
+                            <input type="text" name="manajer_proyek" id="manajer_proyek" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="Kebutuhan_Fungsi" class="col-lg-2 col-lg-offset-1 control-label">Kebutuhan Fungsional</label>
+                        <label for="kebutuhan_fungsi" class="col-lg-2 col-lg-offset-1 control-label">Kebutuhan Fungsional</label>
                         <div class="col-lg-6">
-                            <input type="text" name="Kebutuhan_Fungsi" id="Kebutuhan_Fungsi" class="form-control" required autofocus>
+                            <input type="text" name="kebutuhan_fungsi" id="kebutuhan_fungsi" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -75,9 +75,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="Tanggal_disiapkan" class="col-lg-2 col-lg-offset-1 control-label">Tanggal Disiapkan</label>
+                        <label for="tanggal_disiapkan" class="col-lg-2 col-lg-offset-1 control-label">Tanggal Disiapkan</label>
                         <div class="col-lg-6">
-                            <input type="date" name="Tanggal_disiapkan" id="Tanggal_disiapkan" class="form-control" required autofocus>
+                            <input type="date" name="tanggal_disiapkan" id="tanggal_disiapkan" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -106,10 +106,10 @@
                         <label for="status" class="col-lg-2 col-lg-offset-1 control-label">Persetujuan</label>
                         <div class="col-lg-6">
                             <select name="status" id="status" class="form-control" required>
-                                <option value="">-- Pilih Persetujuan --</option>
-                                <option value="Disetujui">Disetujui</option>
-                                <option value="Tidak Disetujui">Tidak Disetujui</option>
-                                <option value="Ditunda">Ditunda</option>
+                                <option selected>-- Pilih Persetujuan --</option>
+                                <option value="disetujui">Disetujui</option>
+                                <option value="tidak_disetujui">Tidak Disetujui</option>
+                                <option value="ditunda">Ditunda</option>
                             </select>
                             <span class="help-block with-errors"></span>
                         </div>
