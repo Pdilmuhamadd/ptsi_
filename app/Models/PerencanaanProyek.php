@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PerencanaanProyek extends Model
 {
     use HasFactory;
-    protected $table = 'trx_perencanaan_kebutuhan';
+    protected $table = 'trx_perencanaan_proyek';
     protected $primaryKey = 'id';
     protected $fillable = [
         'nama_proyek','deskripsi','pemilik_proyek','manajer_proyek','ruang_lingkup'

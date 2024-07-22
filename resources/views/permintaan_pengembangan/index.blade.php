@@ -63,7 +63,7 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'id'},
+                {data: 'id_permintaan_pengembangan'},
                 {data: 'latar_belakang'},
                 {data: 'tujuan'},
                 {data: 'target_implementasi_sistem'},

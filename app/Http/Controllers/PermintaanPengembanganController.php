@@ -19,7 +19,7 @@ class PermintaanPengembanganController extends Controller
 
     public function data()
     {
-        $trx_permintaan_pengembangan = PermintaanPengembangan::orderBy('id')->get();
+        $trx_permintaan_pengembangan = PermintaanPengembangan::orderBy('id_permintaan_pengembangan')->get();
 
         return datatables()
             ->of($trx_permintaan_pengembangan)
@@ -27,8 +27,8 @@ class PermintaanPengembanganController extends Controller
             ->addColumn('aksi', function ($trx_permintaan_pengembangan) {
                 return '
                 <div class="btn-group">
-                    <button onclick="editForm(`'. route('permintaan_pengembangan.update', $trx_permintaan_pengembangan->id) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                    <button onclick="deleteData(`'. route('permintaan_pengembangan.destroy', $trx_permintaan_pengembangan->id) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button onclick="editForm(`'. route('permintaan_pengembangan.update', $trx_permintaan_pengembangan->id_permintaan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                    <button onclick="deleteData(`'. route('permintaan_pengembangan.destroy', $trx_permintaan_pengembangan->id_permintaan_pengembangan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                 </div>
                 ';
             })
@@ -55,7 +55,7 @@ class PermintaanPengembanganController extends Controller
     public function store(Request $request)
     {
         $trx_permintaan_pengembangan = new PermintaanPengembangan();
-        $trx_permintaan_pengembangan->id = $request->id;
+        $trx_permintaan_pengembangan->id_permintaan_pengembangan = $request->id_permintaan_pengembangan;
         $trx_permintaan_pengembangan->latar_belakang  = $request-> latar_belakang;
         $trx_permintaan_pengembangan->tujuan = $request-> tujuan;
         $trx_permintaan_pengembangan->target_implementasi_sistem = $request->target_implementasi_sistem;
@@ -81,9 +81,9 @@ class PermintaanPengembanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_permintaan_pengembangan)
     {
-        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id);
+        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id_permintaan_pengembangan);
 
         return response()->json($trx_permintaan_pengembangan);
     }
@@ -94,7 +94,7 @@ class PermintaanPengembanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_permintaan_pengembangan)
     {
         //
     }
@@ -106,9 +106,9 @@ class PermintaanPengembanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_permintaan_pengembangan)
     {
-        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id)->update($request->all());
+        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id_permintaan_pengembangan)->update($request->all());
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -119,9 +119,9 @@ class PermintaanPengembanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_permintaan_pengembangan)
     {
-        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id);
+        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id_permintaan_pengembangan);
         $trx_permintaan_pengembangan->delete();
 
         return response(null, 204);
