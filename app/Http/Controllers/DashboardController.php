@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AnalisisKebutuhan;
 use App\Models\Kategori;
 use App\Models\Member;
 use App\Models\Pembelian;
@@ -10,12 +9,10 @@ use App\Models\Pengeluaran;
 use App\Models\Penjualan;
 use App\Models\Produk;
 use App\Models\Supplier;
-use App\Models\StudiKelayakan;
 use App\Models\PermintaanPengembangan;
 use App\Models\PerencanaanKebutuhan;
-use App\Models\Implementasi;
 use App\Models\AnalisisDesain;
-use App\Models\PostImplementationReview;
+use App\Models\PerencanaanProyek;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -23,13 +20,10 @@ class DashboardController extends Controller
     public function index()
     {
         $kategori = Kategori::count();
-        $trx_studi_kelayakan = StudiKelayakan::count();
         $trx_permintaan_pengembangan = PermintaanPengembangan::count();
+        $trx_perencanaan_proyek = PerencanaanProyek::count();
         $trx_perencanaan_kebutuhan = PerencanaanKebutuhan::count();
-        $trx_implementasi = Implementasi::count();
-        $trx_post_implementation_review = PostImplementationReview::count();
         $produk = Produk::count();
-        $trx_analisis_kebutuhan = AnalisisKebutuhan::count();
         $trx_analisis_desain = AnalisisDesain::count();
         $supplier = Supplier::count();
         $member = Member::count();
@@ -56,7 +50,7 @@ class DashboardController extends Controller
         $tanggal_awal = date('Y-m-01');
 
         if (auth()->user()->level == 1) {
-            return view('admin.dashboard', compact('kategori', 'trx_studi_kelayakan', 'trx_permintaan_pengembangan', 'trx_perencanaan_kebutuhan', 'trx_implementasi', 'trx_post_implementation_review',  'trx_analisis_desain','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
+            return view('admin.dashboard', compact('kategori', 'trx_perencanaan_proyek', 'trx_permintaan_pengembangan', 'trx_perencanaan_kebutuhan', 'trx_analisis_desain','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
         } else {
             return view('kasir.dashboard');
         }
