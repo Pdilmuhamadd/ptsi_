@@ -54,23 +54,7 @@ class PerencanaanProyekController extends Controller
      */
     public function store(Request $request)
     {
-        $trx_perencanaan_proyek = new PerencanaanProyek();
-        $trx_perencanaan_proyek->id_perencanaan_proyek = $request->id_perencanaan_proyek;
-        $trx_perencanaan_proyek->nama_proyek = $request->nama_proyek;
-        $trx_perencanaan_proyek->deskripsi = $request->deskripsi;
-        $trx_perencanaan_proyek->pemilik_proyek = $request->pemilik_proyek;
-        $trx_perencanaan_proyek->manajer_proyek = $request->manajer_proyek;
-        $trx_perencanaan_proyek->ruang_lingkup = $request->ruang_lingkup;
-        $trx_perencanaan_proyek->tanggal_mulai = $request->tanggal_mulai;
-        $trx_perencanaan_proyek->target_selesai = $request->target_selesai;
-        $trx_perencanaan_proyek->estimasi_biaya = $request->estimasi_biaya;
-        $trx_perencanaan_proyek->nama_pemohon = $request->nama_pemohon;
-        $trx_perencanaan_proyek->jabatan_pemohon = $request->jabatan_pemohon;
-        $trx_perencanaan_proyek->tanggal_disiapkan = $request->tanggal_disiapkan;
-        $trx_perencanaan_proyek->nama = $request->nama;
-        $trx_perencanaan_proyek->jabatan = $request->jabatan;
-        $trx_perencanaan_proyek->tanggal_disetujui = $request->tanggal_disetujui;
-
+        $trx_perencanaan_proyek = PerencanaanProyek::create($request->all());
         $trx_perencanaan_proyek->save();
 
         return response()->json('Data berhasil disimpan', 200);

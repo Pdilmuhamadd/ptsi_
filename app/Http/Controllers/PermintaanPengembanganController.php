@@ -54,22 +54,7 @@ class PermintaanPengembanganController extends Controller
      */
     public function store(Request $request)
     {
-        $trx_permintaan_pengembangan = new PermintaanPengembangan();
-        $trx_permintaan_pengembangan->id_permintaan_pengembangan = $request->id_permintaan_pengembangan;
-        $trx_permintaan_pengembangan->latar_belakang  = $request-> latar_belakang;
-        $trx_permintaan_pengembangan->tujuan = $request-> tujuan;
-        $trx_permintaan_pengembangan->target_implementasi_sistem = $request->target_implementasi_sistem;
-        $trx_permintaan_pengembangan->fungsi_sistem_informasi = $request-> fungsi_sistem_informasi;
-        $trx_permintaan_pengembangan->jenis_aplikasi = $request-> jenis_aplikasi;
-        $trx_permintaan_pengembangan->pengguna = $request-> pengguna;
-        $trx_permintaan_pengembangan->uraian_permintaan_tambahan = $request-> uraian_permintaan_tambahan;
-        $trx_permintaan_pengembangan->lampiran = $request-> lampiran;
-        $trx_permintaan_pengembangan->nama_pemohon = $request-> nama_pemohon;
-        $trx_permintaan_pengembangan->jabatan_pemohon = $request-> jabatan_pemohon;
-        $trx_permintaan_pengembangan->tanggal_disiapkan = $request-> tanggal_disiapkan;
-        $trx_permintaan_pengembangan->nama = $request-> nama;
-        $trx_permintaan_pengembangan->jabatan = $request-> jabatan;
-        $trx_permintaan_pengembangan->tanggal_disetujui = $request-> tanggal_disetujui;
+        $trx_permintaan_pengembangan = PermintaanPengembangan::create($request->all());
         $trx_permintaan_pengembangan->save();
 
         return response()->json('Data berhasil disimpan', 200);

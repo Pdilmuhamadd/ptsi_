@@ -55,21 +55,7 @@ class AnalisisDesainController extends Controller
      */
     public function store(Request $request)
     {
-        $trx_analisis_desain = new AnalisisDesain();
-        $trx_analisis_desain->nama_proyek = $request->nama_proyek;
-        $trx_analisis_desain->deskripsi_proyek = $request->deskripsi_proyek;
-        $trx_analisis_desain->manajer_proyek = $request->manajer_proyek;
-        $trx_analisis_desain->kebutuhan_fungsi = $request->kebutuhan_fungsi;
-        $trx_analisis_desain->gambaran_arsitektur = $request->gambaran_arsitektur;
-        $trx_analisis_desain->detil_arsitektur = $request->detil_arsitektur;
-        $trx_analisis_desain->lampiran_mockup = $request->lampiran_mockup;
-        $trx_analisis_desain->nama_pemohon = $request->nama_pemohon;
-        $trx_analisis_desain->jabatan_pemohon = $request->jabatan_pemohon;
-        $trx_analisis_desain->tanggal_disiapkan = $request->tanggal_disiapkan;
-        $trx_analisis_desain->nama = $request->nama;
-        $trx_analisis_desain->jabatan = $request->jabatan;
-        $trx_analisis_desain->tanggal_disetujui = $request->tanggal_disetujui;
-        $trx_analisis_desain->status = $request->status;
+        $trx_analisis_desain = AnalisisDesain::create($request->all());
         $trx_analisis_desain->save();
 
         return response()->json('Data berhasil disimpan', 200);

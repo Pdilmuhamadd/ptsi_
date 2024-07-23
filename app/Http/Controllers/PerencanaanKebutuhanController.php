@@ -54,22 +54,7 @@ class PerencanaanKebutuhanController extends Controller
      */
     public function store(Request $request)
     {
-        $trx_perencanaan_kebutuhan = new PerencanaanKebutuhan();
-        $trx_perencanaan_kebutuhan->id = $request->id;
-        $trx_perencanaan_kebutuhan->nama_proyek = $request-> nama_proyek;
-        $trx_perencanaan_kebutuhan->deskripsi = $request-> deskripsi;
-        $trx_perencanaan_kebutuhan->pemilik_proyek = $request-> pemilik_proyek;
-        $trx_perencanaan_kebutuhan->manajer_proyek = $request-> manajer_proyek;
-        $trx_perencanaan_kebutuhan->stakeholders = $request-> stakeholders;
-        $trx_perencanaan_kebutuhan->kebutuhan_fungsional = $request-> kebutuhan_fungsional;
-        $trx_perencanaan_kebutuhan->kebutuhan_nonfungsional = $request-> kebutuhan_nonfungsional;
-        $trx_perencanaan_kebutuhan->lampiran = $request-> lampiran;
-        $trx_perencanaan_kebutuhan->nama_pemohon = $request-> nama_pemohon;
-        $trx_perencanaan_kebutuhan->jabatan_pemohon = $request-> jabatan_pemohon;
-        $trx_perencanaan_kebutuhan->tanggal_disiapkan = $request-> tanggal_disiapkan;
-        $trx_perencanaan_kebutuhan->nama = $request-> nama;
-        $trx_perencanaan_kebutuhan->jabatan = $request-> jabatan;
-        $trx_perencanaan_kebutuhan->tanggal_disetujui = $request-> tanggal_disetujui;
+        $trx_perencanaan_kebutuhan = PerencanaanKebutuhan::create($request->all());
 
         $trx_perencanaan_kebutuhan->save();
 
