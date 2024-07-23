@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PermintaanPengembangan;
 use Illuminate\Http\Request;
 use App\Models\PerencanaanProyek;
 
@@ -14,12 +15,15 @@ class PerencanaanProyekController extends Controller
      */
     public function index()
     {
-        return view('perencanaan_proyek.index');
+        $trx_permintaan_pengembangan = PermintaanPengembangan::all()->pluck('id_permintaan_pengembangan');
+        return view('perencanaan_proyek.index',compact('trx_permintaan_pengembangan'));
     }
 
     public function data()
     {
-        $trx_perencanaan_proyek = PerencanaanProyek::orderBy('id_perencanaan_proyek')->get();
+        $trx_perencanaan_proyek = PerencanaanProyek::leftJoin('trx_permintaan_pengembangan', 'trx_permintaan_pengembangan.id_permintaan_pengembangan','trx_perencanaan_proyek.id_permintaan_pengembangan')
+        ->select('produk.*', 'nama_kategori')
+        ->get();
 
         return datatables()
             ->of($trx_perencanaan_proyek)
@@ -54,8 +58,10 @@ class PerencanaanProyekController extends Controller
      */
     public function store(Request $request)
     {
+        $trx_perencanaan_proyek = PerencanaanProyek::latest()->first() ?? new PerencanaanProyek();
+        $request['id_pengemangan_proyek'] = 'P'. tambah_nol_didepan((int)$trx_perencanaan_proyek->id_perencanaan_proyek +1, 6);
+
         $trx_perencanaan_proyek = PerencanaanProyek::create($request->all());
-        $trx_perencanaan_proyek->save();
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -69,6 +75,7 @@ class PerencanaanProyekController extends Controller
     public function show($id_perencanaan_proyek)
     {
         $trx_perencanaan_proyek = PerencanaanProyek::find($id_perencanaan_proyek);
+        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id_permintaan_pengembangan);
 
         return response()->json($trx_perencanaan_proyek);
     }
