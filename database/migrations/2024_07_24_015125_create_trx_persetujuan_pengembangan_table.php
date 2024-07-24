@@ -15,9 +15,10 @@ class CreateTrxpersetujuanpengembanganTable extends Migration
     {
         Schema::create('trx_persetujuan_pengembangan', function (Blueprint $table) {
             $table->id();
+            $table->text('nomor_proyek');
             $table->text('nama_proyek');
             $table->text('deskripsi');
-            $table->text('Status_Persetujuan');
+            $table->text('status_persetujuan');
             $table->text('namapemohon');
             $table->text('namapeninjau');
             $table->text('jabatanpeninjau');
