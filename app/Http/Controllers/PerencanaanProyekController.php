@@ -22,7 +22,7 @@ class PerencanaanProyekController extends Controller
     public function data()
     {
         $trx_perencanaan_proyek = PerencanaanProyek::leftJoin('trx_permintaan_pengembangan', 'trx_permintaan_pengembangan.id_permintaan_pengembangan','trx_perencanaan_proyek.id_permintaan_pengembangan')
-        ->select('produk.*', 'nama_kategori')
+        ->select('id_permintaan_pengembangan.*', 'nama_proyek')
         ->get();
 
         return datatables()

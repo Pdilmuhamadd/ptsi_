@@ -63,7 +63,8 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'id'},
+                {data: 'id_permintaan_pengembangan'},
+                {data: 'id_perencanaan_proyek'},
                 {data: 'nama_proyek'},
                 {data: 'deskripsi'},
                 {data: 'pemilik_proyek'},
