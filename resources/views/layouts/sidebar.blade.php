@@ -30,6 +30,11 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('persetujuan_pengembangan.index') }}">
+                    <i class="fa fa-check-square-o"></i> <span>Persetujuan Pengembangan</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('perencanaan_proyek.index') }}">
                     <i class="fa fa-map-o"></i> <span>Perencanaan Proyek</span>
                 </a>

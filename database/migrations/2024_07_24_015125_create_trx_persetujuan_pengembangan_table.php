@@ -19,6 +19,7 @@ class CreateTrxpersetujuanpengembanganTable extends Migration
             $table->text('nama_proyek');
             $table->text('deskripsi');
             $table->text('status_persetujuan');
+            $table->text('alasan_persetujuan');
             $table->text('namapemohon');
             $table->text('namapeninjau');
             $table->text('jabatanpeninjau');
