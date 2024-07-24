@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\persetujuanpengembangan;
+use App\Models\PersetujuanPengembangan;
 
-class persetujuanpengembanganController extends Controller
+class PersetujuanPengembanganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class persetujuanpengembanganController extends Controller
 
     public function data()
     {
-        $trx_persetujuan_pengembangan = persetujuanpengembangan::orderBy('id_persetujuan_pengembangan')->get();
+        $trx_persetujuan_pengembangan = PersetujuanPengembangan::orderBy('id_persetujuan_pengembangan')->get();
 
         return datatables()
             ->of($trx_persetujuan_pengembangan)
@@ -54,7 +54,7 @@ class persetujuanpengembanganController extends Controller
      */
     public function store(Request $request)
     {
-        $trx_persetujuan_pengembangan = persetujuanpengembangan::create($request->all());
+        $trx_persetujuan_pengembangan = PersetujuanPengembangan::create($request->all());
         $trx_persetujuan_pengembangan->save();
 
         return response()->json('Data berhasil disimpan', 200);
@@ -68,7 +68,7 @@ class persetujuanpengembanganController extends Controller
      */
     public function show($id_persetujuan_pengembangan)
     {
-        $trx_persetujuan_pengembangan = persetujuanpengembangan::find($id_persetujuan_pengembangan);
+        $trx_persetujuan_pengembangan = PersetujuanPengembangan::find($id_persetujuan_pengembangan);
 
         return response()->json($trx_persetujuan_pengembangan);
     }
@@ -93,7 +93,7 @@ class persetujuanpengembanganController extends Controller
      */
     public function update(Request $request, $id_persetujuan_pengembangan)
     {
-        $trx_persetujuan_pengembangan = persetujuanpengembangan::find($id_persetujuan_pengembangan)->update($request->all());
+        $trx_persetujuan_pengembangan = PersetujuanPengembangan::find($id_persetujuan_pengembangan)->update($request->all());
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -106,7 +106,7 @@ class persetujuanpengembanganController extends Controller
      */
     public function destroy($id_persetujuan_pengembangan)
     {
-        $trx_persetujuan_pengembangan = persetujuanpengembangan::find($id_persetujuan_pengembangan);
+        $trx_persetujuan_pengembangan = PersetujuanPengembangan::find($id_persetujuan_pengembangan);
         $trx_persetujuan_pengembangan->delete();
 
         return response(null, 204);

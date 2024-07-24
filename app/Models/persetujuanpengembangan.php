@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class persetujuanpengembangan extends Model
+class PersetujuanPengembangan extends Model
 {
     use HasFactory;
 
     protected $table = 'trx_persetujuan_pengembangan';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_persetujuan_pengembangan';
     protected $fillable = [
-        'nomer_proyek','nama_proyek','deskripsi','status_persetujuan', 'namapemohon', 'namapeninjau', 'jabatanpeninjau', 'namapenyetuju'
+        'nomor_proyek','nama_proyek','deskripsi','status_persetujuan', 'alasan_persetujuan','namapemohon', 'namapeninjau', 'jabatanpeninjau', 'namapenyetuju'
     ];
 }

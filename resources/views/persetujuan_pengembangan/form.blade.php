@@ -35,7 +35,7 @@
                     <div class="form-group row">
                         <label for="status_persetujuan" class="col-lg-2 col-lg-offset-1 control-label">Status Persetujuan</label>
                         <div class="col-lg-6">
-                            <select name="status" id="status" class="form-control" required>
+                            <select name="status_persetujuan" id="status_persetujuan" class="form-control" required>
                                 <option selected>-- Pilih Persetujuan --</option>
                                 <option value="disetujui">Disetujui</option>
                                 <option value="tidak_disetujui">Ditolak</option>
@@ -68,14 +68,14 @@
                     <div class="form-group row">
                         <label for="jabatanpeninjau" class="col-lg-2 col-lg-offset-1 control-label">Jabatan Peninjau</label>
                         <div class="col-lg-6">
-                            <input type="file" name="jabatanpeninjau" id="jabatanpeninjau" class="form-control" required autofocus></input>
+                            <input type="text" name="jabatanpeninjau" id="jabatanpeninjau" class="form-control" required autofocus></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="namapenyetuju" class="col-lg-2 col-lg-offset-1 control-label">Disetujui Oleh</label>
                         <div class="col-lg-6">
-                            <input type="file" name="namapenyetuju" id="namapenyetuju" class="form-control" required autofocus></input>
+                            <input type="text" name="namapenyetuju" id="namapenyetuju" class="form-control" required autofocus></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>

@@ -17,9 +17,9 @@ use App\Http\Controllers\{
     UserController,
     PerencanaanKebutuhanController,
     AnalisisDesainController,
+    PersetujuanPengembanganController,
 };
 use App\Http\Controllers\PerencanaanProyekController;
-use App\Models\persetujuanpengembangan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,10 +50,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/perencanaan_proyek/delete-selected', [PerencanaanProyekController::class, 'deleteSelected'])->name('perencanaan_proyek.delete_selected');
         Route::resource('/perencanaan_proyek', PerencanaanProyekController::class);
 
-        Route::get('/persetujuan_pengembangan', [persetujuanpengembanganController::class, 'index'])->name('persetujuan_pengembangan.index');
-        Route::get('/persetujuan_pengembangan/data', [persetujuanpengembanganController::class, 'data'])->name('persetujuan_pengembangan.data');
-        Route::post('/persetujuan_pengembangan/delete-selected', [persetujuanpengembanganController::class, 'deleteSelected'])->name('persetujuan_pengembangan.delete_selected');
-        Route::resource('/persetujuan_pengembangan', persetujuanpengembanganController::class);
+        Route::get('/persetujuan_pengembangan', [PersetujuanPengembanganController::class, 'index'])->name('persetujuan_pengembangan.index');
+        Route::get('/persetujuan_pengembangan/data', [PersetujuanPengembanganController::class, 'data'])->name('persetujuan_pengembangan.data');
+        Route::post('/persetujuan_pengembangan/delete-selected', [PersetujuanPengembanganController::class, 'deleteSelected'])->name('persetujuan_pengembangan.delete_selected');
+        Route::resource('/persetujuan_pengembangan', PersetujuanPengembanganController::class);
 
         Route::get('/permintaan_pengembangan', [PermintaanPengembanganController::class, 'index'])->name('permintaan_pengembangan.index');
         Route::get('/permintaan_pengembangan/data', [PermintaanPengembanganController::class, 'data'])->name('permintaan_pengembangan.data');
