@@ -42,14 +42,14 @@
                     <div class="form-group row">
                         <label for="gambaran_arsitektur" class="col-lg-2 col-lg-offset-1 control-label">Gambaran Arsitektur Sistem</label>
                         <div class="col-lg-6">
-                            <input type="text" name="gambaran_arsitektur" id="gambaran_arsitektur" class="form-control" required autofocus>
+                            <input type="file" name="gambaran_arsitektur" id="gambaran_arsitektur" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="detil_arsitektur" class="col-lg-2 col-lg-offset-1 control-label">Detail Arsitektur Sistem</label>
                         <div class="col-lg-6">
-                            <input type="text" name="detil_arsitektur" id="detil_arsitektur" class="form-control" required autofocus>
+                            <input type="file" name="detil_arsitektur" id="detil_arsitektur" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
