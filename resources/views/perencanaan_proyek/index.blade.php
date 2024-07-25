@@ -21,7 +21,6 @@
                     <table class="table table-stiped table-bordered">
                             <thead>
                             <th width="5%">No</th>
-                            <th>Nomor Proyek</th>
                             <th>Nama Proyek</th>
                             <th>Deskripsi</th>
                             <th>Pemilik Proyek</th>
@@ -63,7 +62,6 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'id_permintaan_pengembangan'},
                 {data: 'id_perencanaan_proyek'},
                 {data: 'nama_proyek'},
                 {data: 'deskripsi'},

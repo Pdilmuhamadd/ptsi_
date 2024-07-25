@@ -19,7 +19,7 @@ class PermintaanPengembanganController extends Controller
 
     public function data()
     {
-        $trx_permintaan_pengembangan = PermintaanPengembangan::orderBy('id_permintaan_pengembangan')->get();
+        $trx_permintaan_pengembangan = PermintaanPengembangan::orderBy('id_permintaan_pengembangan', 'desc')->get();
 
         return datatables()
             ->of($trx_permintaan_pengembangan)
@@ -66,9 +66,9 @@ class PermintaanPengembanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_permintaan_pengembangan)
+    public function show($id)
     {
-        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id_permintaan_pengembangan);
+        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id);
 
         return response()->json($trx_permintaan_pengembangan);
     }
@@ -79,7 +79,7 @@ class PermintaanPengembanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_permintaan_pengembangan)
+    public function edit($id)
     {
         //
     }
@@ -91,9 +91,10 @@ class PermintaanPengembanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_permintaan_pengembangan)
+    public function update(Request $request, $id)
     {
-        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id_permintaan_pengembangan)->update($request->all());
+        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id)->update($request->all());
+        $trx_permintaan_pengembangan->update();
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -104,9 +105,9 @@ class PermintaanPengembanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_permintaan_pengembangan)
+    public function destroy($id)
     {
-        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id_permintaan_pengembangan);
+        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id);
         $trx_permintaan_pengembangan->delete();
 
         return response(null, 204);

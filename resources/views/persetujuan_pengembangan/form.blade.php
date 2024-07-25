@@ -12,9 +12,14 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="nomor_proyek" class="col-lg-2 col-lg-offset-1 control-label">Nomor Proyek</label>
+                        <label for="id_permintaan_pengembangan" class="col-lg-2 col-lg-offset-1 control-label">Nomor Proyek</label>
                         <div class="col-lg-6">
-                            <input type="text" name="nomor_proyek" id="nomor_proyek" class="form-control" required autofocus>
+                            <select name="id_permintaan_pengembangan" id="id_permintaan_pengembangan" class="form-control" required>
+                                <option value="">Pilih Proyek</option>
+                                @foreach ($trx_permintaan_pengembangan as $key => $item)
+                                <option value="{{ $key }}">{{ $item }}</option>
+                                @endforeach
+                            </select>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -79,6 +84,7 @@
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
+                </div>
                 <div class="modal-footer">
                     <button class="btn btn-sm btn-flat btn-primary"><i class="fa fa-save"></i> Simpan</button>
                     <button type="button" class="btn btn-sm btn-flat btn-warning" data-dismiss="modal"><i class="fa fa-arrow-circle-left"></i> Batal</button>

@@ -21,7 +21,7 @@
                     <table class="table table-stiped table-bordered">
                             <thead>
                             <th width="5%">No</th>
-                            <th>ID</th>
+                            <th>Nomor Proyek</th>
                             <th>Latar Belakang</th>
                             <th>Tujuan</th>
                             <th>Target Implementasi Sistem</th>
@@ -63,7 +63,7 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'id_permintaan_pengembangan'},
+                {data: 'nomor_proyek'},
                 {data: 'latar_belakang'},
                 {data: 'tujuan'},
                 {data: 'target_implementasi_sistem'},
@@ -105,7 +105,7 @@
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('post');
-        $('#modal-form [name=latar_belakang]').focus();
+        $('#modal-form [name=nomor_proyek]').focus();
     }
 
     function editForm(url) {
@@ -115,10 +115,11 @@
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('put');
-        $('#modal-form [name=latar_belakang]').focus();
+        $('#modal-form [name=nomor_proyek]').focus();
 
         $.get(url)
             .done((response) => {
+                $('#modal-form [name=nomor_proyek]').val(response.nomor_proyek);
                 $('#modal-form [name=latar_belakang]').val(response.latar_belakang);
                 $('#modal-form [name=tujuan]').val(response.tujuan);
                 $('#modal-form [name=target_implementasi_sistem]').val(response.target_implementasi_sistem);

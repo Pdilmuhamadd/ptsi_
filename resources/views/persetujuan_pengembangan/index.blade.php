@@ -15,13 +15,17 @@
         <div class="box">
             <div class="box-header with-border">
                 <button onclick="addForm('{{ route('persetujuan_pengembangan.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
+                <button onclick="deleteSelected('{{ route('persetujuan_pengembangan.delete_selected') }}')" class="btn btn-danger btn-xs btn-flat"><i class="fa fa-trash"></i> Hapus</button>
+                <button onclick="cetakDokumen('{{ route('persetujuan_pengembangan.cetakDokumen') }}')" class="btn btn-info btn-xs btn-flat"><i class="fa fa-barcode"></i> Cetak Dokumen</button>
             </div>
             <div class="box-body table-responsive">
                     @csrf
                     <table class="table table-stiped table-bordered">
                             <thead>
+                                <th width="5%">
+                                    <input type="checkbox" name="select_all" id="select_all">
+                                </th>
                             <th width="5%">No</th>
-                            <th>ID</th>
                             <th>Nomor Proyek</th>
                             <th>Nama Proyek</th>
                             <th>Deskripsi Proyek</th>
@@ -57,8 +61,8 @@
                 url: '{{ route('persetujuan_pengembangan.data') }}',
             },
             columns: [
+                {data: 'select_all', searchable: false, sortable: false},
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'id_persetujuan_pengembangan'},
                 {data: 'nomor_proyek'},
                 {data: 'nama_proyek'},
                 {data: 'deskripsi'},
@@ -85,6 +89,10 @@
                     });
             }
         });
+
+        $('[name=select_all]').on('click', function () {
+            $(':checkbox').prop('checked', this.checked);
+        });
     });
 
 
@@ -95,7 +103,7 @@
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('post');
-        $('#modal-form [name=latar_belakang]').focus();
+        $('#modal-form [name=nama_proyek]').focus();
     }
 
     function editForm(url) {
@@ -105,11 +113,11 @@
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('put');
-        $('#modal-form [name=latar_belakang]').focus();
+        $('#modal-form [name=nama_proyek]').focus();
 
         $.get(url)
             .done((response) => {
-                $('#modal-form [name=nomor_proyek]').val(response.nomor_proyek);
+                $('#modal-form [name=id_permintaan_pengembangan]').val(response.id_permintaan_pengembangan);
                 $('#modal-form [name=nama_proyek]').val(response.nama_proyek);
                 $('#modal-form [name=deskripsi]').val(response.deksripsi);
                 $('#modal-form [name=status_persetujuan]').val(response.status_persetujuan);
@@ -138,6 +146,20 @@
                     alert('Tidak dapat menghapus data');
                     return;
                 });
+        }
+    }
+    function cetakDokumen(url) {
+        if ($('input:checked').length < 1) {
+            alert('Pilih data yang akan dicetak');
+            return;
+        } else if ($('input:checked').length < 3) {
+            alert('Pilih minimal 3 data untuk dicetak');
+            return;
+        } else {
+            $('.form-produk')
+                .attr('target', '_blank')
+                .attr('action', url)
+                .submit();
         }
     }
 </script>

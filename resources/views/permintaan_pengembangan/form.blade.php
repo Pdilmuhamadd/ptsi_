@@ -19,6 +19,13 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="nomor_proyek" class="col-lg-2 col-lg-offset-1 control-label">Nomor Proyek</label>
+                        <div class="col-lg-6">
+                            <input type="text" name="nomor_proyek" id="nomor_proyek" class="form-control" required autofocus>
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="tujuan" class="col-lg-2 col-lg-offset-1 control-label">Tujuan</label>
                         <div class="col-lg-6">
                             <input type="text" name="tujuan" id="tujuan" class="form-control" required autofocus>

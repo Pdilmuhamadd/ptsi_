@@ -10,19 +10,6 @@
                             aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title"></h4>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group row">
-                        <label for="id_permintaan_pengembangan" class="col-lg-2 col-lg-offset-1 control-label">Nomor Proyek</label>
-                        <div class="col-lg-6">
-                            <select name="id_permintaan_pengembangan" id="id_permintaan_pengembangan" class="form-control" required>
-                                <option value="">Pilih Nomor Proyek</option>
-                                @foreach ($trx_permintaan_pengembangan as $key => $item)
-                                <option value="{{ $key }}">{{ $item }}</option>
-                                @endforeach
-                            </select>
-                            <span class="help-block with-errors"></span>
-                        </div>
-                    </div>                
                     <div class="form-group row">
                         <label for="nama_proyek" class="col-lg-2 col-lg-offset-1 control-label">Nama Proyek</label>
                         <div class="col-lg-6">
@@ -121,7 +108,6 @@
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
-                </div>
                 <div class="modal-footer">
                     <button class="btn btn-sm btn-flat btn-primary"><i class="fa fa-save"></i> Simpan</button>
                     <button type="button" class="btn btn-sm btn-flat btn-warning" data-dismiss="modal"><i class="fa fa-arrow-circle-left"></i> Batal</button>
