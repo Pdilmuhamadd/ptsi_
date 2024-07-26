@@ -124,6 +124,7 @@ class PermintaanPengembanganController extends Controller
 
         return response(null, 204);
     }
+<<<<<<< HEAD
 
     public function cetakDokumen(Request $request)
     {
@@ -138,4 +139,8 @@ class PermintaanPengembanganController extends Controller
         $pdf->setPaper('a4', 'potrait');
         return $pdf->stream('permintaan.pdf');
     }
+=======
+    
+>>>>>>> 862a2c3bbbf479f69e6d7466557d9db128386898
 }
+

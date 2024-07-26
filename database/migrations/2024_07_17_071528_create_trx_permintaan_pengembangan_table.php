@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\PermintaanPengembangan;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -32,4 +33,6 @@ class CreatetrxPermintaanPengembanganTable extends Migration
     {
         Schema::dropIfExists('trx_permintaan_pengembangan');
     }
+
+        
 }
