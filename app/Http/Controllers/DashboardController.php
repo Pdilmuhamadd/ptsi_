@@ -10,6 +10,7 @@ use App\Models\Penjualan;
 use App\Models\Produk;
 use App\Models\Supplier;
 use App\Models\PermintaanPengembangan;
+use App\Models\PersetujuanPengembangan;
 use App\Models\PerencanaanKebutuhan;
 use App\Models\AnalisisDesain;
 use App\Models\PerencanaanProyek;
@@ -23,6 +24,7 @@ class DashboardController extends Controller
         $trx_permintaan_pengembangan = PermintaanPengembangan::count();
         $trx_perencanaan_proyek = PerencanaanProyek::count();
         $trx_perencanaan_kebutuhan = PerencanaanKebutuhan::count();
+        $trx_persetujuan_pengembangan = PersetujuanPengembangan::count();
         $produk = Produk::count();
         $trx_analisis_desain = AnalisisDesain::count();
         $supplier = Supplier::count();
@@ -50,7 +52,7 @@ class DashboardController extends Controller
         $tanggal_awal = date('Y-m-01');
 
         if (auth()->user()->level == 1) {
-            return view('admin.dashboard', compact('kategori', 'trx_perencanaan_proyek', 'trx_permintaan_pengembangan', 'trx_perencanaan_kebutuhan', 'trx_analisis_desain','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
+            return view('admin.dashboard', compact('kategori', 'trx_perencanaan_proyek', 'trx_persetujuan_pengembangan' ,'trx_permintaan_pengembangan', 'trx_perencanaan_kebutuhan', 'trx_analisis_desain','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
         } else {
             return view('kasir.dashboard');
         }

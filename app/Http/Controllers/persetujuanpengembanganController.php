@@ -31,7 +31,7 @@ class PersetujuanPengembanganController extends Controller
         return datatables()
             ->of($trx_persetujuan_pengembangan)
             ->addIndexColumn()
-            ->addColumn('select_all', function ($produk) {
+            ->addColumn('select_all', function ($trx_persetujuan_pengembangan) {
                 return '
                     <input type="checkbox" name="id_persetujuan_pengembangan[]" value="'. $trx_persetujuan_pengembangan->id_persetujuan_pengembangan .'">
                 ';
