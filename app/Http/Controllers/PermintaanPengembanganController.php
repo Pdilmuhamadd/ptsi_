@@ -125,6 +125,16 @@ class PermintaanPengembanganController extends Controller
         return response(null, 204);
     }
 
+    public function deleteSelected(Request $request)
+    {
+        foreach ($request->id_permintaan_pengembangan as $id) {
+            $trx_permintaan_pengembangan = PermintaanPengembangan::find($id);
+            $trx_permintaan_pengembangan->delete();
+        }
+
+        return response(null, 204);
+    }
+
     public function cetakDokumen(Request $request)
     {
         $datapermintaan = array();

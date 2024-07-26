@@ -167,11 +167,29 @@
         }
     }
 
+    function deleteSelected(url) {
+        if ($('input:checked').length > 1) {
+            if (confirm('Yakin ingin menghapus data terpilih?')) {
+                $.post(url, $('.form-produk').serialize())
+                    .done((response) => {
+                        table.ajax.reload();
+                    })
+                    .fail((errors) => {
+                        alert('Tidak dapat menghapus data');
+                        return;
+                    });
+            }
+        } else {
+            alert('Pilih data yang akan dihapus');
+            return;
+        }
+    }
+
     function cetakDokumen(url) {
         if ($('input:checked').length < 1) {
             alert('Pilih data yang akan dicetak');
             return;
-        } else if ($('input:checked').length < 3) {
+        } else if ($('input:checked').length > 3) {
             alert('Pilih minimal 3 data untuk dicetak');
             return;
         } else {
