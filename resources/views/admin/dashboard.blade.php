@@ -31,6 +31,21 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
+                <h3>{{ $trx_persetujuan_pengembangan }}</h3>
+
+                <p>Persetujuan Pengembangan <br>5%</br> </p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-envelope-o"></i>
+            </div>
+            <a href="{{ route('persetujuan_pengembangan.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+            <div class="inner">
                 <h3>{{ $trx_perencanaan_proyek }}</h3>
 
                 <p>Perencanaan Proyek <br>5%</br> </p>

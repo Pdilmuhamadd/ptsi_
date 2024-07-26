@@ -54,8 +54,11 @@ class PermintaanPengembanganController extends Controller
      */
     public function store(Request $request)
     {
-        $trx_permintaan_pengembangan = PermintaanPengembangan::create($request->all());
-        $trx_permintaan_pengembangan->save();
+        $data = $request->all();
+        if ($request->hasFile('lampiran')) {
+            $data['lampiran'] = $request->file('lampiran')->store('lampiran');
+        }
+        PermintaanPengembangan::create($data);
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -93,10 +96,13 @@ class PermintaanPengembanganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id)->update($request->all());
-        $trx_permintaan_pengembangan->update();
+        $data = $request->all();
+        if ($request->hasFile('lampiran')) {
+            $data['lampiran'] = $request->file('lampiran')->store('lampiran');
+        }
+        PermintaanPengembangan::find($id)->update($data);
 
-        return response()->json('Data berhasil disimpan', 200);
+        return response()->json('Data berhasil diperbarui', 200);
     }
 
     /**

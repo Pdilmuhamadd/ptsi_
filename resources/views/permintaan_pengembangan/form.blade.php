@@ -1,6 +1,6 @@
 <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form">
     <div class="modal-dialog modal-lg" role="document">
-        <form action="" method="post" class="form-horizontal">
+        <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
             @csrf
             @method('post')
 
@@ -12,16 +12,16 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="latar_belakang" class="col-lg-2 col-lg-offset-1 control-label">Latar Belakang</label>
+                        <label for="nomor_proyek" class="col-lg-2 col-lg-offset-1 control-label">Nomor Proyek</label>
                         <div class="col-lg-6">
-                            <input type="text" name="latar_belakang" id="latar_belakang" class="form-control" required autofocus>
+                            <input type="text" name="nomor_proyek" id="nomor_proyek" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="nomor_proyek" class="col-lg-2 col-lg-offset-1 control-label">Nomor Proyek</label>
+                        <label for="latar_belakang" class="col-lg-2 col-lg-offset-1 control-label">Latar Belakang</label>
                         <div class="col-lg-6">
-                            <input type="text" name="nomor_proyek" id="nomor_proyek" class="form-control" required autofocus>
+                            <input type="text" name="latar_belakang" id="latar_belakang" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                     <div class="form-group row">
                         <label for="lampiran" class="col-lg-2 col-lg-offset-1 control-label">Lampiran</label>
                         <div class="col-lg-6">
-                            <input type="file" name="lampiran" id="lampiran" class="form-control" required autofocus></input>
+                            <input type="file" name="lampiran" id="lampiran" class="form-control">
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
