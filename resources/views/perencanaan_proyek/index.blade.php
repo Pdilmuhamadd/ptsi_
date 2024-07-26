@@ -14,12 +14,19 @@
     <div class="col-lg-12">
         <div class="box">
             <div class="box-header with-border">
-                <button onclick="addForm('{{ route('perencanaan_proyek.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
+                <div class="btn-group">
+                    <button onclick="addForm('{{ route('perencanaan_proyek.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
+                    <button onclick="deleteSelected('{{ route('perencanaan_proyek.delete_selected') }}')" class="btn btn-danger btn-xs btn-flat"><i class="fa fa-trash"></i> Hapus</button>
+                    <button onclick="cetakDokumen('{{ route('perencanaan_proyek.cetak_dokumen') }}')" class="btn btn-info btn-xs btn-flat"><i class="fa fa-barcode"></i> Cetak Dokumen</button>
+                </div>
             </div>
             <div class="box-body table-responsive">
                     @csrf
                     <table class="table table-stiped table-bordered">
                             <thead>
+                            <th width="5%">
+                                <input type="checkbox" name="select_all" id="select_all">
+                            </th>
                             <th width="5%">No</th>
                             <th>Nama Proyek</th>
                             <th>Deskripsi</th>
@@ -61,8 +68,8 @@
                 url: '{{ route('perencanaan_proyek.data') }}',
             },
             columns: [
+                {data: 'select_all', searchable: false, sortable: false},
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'id_perencanaan_proyek'},
                 {data: 'nama_proyek'},
                 {data: 'deskripsi'},
                 {data: 'pemilik_proyek'},
@@ -93,6 +100,10 @@
                         return;
                     });
             }
+        });
+
+        $('[name=select_all]').on('click', function () {
+            $(':checkbox').prop('checked', this.checked);
         });
     });
 
@@ -152,6 +163,35 @@
                     alert('Tidak dapat menghapus data');
                     return;
                 });
+        }
+    }
+    function deleteSelected(url) {
+        if ($('input:checked').length > 1) {
+            if (confirm('Yakin ingin menghapus data terpilih?')) {
+                $.post(url, $('.form-produk').serialize())
+                    .done((response) => {
+                        table.ajax.reload();
+                    })
+                    .fail((errors) => {
+                        alert('Tidak dapat menghapus data');
+                        return;
+                    });
+            }
+        } else {
+            alert('Pilih data yang akan dihapus');
+            return;
+        }
+    }
+
+    function cetakDokumen(url) {
+        if ($('input:checked').length < 1) {
+            alert('Pilih data yang akan dicetak');
+            return;
+        } else {
+            $('.form-produk')
+                .attr('target', '_blank')
+                .attr('action', url)
+                .submit();
         }
     }
 </script>

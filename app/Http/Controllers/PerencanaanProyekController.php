@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PermintaanPengembangan;
 use Illuminate\Http\Request;
 use App\Models\PerencanaanProyek;
+use PDF;
 
 class PerencanaanProyekController extends Controller
 {
@@ -25,6 +26,11 @@ class PerencanaanProyekController extends Controller
         return datatables()
             ->of($trx_perencanaan_proyek)
             ->addIndexColumn()
+            ->addColumn('select_all', function ($trx_perencanaan_proyek) {
+                return '
+                    <input type="checkbox" name="id_perencanaan_proyek[]" value="'. $trx_perencanaan_proyek->id_perencanaan_proyek .'">
+                ';
+            })
             ->addColumn('aksi', function ($trx_perencanaan_proyek) {
                 return '
                 <div class="btn-group">
@@ -33,7 +39,7 @@ class PerencanaanProyekController extends Controller
                 </div>
                 ';
             })
-            ->rawColumns(['aksi'])
+            ->rawColumns(['aksi', 'select_all'])
             ->make(true);
     }
 
@@ -111,5 +117,29 @@ class PerencanaanProyekController extends Controller
         $trx_perencanaan_proyek->delete();
 
         return response(null, 204);
+    }
+
+    public function deleteSelected(Request $request)
+    {
+        foreach ($request->id_perencanaan_proyek as $id) {
+            $trx_perencanaan_proyek = PerencanaanProyek::find($id);
+            $trx_perencanaan_proyek->delete();
+        }
+
+        return response(null, 204);
+    }
+
+    public function cetakDokumen(Request $request)
+    {
+        $dataperencanaan = array();
+        foreach ($request->id_perencanaan_proyek as $id) {
+            $trx_perencanaan_proyek = PerencanaanProyek::find($id);
+            $dataperencanaan[] = $trx_perencanaan_proyek;
+        }
+
+        $no  = 1;
+        $pdf = PDF::loadView('trx_perencanaan_proyek.dokumen', compact('dataperencanaan', 'no'));
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('perencanaanproyek.pdf');
     }
 }
