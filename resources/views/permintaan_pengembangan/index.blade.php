@@ -15,11 +15,16 @@
         <div class="box">
             <div class="box-header with-border">
                 <button onclick="addForm('{{ route('permintaan_pengembangan.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
+                <button onclick="deleteSelected('{{ route('permintaan_pengembangan.delete_selected') }}')" class="btn btn-danger btn-xs btn-flat"><i class="fa fa-trash"></i> Hapus</button>
+                <button onclick="cetakDokumen('{{ route('permintaan_pengembangan.cetakDokumen') }}')" class="btn btn-info btn-xs btn-flat"><i class="fa fa-barcode"></i> Cetak Dokumen</button>
             </div>
             <div class="box-body table-responsive">
                     @csrf
                     <table class="table table-stiped table-bordered">
                             <thead>
+                            <th width="5%">
+                                <input type="checkbox" name="select_all" id="select_all">
+                            </th>
                             <th width="5%">No</th>
                             <th>Nomor Proyek</th>
                             <th>Latar Belakang</th>
@@ -62,6 +67,7 @@
                 url: '{{ route('permintaan_pengembangan.data') }}',
             },
             columns: [
+                {data: 'select_all', searchable: false, sortable: false},
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
                 {data: 'nomor_proyek'},
                 {data: 'latar_belakang'},
@@ -94,6 +100,10 @@
                         return;
                     });
             }
+        });
+
+        $('[name=select_all]').on('click', function () {
+            $(':checkbox').prop('checked', this.checked);
         });
     });
 
@@ -154,6 +164,21 @@
                     alert('Tidak dapat menghapus data');
                     return;
                 });
+        }
+    }
+
+    function cetakDokumen(url) {
+        if ($('input:checked').length < 1) {
+            alert('Pilih data yang akan dicetak');
+            return;
+        } else if ($('input:checked').length < 3) {
+            alert('Pilih minimal 3 data untuk dicetak');
+            return;
+        } else {
+            $('.form-produk')
+                .attr('target', '_blank')
+                .attr('action', url)
+                .submit();
         }
     }
 </script>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PermintaanPengembangan;
+use PDF;
 
 class PermintaanPengembanganController extends Controller
 {
@@ -24,6 +25,11 @@ class PermintaanPengembanganController extends Controller
         return datatables()
             ->of($trx_permintaan_pengembangan)
             ->addIndexColumn()
+            ->addColumn('select_all', function ($trx_permintaan_pengembangan) {
+                return '
+                    <input type="checkbox" name="id_persetujuan_pengembangan[]" value="'. $trx_permintaan_pengembangan->id_permintaan_pengembangan .'">
+                ';
+            })
             ->addColumn('aksi', function ($trx_permintaan_pengembangan) {
                 return '
                 <div class="btn-group">
@@ -32,7 +38,7 @@ class PermintaanPengembanganController extends Controller
                 </div>
                 ';
             })
-            ->rawColumns(['aksi'])
+            ->rawColumns(['aksi', 'select_all'])
             ->make(true);
     }
 
@@ -117,5 +123,19 @@ class PermintaanPengembanganController extends Controller
         $trx_permintaan_pengembangan->delete();
 
         return response(null, 204);
+    }
+
+    public function cetakDokumen(Request $request)
+    {
+        $datapermintaan = array();
+        foreach ($request->id_permintaan_pengembangan as $id) {
+            $trx_permintaan_pengembangan = PermintaanPengembangan::find($id);
+            $datapermintaan[] = $trx_permintaan_pengembangan;
+        }
+
+        $no  = 1;
+        $pdf = PDF::loadView('trx_permintaan_pengembangan.dokumen', compact('datapermintaan', 'no'));
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('permintaan.pdf');
     }
 }
