@@ -37,7 +37,7 @@
                 <p>Persetujuan Pengembangan <br>5%</br> </p>
             </div>
             <div class="icon">
-                <i class="fa fa-envelope-o"></i>
+                <i class="fa fa-check-square-o"></i>
             </div>
             <a href="{{ route('persetujuan_pengembangan.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
