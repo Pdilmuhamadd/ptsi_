@@ -146,5 +146,11 @@ class PersetujuanPengembanganController extends Controller
         $pdf->setPaper('a4', 'potrait');
         return $pdf->stream('persetujuan.pdf');
     }
+
+    public function getAlasanPersetujuan($id_mst_persetujuan)
+    {
+        $alasan = PersetujuanAlasan::where('id_mst_persetujuan', $id_mst_persetujuan)->pluck('nama_alasan', 'id_mst_persetujuanalasan');
+        return response()->json($alasan);
+    }
 }
 

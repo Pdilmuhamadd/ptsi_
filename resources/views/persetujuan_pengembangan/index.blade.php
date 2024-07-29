@@ -1,3 +1,4 @@
+
 @extends('layouts.master')
 
 @section('title')
@@ -19,26 +20,25 @@
                 <button onclick="cetakDokumen('{{ route('persetujuan_pengembangan.cetakDokumen') }}')" class="btn btn-info btn-xs btn-flat"><i class="fa fa-barcode"></i> Cetak Dokumen</button>
             </div>
             <div class="box-body table-responsive">
-                    @csrf
-                    <table class="table table-stiped table-bordered">
-                            <thead>
-                            <th width="5%">
-                                <input type="checkbox" name="select_all" id="select_all">
-                            </th>
-                            <th width="5%">No</th>
-                            <th>Nomor Proyek</th>
-                            <th>Nama Proyek</th>
-                            <th>Deskripsi Proyek</th>
-                            <th>Status Persetujuan</th>
-                            <th>Alasan Persetujuan</th>
-                            <th>Nama Pemohon</th>
-                            <th>Nama Peninjau</th>
-                            <th>Jabatan Peninjau</th>
-                            <th>Nama Penyetuju</th>
-                            <th width="15%"><i class="fa fa-cog"></i>
-                        </thead>
-                    </table>
-                </div>
+                @csrf
+                <table class="table table-stiped table-bordered">
+                    <thead>
+                    <th width="5%">
+                        <input type="checkbox" name="select_all" id="select_all">
+                    </th>
+                    <th width="5%">No</th>
+                    <th>Nomor Proyek</th>
+                    <th>Nama Proyek</th>
+                    <th>Deskripsi Proyek</th>
+                    <th>Status Persetujuan</th>
+                    <th>Alasan Persetujuan</th>
+                    <th>Nama Pemohon</th>
+                    <th>Nama Peninjau</th>
+                    <th>Jabatan Peninjau</th>
+                    <th>Nama Penyetuju</th>
+                    <th width="15%"><i class="fa fa-cog"></i></th>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
@@ -92,6 +92,18 @@
 
         $('[name=select_all]').on('click', function () {
             $(':checkbox').prop('checked', this.checked);
+        });
+
+        $('#id_mst_persetujuan').change(function () {
+            var id = $(this).val();
+            $.get('/get-alasan-persetujuan/' + id, function (data) {
+                var alasanSelect = $('#id_mst_persetujuanalasan');
+                alasanSelect.empty();
+                alasanSelect.append('<option value="">Pilih Alasan</option>');
+                $.each(data, function (key, value) {
+                    alasanSelect.append('<option value="' + key + '">' + value + '</option>');
+                });
+            });
         });
     });
 
@@ -147,6 +159,7 @@
                 });
         }
     }
+
     function cetakDokumen(url) {
         if ($('input:checked').length < 1) {
             alert('Pilih data yang akan dicetak');
