@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PerencanaanKebutuhan;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PerencanaanKebutuhanController extends Controller
 {
@@ -24,6 +25,11 @@ class PerencanaanKebutuhanController extends Controller
         return datatables()
             ->of($trx_perencanaan_kebutuhan)
             ->addIndexColumn()
+            ->addColumn('select_all', function ($trx_perencanaan_kebutuhan) {
+                return '
+                    <input type="checkbox" name="id_perencanaan_kebutuhan[]" value="'. $trx_perencanaan_kebutuhan->id_perencanaan_kebutuhan .'">
+                ';
+            })
             ->addColumn('aksi', function ($trx_perencanaan_kebutuhan) {
                 return '
                 <div class="btn-group">
@@ -32,7 +38,7 @@ class PerencanaanKebutuhanController extends Controller
                 </div>
                 ';
             })
-            ->rawColumns(['aksi'])
+            ->rawColumns(['aksi', 'select_all'])
             ->make(true);
     }
 
@@ -111,5 +117,22 @@ class PerencanaanKebutuhanController extends Controller
         $trx_perencanaan_kebutuhan->delete();
 
         return response(null, 204);
+    }
+
+    public function deleteSelected(Request $request)
+    {
+        $ids = $request->id_perencanaan_kebutuhan;
+        PerencanaanKebutuhan::whereIn('id_perencanaan_kebutuhan', $ids)->delete();
+        return response()->json('Data berhasil dihapus', 200);
+    }
+
+    public function cetakDokumen(Request $request)
+    {
+        $datakebutuhan = PerencanaanKebutuhan::whereIn('id_perencanaan_kebutuhan', $request->id_perencanaan_kebutuhan)->get();
+        $no  = 1;
+    
+        $pdf = PDF::loadView('perencanaan_kebutuhan.dokumen', compact('datakebutuhan', 'no'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('PerencanaanKebutuhan.pdf');
     }
 }

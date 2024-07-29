@@ -67,6 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/perencanaan_kebutuhan', [PerencanaanKebutuhanController::class, 'index'])->name('perencanaan_kebutuhan.index');
         Route::get('/perencanaan_kebutuhan/data', [PerencanaanKebutuhanController::class, 'data'])->name('perencanaan_kebutuhan.data');
         Route::post('/perencanaan_kebutuhan/delete-selected', [PerencanaanKebutuhanController::class, 'deleteSelected'])->name('perencanaan_kebutuhan.delete_selected');
+        Route::post('/perencanaan_kebutuhan/cetak-dokumen', [PerencanaanKebutuhanController::class, 'cetakDokumen'])->name('perencanaan_kebutuhan.cetakDokumen');
         Route::resource('/perencanaan_kebutuhan', PerencanaanKebutuhanController::class);
 
         Route::get('/analisis_desain', [AnalisisDesainController::class, 'index'])->name('analisis_desain.index');

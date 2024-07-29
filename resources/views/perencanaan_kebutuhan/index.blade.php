@@ -15,11 +15,16 @@
         <div class="box">
             <div class="box-header with-border">
                 <button onclick="addForm('{{ route('perencanaan_kebutuhan.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
+                <button onclick="deleteSelected('{{ route('perencanaan_kebutuhan.delete_selected') }}')" class="btn btn-danger btn-xs btn-flat"><i class="fa fa-trash"></i> Hapus</button>
+                <button onclick="cetakDokumen('{{ route('perencanaan_kebutuhan.cetakDokumen') }}')" class="btn btn-info btn-xs btn-flat"><i class="fa fa-barcode"></i> Cetak Dokumen</button>
             </div>
             <div class="box-body table-responsive">
                     @csrf
                     <table class="table table-stiped table-bordered">
                             <thead>
+                            <th width="5%">
+                                <input type="checkbox" name="select_all" id="select_all">
+                            </th>
                             <th width="5%">No</th>
                             <th>Nomor Proyek</th>
                             <th>Nama Proyek</th>
@@ -62,6 +67,7 @@
                 url: '{{ route('perencanaan_kebutuhan.data') }}',
             },
             columns: [
+                {data: 'select_all', searchable: false, sortable: false},
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
                 {data: 'id_perencanaan_kebutuhan'},
                 {data: 'nama_proyek'},
@@ -153,6 +159,62 @@
                     alert('Tidak dapat menghapus data');
                     return;
                 });
+        }
+    }
+
+    function deleteSelected(url) {
+        var ids = [];
+        $('[name="id_perencanaan_kebutuhan[]"]:checked').each(function () {
+            ids.push($(this).val());
+        });
+
+        if (ids.length > 0) {
+            if (confirm('Yakin ingin menghapus data terpilih?')) {
+                $.post(url, {
+                    '_token': $('[name=csrf-token]').attr('content'),
+                    '_method': 'delete',
+                    'id_perencanaan_kebutuhan': ids
+                })
+                .done((response) => {
+                    table.ajax.reload();
+                })
+                .fail((errors) => {
+                    alert('Tidak dapat menghapus data');
+                    return;
+                });
+            }
+        } else {
+            alert('Pilih data yang akan dihapus');
+        }
+    }
+
+    function cetakDokumen(url) {
+        if ($('input:checked').length < 1) {
+            alert('Pilih data yang akan dicetak');
+            return;
+        } else {
+            var form = $('<form>', {
+                'method': 'POST',
+                'action': url,
+                'target': '_blank'
+            });
+
+            form.append($('<input>', {
+                'type': 'hidden',
+                'name': '_token',
+                'value': '{{ csrf_token() }}'
+            }));
+
+            $('input:checked').each(function() {
+                form.append($('<input>', {
+                    'type': 'hidden',
+                    'name': 'id_perencanaan_kebutuhan[]',
+                    'value': $(this).val()
+                }));
+            });
+
+            $('body').append(form);
+            form.submit();
         }
     }
 </script>
