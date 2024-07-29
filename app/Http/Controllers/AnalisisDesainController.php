@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AnalisisDesain;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class AnalisisDesainController extends Controller
@@ -25,6 +26,11 @@ class AnalisisDesainController extends Controller
         return datatables()
             ->of($trx_analisis_desain)
             ->addIndexColumn()
+            ->addColumn('select_all', function ($trx_persetujuan_pengembangan) {
+                return '
+                    <input type="checkbox" name="id_persetujuan_pengembangan[]" value="'. $trx_persetujuan_pengembangan->id_persetujuan_pengembangan .'">
+                ';
+            })
             ->addColumn('aksi', function ($trx_analisis_desain) {
                 return '
                 <div class="btn-group">
@@ -33,7 +39,7 @@ class AnalisisDesainController extends Controller
                 </div>
                 ';
             })
-            ->rawColumns(['aksi'])
+            ->rawColumns(['aksi', 'select_all'])
             ->make(true);
     }
 
@@ -112,5 +118,22 @@ class AnalisisDesainController extends Controller
         $trx_analisis_desain->delete();
 
         return response(null, 204);
+    }
+
+    public function cetakDokumen(Request $request)
+    {
+        $dataanalisis = AnalisisDesain::whereIn('id_analisis_desain', $request->id_analisis_desain)->get();
+        $no  = 1;
+    
+        $pdf = PDF::loadView('analisis_desain.dokumen', compact('dataanalisis', 'no'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('analisis&desain.pdf');
+    }
+
+    public function deleteSelected(Request $request)
+    {
+        $ids = $request->id_analisis_desain;
+        AnalisisDesain::whereIn('id_analisis_desain', $ids)->delete();
+        return response()->json('Data berhasil dihapus', 200);
     }
 }
