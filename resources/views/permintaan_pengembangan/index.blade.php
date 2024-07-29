@@ -168,20 +168,28 @@
     }
 
     function deleteSelected(url) {
-        if ($('input:checked').length > 1) {
+        var ids = [];
+        $('[name="id_permintaan_pengembangan[]"]:checked').each(function () {
+            ids.push($(this).val());
+        });
+
+        if (ids.length > 0) {
             if (confirm('Yakin ingin menghapus data terpilih?')) {
-                $.post(url, $('.form-produk').serialize())
-                    .done((response) => {
-                        table.ajax.reload();
-                    })
-                    .fail((errors) => {
-                        alert('Tidak dapat menghapus data');
-                        return;
-                    });
+                $.post(url, {
+                    '_token': $('[name=csrf-token]').attr('content'),
+                    '_method': 'delete',
+                    'id_permintaan_pengembangan': ids
+                })
+                .done((response) => {
+                    table.ajax.reload();
+                })
+                .fail((errors) => {
+                    alert('Tidak dapat menghapus data');
+                    return;
+                });
             }
         } else {
             alert('Pilih data yang akan dihapus');
-            return;
         }
     }
 
@@ -189,14 +197,29 @@
         if ($('input:checked').length < 1) {
             alert('Pilih data yang akan dicetak');
             return;
-        } else if ($('input:checked').length > 3) {
-            alert('Pilih minimal 3 data untuk dicetak');
-            return;
         } else {
-            $('.form-produk')
-                .attr('target', '_blank')
-                .attr('action', url)
-                .submit();
+            var form = $('<form>', {
+                'method': 'POST',
+                'action': url,
+                'target': '_blank'
+            });
+
+            form.append($('<input>', {
+                'type': 'hidden',
+                'name': '_token',
+                'value': '{{ csrf_token() }}'
+            }));
+
+            $('input:checked').each(function() {
+                form.append($('<input>', {
+                    'type': 'hidden',
+                    'name': 'id_permintaan_pengembangan[]',
+                    'value': $(this).val()
+                }));
+            });
+
+            $('body').append(form);
+            form.submit();
         }
     }
 </script>

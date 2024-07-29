@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PermintaanPengembangan;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PermintaanPengembanganController extends Controller
 {
@@ -120,25 +120,18 @@ class PermintaanPengembanganController extends Controller
 
     public function deleteSelected(Request $request)
     {
-        foreach ($request->id_permintaan_pengembangan as $id) {
-            $trx_permintaan_pengembangan = PermintaanPengembangan::find($id);
-            $trx_permintaan_pengembangan->delete();
-        }
-
-        return response(null, 204);
+        $ids = $request->id_persetujuan_pengembangan;
+        PersetujuanPengembangan::whereIn('id_persetujuan_pengembangan', $ids)->delete();
+        return response()->json('Data berhasil dihapus', 200);
     }
 
     public function cetakDokumen(Request $request)
     {
-        $datapermintaan = array();
-        foreach ($request->id_permintaan_pengembangan as $id) {
-            $trx_permintaan_pengembangan = PermintaanPengembangan::find($id);
-            $datapermintaan[] = $trx_permintaan_pengembangan;
-        }
-
+        $datapermintaan = PermintaanPengembangan::whereIn('id_permintaan_pengembangan', $request->id_permintaan_pengembangan)->get();
         $no  = 1;
-        $pdf = PDF::loadView('trx_permintaan_pengembangan.dokumen', compact('datapermintaan', 'no'));
-        $pdf->setPaper('a4', 'potrait');
+    
+        $pdf = PDF::loadView('permintaan_pengembangan.dokumen', compact('datapermintaan', 'no'));
+        $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('permintaan.pdf');
     }
 }
