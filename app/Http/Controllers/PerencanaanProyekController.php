@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PermintaanPengembangan;
 use Illuminate\Http\Request;
 use App\Models\PerencanaanProyek;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PerencanaanProyekController extends Controller
 {
@@ -121,25 +121,19 @@ class PerencanaanProyekController extends Controller
 
     public function deleteSelected(Request $request)
     {
-        foreach ($request->id_perencanaan_proyek as $id) {
-            $trx_perencanaan_proyek = PerencanaanProyek::find($id);
-            $trx_perencanaan_proyek->delete();
-        }
-
-        return response(null, 204);
+        $ids = $request->id_perencanaan_proyek;
+        PerencanaanProyek::whereIn('id_perencanaan_proyek', $ids)->delete();
+        return response()->json('Data berhasil dihapus', 200);
     }
 
     public function cetakDokumen(Request $request)
     {
-        $dataperencanaan = array();
-        foreach ($request->id_perencanaan_proyek as $id) {
-            $trx_perencanaan_proyek = PerencanaanProyek::find($id);
-            $dataperencanaan[] = $trx_perencanaan_proyek;
-        }
-
+        $dataperencanaan = PerencanaanProyek::whereIn('id_perencanaan_proyek', $request->id_perencanaan_proyek)->get();
         $no  = 1;
-        $pdf = PDF::loadView('trx_perencanaan_proyek.dokumen', compact('dataperencanaan', 'no'));
-        $pdf->setPaper('a4', 'potrait');
-        return $pdf->stream('perencanaanproyek.pdf');
+    
+        $pdf = PDF::loadView('perencanaan_proyek.dokumen', compact('dataperencanaan', 'no'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('perencanaan.pdf');
     }
+    
 }

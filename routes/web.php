@@ -47,8 +47,8 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/perencanaan_proyek', [PerencanaanProyekController::class, 'index'])->name('perencanaan_proyek.index');
         Route::get('/perencanaan_proyek/data', [PerencanaanProyekController::class, 'data'])->name('perencanaan_proyek.data');
-        Route::post('/perencanaan_proyek/delete-selected', [PerencanaanProyekController::class, 'deleteSelected'])->name('perencanaan_proyek.delete_selected');
-        Route::post('/perencanaan_proyek/cetak-dokumen', [PerencanaanProyekController::class, 'cetakDokumen'])->name('perencanaan_proyek.cetak_dokumen');
+        Route::delete('perencanaan_proyek/delete_selected', [PerencanaanProyekController::class, 'deleteSelected'])->name('perencanaan_proyek.delete_selected');
+        Route::post('/perencanaan_proyek/cetak-dokumen', [PerencanaanProyekController::class, 'cetakDokumen'])->name('perencanaan_proyek.cetakDokumen');
         Route::resource('/perencanaan_proyek', PerencanaanProyekController::class);
 
         Route::get('/persetujuan_pengembangan', [PersetujuanPengembanganController::class, 'index'])->name('persetujuan_pengembangan.index');
