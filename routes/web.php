@@ -73,6 +73,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/analisis_desain', [AnalisisDesainController::class, 'index'])->name('analisis_desain.index');
         Route::get('/analisis_desain/data', [AnalisisDesainController::class, 'data'])->name('analisis_desain.data');
         Route::post('/analisis_desain/delete-selected', [AnalisisDesainController::class, 'deleteSelected'])->name('analisis_desain.delete_selected');
+        Route::post('/analisis_desain/cetak-dokumen', [AnalisisDesainController::class, 'cetakDokumen'])->name('analisis_desain.cetakDokumen');
         Route::resource('/analisis_desain', AnalisisDesainController::class);
 
         Route::get('/produk/data', [ProdukController::class, 'data'])->name('produk.data');
