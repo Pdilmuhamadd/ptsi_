@@ -1,6 +1,6 @@
 <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form">
     <div class="modal-dialog modal-lg" role="document">
-        <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
+        <form action="{{ route('permintaan_pengembangan.store') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
             @csrf
             @method('post')
 

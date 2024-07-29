@@ -27,7 +27,7 @@ class PermintaanPengembanganController extends Controller
             ->addIndexColumn()
             ->addColumn('select_all', function ($trx_permintaan_pengembangan) {
                 return '
-                    <input type="checkbox" name="id_persetujuan_pengembangan[]" value="'. $trx_permintaan_pengembangan->id_permintaan_pengembangan .'">
+                    <input type="checkbox" name="id_permintaan_pengembangan[]" value="'. $trx_permintaan_pengembangan->id_permintaan_pengembangan .'">
                 ';
             })
             ->addColumn('aksi', function ($trx_permintaan_pengembangan) {
@@ -60,11 +60,8 @@ class PermintaanPengembanganController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        if ($request->hasFile('lampiran')) {
-            $data['lampiran'] = $request->file('lampiran')->store('lampiran');
-        }
-        PermintaanPengembangan::create($data);
+        $trx_permintaan_pengembangan = PermintaanPengembangan::create($request->all());
+        $trx_permintaan_pengembangan->save();
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -100,13 +97,9 @@ class PermintaanPengembanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_permintaan_pengembangan)
     {
-        $data = $request->all();
-        if ($request->hasFile('lampiran')) {
-            $data['lampiran'] = $request->file('lampiran')->store('lampiran');
-        }
-        PermintaanPengembangan::find($id)->update($data);
+        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id_permintaan_pengembangan)->update($request->all());
 
         return response()->json('Data berhasil diperbarui', 200);
     }
@@ -117,9 +110,9 @@ class PermintaanPengembanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_permintaan_pengembangan)
     {
-        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id);
+        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id_permintaan_pengembangan);
         $trx_permintaan_pengembangan->delete();
 
         return response(null, 204);
@@ -149,4 +142,3 @@ class PermintaanPengembanganController extends Controller
         return $pdf->stream('permintaan.pdf');
     }
 }
-
