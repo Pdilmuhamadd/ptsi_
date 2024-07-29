@@ -38,10 +38,10 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="id_persetujuan" class="col-lg-2 col-lg-offset-1 control-label">Status Persetujuan</label>
+                        <label for="id_mst_persetujuan" class="col-lg-2 col-lg-offset-1 control-label">Status Persetujuan</label>
                         <div class="col-lg-6">
-                            <select name="id_persetujuan" id="id_persetujuan" class="form-control" required>
-                                <option value="">Pilih Persetujuan</option>
+                            <select name="id_mst_persetujuan" id="id_mst_persetujuan" class="form-control" required>
+                                <option value="">Pilih Status Persetujuan</option>
                                 @foreach ($mst_persetujuan as $key => $item)
                                     <option value="{{ $key }}">{{ $item }}</option>
                                 @endforeach
@@ -50,9 +50,14 @@
                         </div>
                     </div>                    
                     <div class="form-group row">
-                        <label for="alasan_persetujuan" class="col-lg-2 col-lg-offset-1 control-label">Alasan Persetujuan</label>
+                        <label for="id_mst_persetujuanalasan" class="col-lg-2 col-lg-offset-1 control-label">Alasan Persetujuan</label>
                         <div class="col-lg-6">
-                            <input type="text" name="alasan_persetujuan" id="alasan_persetujuan" class="form-control" required autofocus></input>
+                            <select name="id_mst_persetujuanalasan" id="id_mst_persetujuanalasan" class="form-control" required>
+                                <option value="">Pilih Alasan</option>
+                                @foreach ($mst_persetujuanalasan as $key => $item)
+                                    <option value="{{ $key }}">{{ $item }}</option>
+                                @endforeach
+                            </select>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
