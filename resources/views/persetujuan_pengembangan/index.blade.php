@@ -164,14 +164,29 @@
         if ($('input:checked').length < 1) {
             alert('Pilih data yang akan dicetak');
             return;
-        } else if ($('input:checked').length < 3) {
-            alert('Pilih minimal 3 data untuk dicetak');
-            return;
         } else {
-            $('.form-produk')
-                .attr('target', '_blank')
-                .attr('action', url)
-                .submit();
+            var form = $('<form>', {
+                'method': 'POST',
+                'action': url,
+                'target': '_blank'
+            });
+
+            form.append($('<input>', {
+                'type': 'hidden',
+                'name': '_token',
+                'value': '{{ csrf_token() }}'
+            }));
+
+            $('input:checked').each(function() {
+                form.append($('<input>', {
+                    'type': 'hidden',
+                    'name': 'id_persetujuan_pengembangan[]',
+                    'value': $(this).val()
+                }));
+            });
+
+            $('body').append(form);
+            form.submit();
         }
     }
 </script>

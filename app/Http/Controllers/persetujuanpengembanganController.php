@@ -7,7 +7,7 @@ use App\Models\Persetujuan;
 use App\Models\PersetujuanAlasan;
 use Illuminate\Http\Request;
 use App\Models\PersetujuanPengembangan;
-use pdf;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PersetujuanPengembanganController extends Controller
 {
@@ -135,15 +135,11 @@ class PersetujuanPengembanganController extends Controller
 
     public function cetakDokumen(Request $request)
     {
-        $datapersetujuan = array();
-        foreach ($request->id_persetujuan_pengembangan as $id) {
-            $trx_persetujuan_pengembangan = PersetujuanPengembangan::find($id);
-            $datapersetujuan[] = $trx_persetujuan_pengembangan;
-        }
-
+        $datapersetujuan = PersetujuanPengembangan::whereIn('id_persetujuan_pengembangan', $request->id_persetujuan_pengembangan)->get();
         $no  = 1;
-        $pdf = PDF::loadView('trx_persetujuan_pengembangan.dokumen', compact('datapersetujuan', 'no'));
-        $pdf->setPaper('a4', 'potrait');
+    
+        $pdf = PDF::loadView('persetujuan_pengembangan.dokumen', compact('datapersetujuan', 'no'));
+        $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('persetujuan.pdf');
     }
 
