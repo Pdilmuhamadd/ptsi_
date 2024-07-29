@@ -160,6 +160,32 @@
         }
     }
 
+    function deleteSelected(url) {
+        var ids = [];
+        $('[name="id_persetujuan_pengembangan[]"]:checked').each(function () {
+            ids.push($(this).val());
+        });
+
+        if (ids.length > 0) {
+            if (confirm('Yakin ingin menghapus data terpilih?')) {
+                $.post(url, {
+                    '_token': $('[name=csrf-token]').attr('content'),
+                    '_method': 'delete',
+                    'id_persetujuan_pengembangan': ids
+                })
+                .done((response) => {
+                    table.ajax.reload();
+                })
+                .fail((errors) => {
+                    alert('Tidak dapat menghapus data');
+                    return;
+                });
+            }
+        } else {
+            alert('Pilih data yang akan dihapus');
+        }
+    }
+
     function cetakDokumen(url) {
         if ($('input:checked').length < 1) {
             alert('Pilih data yang akan dicetak');

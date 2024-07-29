@@ -148,5 +148,12 @@ class PersetujuanPengembanganController extends Controller
         $alasan = PersetujuanAlasan::where('id_mst_persetujuan', $id_mst_persetujuan)->pluck('nama_alasan', 'id_mst_persetujuanalasan');
         return response()->json($alasan);
     }
+
+    public function deleteSelected(Request $request)
+    {
+        $ids = $request->id_persetujuan_pengembangan;
+        PersetujuanPengembangan::whereIn('id_persetujuan_pengembangan', $ids)->delete();
+        return response()->json('Data berhasil dihapus', 200);
+    }
 }
 
