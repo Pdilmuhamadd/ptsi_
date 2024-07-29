@@ -42,9 +42,9 @@
                         <div class="col-lg-6">
                             <select name="status_persetujuan" id="status_persetujuan" class="form-control" required>
                                 <option selected>-- Pilih Persetujuan --</option>
-                                <option value="disetujui">Disetujui</option>
-                                <option value="tidak_disetujui">Ditolak</option>
-                                <option value="ditunda">Direvisi</option>
+                                <option value="Disetujui">Disetujui</option>
+                                <option value="Ditolak">Ditolak</option>
+                                <option value="Direvisi">Direvisi</option>
                             </select>
                             <span class="help-block with-errors"></span>
                         </div>

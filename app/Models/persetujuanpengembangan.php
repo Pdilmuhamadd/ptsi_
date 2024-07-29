@@ -11,7 +11,5 @@ class PersetujuanPengembangan extends Model
 
     protected $table = 'trx_persetujuan_pengembangan';
     protected $primaryKey = 'id_persetujuan_pengembangan';
-    protected $fillable = [
-        'nomor_proyek','nama_proyek','deskripsi','status_persetujuan', 'alasan_persetujuan','namapemohon', 'namapeninjau', 'jabatanpeninjau', 'namapenyetuju'
-    ];
+    protected $guarded = [];
 }
