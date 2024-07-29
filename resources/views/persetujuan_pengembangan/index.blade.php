@@ -66,7 +66,7 @@
                 {data: 'nomor_proyek'},
                 {data: 'nama_proyek'},
                 {data: 'deskripsi'},
-                {data: 'status_persetujuan'},
+                {data: 'nama_persetujuan'},
                 {data: 'alasan_persetujuan'},
                 {data: 'namapemohon'},
                 {data: 'namapeninjau'},
@@ -75,7 +75,7 @@
                 {data: 'aksi', searchable: false, sortable: false},
             ],
         });
-
+    
         $('#modal-form').validator().on('submit', function (e) {
             if (!e.preventDefault()) {
                 $.post($('#modal-form form').attr('action'), $('#modal-form form').serialize())
@@ -89,38 +89,37 @@
                     });
             }
         });
-
+    
         $('[name=select_all]').on('click', function () {
             $(':checkbox').prop('checked', this.checked);
         });
     });
-
-
+    
     function addForm(url) {
         $('#modal-form').modal('show');
         $('#modal-form .modal-title').text('Tambah Persetujuan Pengembangan');
-
+    
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('post');
         $('#modal-form [name=nama_proyek]').focus();
     }
-
+    
     function editForm(url) {
         $('#modal-form').modal('show');
         $('#modal-form .modal-title').text('Edit Persetujuan Pengembangan');
-
+    
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('put');
         $('#modal-form [name=nama_proyek]').focus();
-
+    
         $.get(url)
             .done((response) => {
                 $('#modal-form [name=id_permintaan_pengembangan]').val(response.id_permintaan_pengembangan);
                 $('#modal-form [name=nama_proyek]').val(response.nama_proyek);
-                $('#modal-form [name=deskripsi]').val(response.deksripsi);
-                $('#modal-form [name=status_persetujuan]').val(response.status_persetujuan);
+                $('#modal-form [name=deskripsi]').val(response.deskripsi);
+                $('#modal-form [name=id_persetujuan]').val(response.id_persetujuan);
                 $('#modal-form [name=alasan_persetujuan]').val(response.alasan_persetujuan);
                 $('#modal-form [name=namapemohon]').val(response.namapemohon);
                 $('#modal-form [name=namapeninjau]').val(response.namapeninjau);
@@ -132,7 +131,7 @@
                 return;
             });
     }
-
+    
     function deleteData(url) {
         if (confirm('Yakin ingin menghapus data terpilih?')) {
             $.post(url, {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PermintaanPengembangan;
+use App\Models\Persetujuan;
 use Illuminate\Http\Request;
 use App\Models\PersetujuanPengembangan;
 use pdf;
@@ -17,17 +18,18 @@ class PersetujuanPengembanganController extends Controller
     public function index()
     {
         $trx_permintaan_pengembangan = PermintaanPengembangan::all()->pluck('nomor_proyek', 'id_permintaan_pengembangan');
+        $mst_persetujuan = Persetujuan::all()->pluck('nama_persetujuan', 'id_mst_persetujuan');
 
-        return view('persetujuan_pengembangan.index', compact('trx_permintaan_pengembangan'));
+        return view('persetujuan_pengembangan.index', compact('trx_permintaan_pengembangan', 'mst_persetujuan'));
     }
 
     public function data()
     {
-        $trx_persetujuan_pengembangan = PersetujuanPengembangan::leftJoin('trx_permintaan_pengembangan', 'trx_permintaan_pengembangan.id_permintaan_pengembangan', 'trx_persetujuan_pengembangan.id_permintaan_pengembangan')
-            ->select('trx_persetujuan_pengembangan.*', 'nomor_proyek')
-            // ->orderBy('kode_produk', 'asc')
+        $trx_persetujuan_pengembangan = PersetujuanPengembangan::leftJoin('trx_permintaan_pengembangan', 'trx_permintaan_pengembangan.id_permintaan_pengembangan', '=', 'trx_persetujuan_pengembangan.id_permintaan_pengembangan')
+            ->leftJoin('mst_persetujuan', 'mst_persetujuan.id_mst_persetujuan', '=', 'trx_persetujuan_pengembangan.id_persetujuan')
+            ->select('trx_persetujuan_pengembangan.*', 'trx_permintaan_pengembangan.nomor_proyek', 'mst_persetujuan.nama_persetujuan')
             ->get();
-
+    
         return datatables()
             ->of($trx_persetujuan_pengembangan)
             ->addIndexColumn()
@@ -47,6 +49,8 @@ class PersetujuanPengembanganController extends Controller
             ->rawColumns(['aksi', 'select_all'])
             ->make(true);
     }
+    
+
 
     /**
      * Show the form for creating a new resource.
