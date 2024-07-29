@@ -143,7 +143,7 @@
                     <td>{{ $persetujuan->nama_penyetuju }}</td>
                 </tr>
             </table>
-            <div class="text-right"><strong>Tanggal:</strong> {{ \Carbon\Carbon::parse($persetujuan->created_at)->format('d M Y') }}</div>
+            <div class="text-right"><strong>Tanggal:</strong> {{ \Carbon\Carbon::parse($persetujuan->created_at)->format('d M, Y') }}</div>
         </div>
 
         @if ($loop->iteration % 3 == 0)

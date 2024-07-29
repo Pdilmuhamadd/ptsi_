@@ -18,7 +18,7 @@
             <div class="inner">
                 <h3>{{ $trx_permintaan_pengembangan }}</h3>
 
-                <p>Permintaan Pengembangan <br>5%</br> </p>
+                <p>Permintaan Pengembangan </p>
             </div>
             <div class="icon">
                 <i class="fa fa-envelope-o"></i>
@@ -34,7 +34,7 @@
             <div class="inner">
                 <h3>{{ $trx_persetujuan_pengembangan }}</h3>
 
-                <p>Persetujuan Pengembangan <br>5%</br> </p>
+                <p>Persetujuan Pengembangan </p>
             </div>
             <div class="icon">
                 <i class="fa fa-check-square-o"></i>
@@ -49,7 +49,7 @@
             <div class="inner">
                 <h3>{{ $trx_perencanaan_proyek }}</h3>
 
-                <p>Perencanaan Proyek <br>5%</br> </p>
+                <p>Perencanaan Proyek </p>
             </div>
             <div class="icon">
                 <i class="fa fa-map-o"></i>
@@ -64,7 +64,7 @@
             <div class="inner">
                 <h3>{{ $trx_perencanaan_kebutuhan}}</h3>
 
-                <p>Perencanaan Kebutuhan <br>5%</br> </p>
+                <p>Perencanaan Kebutuhan </p>
             </div>
             <div class="icon">
                 <i class="fa fa-book"></i>
@@ -79,7 +79,7 @@
             <div class="inner">
                 <h3>{{ $trx_analisis_desain}}</h3>
 
-                <p>Analisis & Desain<br>5%</br> </p>
+                <p>Analisis & Desain</p>
             </div>
             <div class="icon">
                 <i class="fa fa-pencil-square-o"></i>
