@@ -128,12 +128,14 @@ class PerencanaanProyekController extends Controller
 
     public function cetakDokumen(Request $request)
     {
+        set_time_limit(300);
+
         $dataperencanaan = PerencanaanProyek::whereIn('id_perencanaan_proyek', $request->id_perencanaan_proyek)->get();
         $no  = 1;
-    
+
         $pdf = PDF::loadView('perencanaan_proyek.dokumen', compact('dataperencanaan', 'no'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('perencanaan.pdf');
     }
-    
+
 }

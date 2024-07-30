@@ -12,7 +12,6 @@
             color: #333;
         }
         .header {
-            text-align: center;
             margin-bottom: 20px;
         }
         .header h2 {
@@ -56,31 +55,33 @@
 <div class="header">
     <table>
         <tr>
-            <td rowspan="2">
+            <td rowspan="4">
                 <img src="{{ asset('path_to_logo_image.png') }}" alt="Logo" width="100">
             </td>
-            <td class="text-center">
+            <td rowspan="4" class="text-center">
                 <h2>Perencanaan Proyek</h2>
                 <h2>Pengembangan Sistem Informasi</h2>
             </td>
-            <td class="no-border"></td>
+            <td>No. Dokumen</td>
+            <td>FP-DTI03-08</td>
         </tr>
         <tr>
-            <td class="text-center no-border">
-                <p>No. Dokumen: FP-DTI03-08</p>
-                <p>No. Revisi: 0</p>
-                <p>Tanggal Revisi: 2024</p>
-                <p>Halaman: 1</p>
-            </td>
-            <td class="no-border"></td>
+            <td>No. Revisi</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>Tanggal Revisi</td>
+            <td>2024</td>
+        </tr>
+        <tr>
+            <td>Halaman</td>
+            <td>1</td>
         </tr>
     </table>
 </div>
 
+<h3 class="text-center bold">PERENCANAAN PROYEK</h3>
 <table>
-    <tr>
-        <th colspan="2" class="text-left bold">PERENCANAAN PROYEK</th>
-    </tr>
     <tr>
         <td>Nomor Proyek</td>
         <td>xxxxxxxxxxxxxx (Nomor Proyek Perlu disepakati)</td>
@@ -119,28 +120,22 @@
     </tr>
 </table>
 
-<table>
+<table class="table">
     <tr>
         <th class="text-center" colspan="2">Disiapkan oleh</th>
         <th class="text-center" colspan="2">Disetujui oleh</th>
     </tr>
     <tr>
-        <td class="text-center">Nama Pemohon</td>
-        <td class="text-center">Jabatan Pemohon</td>
-        <td class="text-center">Nama</td>
-        <td class="text-center">Jabatan</td>
+        <td colspan="2" style="height: 100px;"></td>
+        <td colspan="2" style="height: 100px;"></td>
     </tr>
     <tr>
-        <td class="text-center">{{ $perencanaan->nama_pemohon }}</td>
-        <td class="text-center">{{ $perencanaan->jabatan_pemohon }}</td>
-        <td class="text-center">{{ $perencanaan->nama }}</td>
-        <td class="text-center">{{ $perencanaan->jabatan }}</td>
+        <td class="text-center" colspan="2">{{ $perencanaan->nama_pemohon }}<br>{{$perencanaan->jabatan_pemohon}}</td>
+        <td class="text-center" colspan="2">{{ $perencanaan->nama }}<br>{{$perencanaan->jabatan}}</td>
     </tr>
     <tr>
-        <td class="text-center">{{ \Carbon\Carbon::parse($perencanaan->tanggal_disiapkan)->format('d M Y') }}</td>
-        <td></td>
-        <td class="text-center">{{ \Carbon\Carbon::parse($perencanaan->tanggal_disetujui)->format('d M Y') }}</td>
-        <td></td>
+        <td class="text-center" colspan="2">Tanggal: {{ \Carbon\Carbon::parse($perencanaan->tanggal_disiapkan)->format('d-m-Y') }}</td>
+        <td class="text-center" colspan="2">Tanggal: {{ \Carbon\Carbon::parse($perencanaan->tanggal_disetujui)->format('d-m-Y') }}</td>
     </tr>
 </table>
 
