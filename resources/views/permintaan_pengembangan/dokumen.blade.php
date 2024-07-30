@@ -20,6 +20,9 @@
         .text-left {
             text-align: left;
         }
+        .text-right{
+            text-align: right;
+        }
         .table {
             width: 100%;
             border-collapse: collapse;
@@ -41,6 +44,7 @@
             width: 100px;
         }
         .doc-info {
+            text-align: right;
             width: 250px;
             font-size: 12px;
         }
@@ -67,16 +71,16 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3" class="text-center"><strong>NO: 001</strong></td>
+            <td class="text-center" colspan="2"><strong>INFO KEBUTUHAN SISTEM INFORMASI</strong></td>
+        </tr>
+        <tr>
+            <td colspan="3" class="text-right"><strong>NO: {{ $datapermintaan->first()->nomor_proyek }}</strong></td>
         </tr>
     </table>
 
     <br>
 
     <table class="table">
-        <tr>
-            <td class="text-left" colspan="2"><strong>INFO KEBUTUHAN SISTEM INFORMASI</strong></td>
-        </tr>
         @foreach ($datapermintaan as $permintaan)
         <tr>
             <td class="text-left" width="30%">Latar Belakang</td>
@@ -131,9 +135,6 @@
                 <p>Tanggal Revisi: 2024</p>
                 <p>Halaman: 2</p>
             </td>
-        </tr>
-        <tr>
-            <td colspan="3" class="text-center"><strong>NO: 001</strong></td>
         </tr>
     </table>
 
