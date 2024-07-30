@@ -1,3 +1,6 @@
+@php
+use Carbon\Carbon;
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +63,7 @@
             <td>
                 <img src="{{ asset('img/logo_ptsi.png') }}" alt="Logo" class="logo">
             </td>
-            <td class="text-center">
+            <td class="text-align-center">
                 <h3>Permintaan Pengembangan Sistem Informasi</h3>
             </td>
             <td class="doc-info">
@@ -150,14 +153,14 @@
             <td colspan="2" style="height: 100px;"></td>
         </tr>
         <tr>
-            <td class="text-center">{{ $permintaan->nama_pemohon }}-></td>
+            <td class="text-center">{{ $permintaan->nama_pemohon }}</td>
             <td class="text-center">{{ $permintaan->jabatan_pemohon }}</td>
             <td class="text-center">{{ $permintaan->nama }}</td>
             <td class="text-center">{{ $permintaan->jabatan }}</td>
         </tr>
         <tr>
-            <td class="text-center" colspan="2">{{ $permintaan->tanggal_disiapkan }}</td>
-            <td class="text-center" colspan="2">{{ $permintaan->tanggal_disetujui }}</td>
+            <td class="text-center" colspan="2"> {{ \Carbon\Carbon::parse($permintaan->tanggal_disiapkan)->format('d-m-Y') }}</td>
+            <td class="text-center" colspan="2"> {{ \Carbon\Carbon::parse($permintaan->tanggal_disetujui)->format('d-m-Y') }}</td>
         </tr>
     </table>
 </body>
