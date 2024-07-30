@@ -21,10 +21,10 @@ class PersetujuanPengembanganController extends Controller
         $trx_permintaan_pengembangan = PermintaanPengembangan::all()->pluck('nomor_proyek', 'id_permintaan_pengembangan');
         $mst_persetujuan = Persetujuan::all()->pluck('nama_persetujuan', 'id_mst_persetujuan');
         $mst_persetujuanalasan = PersetujuanAlasan::all()->pluck('nama_alasan', 'id_mst_persetujuanalasan');
-        
+
         return view('persetujuan_pengembangan.index', compact('trx_permintaan_pengembangan', 'mst_persetujuan', 'mst_persetujuanalasan'));
     }
-    
+
 
     public function data()
     {
@@ -33,7 +33,7 @@ class PersetujuanPengembanganController extends Controller
             ->leftJoin('mst_persetujuanalasan', 'mst_persetujuanalasan.id_mst_persetujuanalasan', '=', 'trx_persetujuan_pengembangan.id_mst_persetujuanalasan')
             ->select('trx_persetujuan_pengembangan.*', 'trx_permintaan_pengembangan.nomor_proyek', 'mst_persetujuan.nama_persetujuan', 'mst_persetujuanalasan.nama_alasan')
             ->get();
-    
+
         return datatables()
             ->of($trx_persetujuan_pengembangan)
             ->addIndexColumn()
@@ -53,7 +53,7 @@ class PersetujuanPengembanganController extends Controller
             ->rawColumns(['aksi', 'select_all'])
             ->make(true);
     }
-    
+
 
 
     /**
@@ -135,9 +135,11 @@ class PersetujuanPengembanganController extends Controller
 
     public function cetakDokumen(Request $request)
     {
+        set_time_limit(300);
+
         $datapersetujuan = PersetujuanPengembangan::whereIn('id_persetujuan_pengembangan', $request->id_persetujuan_pengembangan)->get();
         $no  = 1;
-    
+
         $pdf = PDF::loadView('persetujuan_pengembangan.dokumen', compact('datapersetujuan', 'no'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('persetujuan.pdf');

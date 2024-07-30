@@ -120,8 +120,8 @@ class PermintaanPengembanganController extends Controller
 
     public function deleteSelected(Request $request)
     {
-        $ids = $request->id_persetujuan_pengembangan;
-        PersetujuanPengembangan::whereIn('id_persetujuan_pengembangan', $ids)->delete();
+        $ids = $request->id_permintaan_pengembangan;
+        PermintaanPengembangan::whereIn('id_permintaan_pengembangan', $ids)->delete();
         return response()->json('Data berhasil dihapus', 200);
     }
 
