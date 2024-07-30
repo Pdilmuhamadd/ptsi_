@@ -127,9 +127,11 @@ class PermintaanPengembanganController extends Controller
 
     public function cetakDokumen(Request $request)
     {
+        set_time_limit(300);
+
         $datapermintaan = PermintaanPengembangan::whereIn('id_permintaan_pengembangan', $request->id_permintaan_pengembangan)->get();
         $no  = 1;
-    
+
         $pdf = PDF::loadView('permintaan_pengembangan.dokumen', compact('datapermintaan', 'no'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('permintaan.pdf');
