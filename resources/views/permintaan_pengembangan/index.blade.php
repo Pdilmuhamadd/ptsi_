@@ -21,27 +21,27 @@
             <div class="box-body table-responsive">
                     @csrf
                     <table class="table table-stiped table-bordered">
-                            <thead>
-                            <th width="5%">
-                                <input type="checkbox" name="select_all" id="select_all">
-                            </th>
-                            <th width="5%">No</th>
-                            <th>Nomor Proyek</th>
-                            <th>Latar Belakang</th>
-                            <th>Tujuan</th>
-                            <th>Target Implementasi Sistem</th>
-                            <th>Fungsi Sistem Informasi</th>
-                            <th>Jenis Aplikasi</th>
-                            <th>Pengguna</th>
-                            <th>Uraian Permintaan Tambahan/Khusus</th>
-                            <th>Lampiran</th>
-                            <th>Nama Pemohon</th>
-                            <th>Jabatan Pemohon</th>
-                            <th>Tanggal Disiapkan</th>
-                            <th>Nama</th>
-                            <th>Jabatan</th>
-                            <th>Tanggal Disetujui</th>
-                            <th width="15%"><i class="fa fa-cog"></i>
+                        <thead>
+                        <th width="5%">
+                            <input type="checkbox" name="select_all" id="select_all">
+                        </th>
+                        <th width="5%">No</th>
+                        <th>Nomor Proyek</th>
+                        <th>Latar Belakang</th>
+                        <th>Tujuan</th>
+                        <th>Target Implementasi Sistem</th>
+                        <th>Fungsi Sistem Informasi</th>
+                        <th>Jenis Aplikasi</th>
+                        <th>Pengguna</th>
+                        <th>Uraian Permintaan Tambahan/Khusus</th>
+                        <th>Lampiran</th>
+                        <th>Nama Pemohon</th>
+                        <th>Jabatan Pemohon</th>
+                        <th>Tanggal Disiapkan</th>
+                        <th>Nama</th>
+                        <th>Jabatan</th>
+                        <th>Tanggal Disetujui</th>
+                        <th width="15%"><i class="fa fa-cog"></i>
                         </thead>
                     </table>
                 </div>
@@ -192,6 +192,7 @@
             alert('Pilih data yang akan dihapus');
         }
     }
+
 
     function cetakDokumen(url) {
         if ($('input:checked').length < 1) {
