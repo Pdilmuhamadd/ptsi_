@@ -37,7 +37,6 @@ use Carbon\Carbon;
             padding: 5px;
         }
         .header-table, .header-table td {
-            border: none;
             padding: 5px;
         }
         .header-table {
@@ -63,7 +62,7 @@ use Carbon\Carbon;
             <td>
                 <img src="{{ asset('img/logo_ptsi.png') }}" alt="Logo" class="logo">
             </td>
-            <td class="text-align-center">
+            <td class="text-center">
                 <h3>Permintaan Pengembangan Sistem Informasi</h3>
             </td>
             <td class="doc-info">
@@ -73,16 +72,11 @@ use Carbon\Carbon;
                 <p>Halaman: 1</p>
             </td>
         </tr>
-        <tr>
-            <td class="text-center" colspan="2"><strong>INFO KEBUTUHAN SISTEM INFORMASI</strong></td>
-        </tr>
-        <tr>
-            <td colspan="3" class="text-right"><strong>NO: {{ $datapermintaan->first()->nomor_proyek }}</strong></td>
-        </tr>
     </table>
 
     <br>
-
+    <h3 class="text-center bold">INFO KEBUTUHAN SISTEM INFORMASI</h3>
+    <h3 class="text-right"><strong>NO: {{ $datapermintaan->first()->nomor_proyek }}</strong></h3>
     <table class="table">
         @foreach ($datapermintaan as $permintaan)
         <tr>
@@ -153,14 +147,12 @@ use Carbon\Carbon;
             <td colspan="2" style="height: 100px;"></td>
         </tr>
         <tr>
-            <td class="text-center">{{ $permintaan->nama_pemohon }}</td>
-            <td class="text-center">{{ $permintaan->jabatan_pemohon }}</td>
-            <td class="text-center">{{ $permintaan->nama }}</td>
-            <td class="text-center">{{ $permintaan->jabatan }}</td>
+            <td class="text-center" colspan="2">{{ $permintaan->nama_pemohon }}<br>{{$permintaan->jabatan_pemohon}}</td>
+            <td class="text-center" colspan="2">{{ $permintaan->nama }}<br>{{$permintaan->jabatan}}</td>
         </tr>
         <tr>
-            <td class="text-center" colspan="2"> {{ \Carbon\Carbon::parse($permintaan->tanggal_disiapkan)->format('d-m-Y') }}</td>
-            <td class="text-center" colspan="2"> {{ \Carbon\Carbon::parse($permintaan->tanggal_disetujui)->format('d-m-Y') }}</td>
+            <td class="text-center" colspan="2">Tanggal: {{ \Carbon\Carbon::parse($permintaan->tanggal_disiapkan)->format('d-m-Y') }}</td>
+            <td class="text-center" colspan="2">Tanggal: {{ \Carbon\Carbon::parse($permintaan->tanggal_disetujui)->format('d-m-Y') }}</td>
         </tr>
     </table>
 </body>
