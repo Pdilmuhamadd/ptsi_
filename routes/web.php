@@ -60,19 +60,19 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/permintaan_pengembangan', [PermintaanPengembanganController::class, 'index'])->name('permintaan_pengembangan.index');
         Route::get('/permintaan_pengembangan/data', [PermintaanPengembanganController::class, 'data'])->name('permintaan_pengembangan.data');
-        Route::post('/permintaan_pengembangan/delete-selected', [PermintaanPengembanganController::class, 'deleteSelected'])->name('permintaan_pengembangan.delete_selected');
+        Route::delete('permintaan_pengembangan/delete_selected', [PermintaanPengembanganController::class, 'deleteSelected'])->name('permintaan_pengembangan.delete_selected');
         Route::post('/permintaan_pengembangan/cetak-dokumen', [PermintaanPengembanganController::class, 'cetakDokumen'])->name('permintaan_pengembangan.cetakDokumen');
         Route::resource('/permintaan_pengembangan', PermintaanPengembanganController::class);
 
         Route::get('/perencanaan_kebutuhan', [PerencanaanKebutuhanController::class, 'index'])->name('perencanaan_kebutuhan.index');
         Route::get('/perencanaan_kebutuhan/data', [PerencanaanKebutuhanController::class, 'data'])->name('perencanaan_kebutuhan.data');
-        Route::post('/perencanaan_kebutuhan/delete-selected', [PerencanaanKebutuhanController::class, 'deleteSelected'])->name('perencanaan_kebutuhan.delete_selected');
+        Route::delete('perencanaan_kebutuhan/delete_selected', [PerencanaanKebutuhanController::class, 'deleteSelected'])->name('perencanaan_kebutuhan.delete_selected');
         Route::post('/perencanaan_kebutuhan/cetak-dokumen', [PerencanaanKebutuhanController::class, 'cetakDokumen'])->name('perencanaan_kebutuhan.cetakDokumen');
         Route::resource('/perencanaan_kebutuhan', PerencanaanKebutuhanController::class);
 
         Route::get('/analisis_desain', [AnalisisDesainController::class, 'index'])->name('analisis_desain.index');
         Route::get('/analisis_desain/data', [AnalisisDesainController::class, 'data'])->name('analisis_desain.data');
-        Route::post('/analisis_desain/delete-selected', [AnalisisDesainController::class, 'deleteSelected'])->name('analisis_desain.delete_selected');
+        Route::delete('analisis_desain/delete_selected', [AnalisisDesainController::class, 'deleteSelected'])->name('analisis_desain.delete_selected');
         Route::post('/analisis_desain/cetak-dokumen', [AnalisisDesainController::class, 'cetakDokumen'])->name('analisis_desain.cetakDokumen');
         Route::resource('/analisis_desain', AnalisisDesainController::class);
 
