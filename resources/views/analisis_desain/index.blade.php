@@ -89,19 +89,22 @@
     });
 
     $('#modal-form').validator().on('submit', function (e) {
-        if (!e.preventDefault()) {
-            $.post($('#modal-form form').attr('action'), $('#modal-form form').serialize())
-                .done((response) => {
-                    $('#modal-form').modal('hide');
-                    table.ajax.reload();
-                })
-                .fail((errors) => {
-                    // Log errors for debugging
-                    console.error(errors);
-                    alert('Tidak dapat menyimpan data. Periksa kembali input Anda.');
-                });
-        }
-    });
+            if (!e.preventDefault()) {
+                $.post($('#modal-form form').attr('action'), $('#modal-form form').serialize())
+                    .done((response) => {
+                        $('#modal-form').modal('hide');
+                        table.ajax.reload();
+                    })
+                    .fail((errors) => {
+                        alert('Tidak dapat menyimpan data');
+                        return;
+                    });
+            }
+        });
+
+        $('[name=select_all]').on('click', function () {
+            $(':checkbox').prop('checked', this.checked);
+        });
     });
 
     function addForm(url) {

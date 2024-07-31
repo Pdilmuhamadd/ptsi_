@@ -69,21 +69,21 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="namapeninjau" class="col-lg-2 col-lg-offset-1 control-label">Nama Peninjau</label>
+                        <label for="namapeninjau" class="col-lg-2 col-lg-offset-1 control-label">Nama Penyetuju</label>
                         <div class="col-lg-6">
                             <input type="text" name="namapeninjau" id="namapeninjau" class="form-control" required autofocus></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="jabatanpeninjau" class="col-lg-2 col-lg-offset-1 control-label">Jabatan Peninjau</label>
+                        <label for="jabatanpeninjau" class="col-lg-2 col-lg-offset-1 control-label">Jabatan Pemohon</label>
                         <div class="col-lg-6">
                             <input type="text" name="jabatanpeninjau" id="jabatanpeninjau" class="form-control" required autofocus></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="namapenyetuju" class="col-lg-2 col-lg-offset-1 control-label">Disetujui Oleh</label>
+                        <label for="namapenyetuju" class="col-lg-2 col-lg-offset-1 control-label">Jabatan Penyetuju</label>
                         <div class="col-lg-6">
                             <input type="text" name="namapenyetuju" id="namapenyetuju" class="form-control" required autofocus></input>
                             <span class="help-block with-errors"></span>

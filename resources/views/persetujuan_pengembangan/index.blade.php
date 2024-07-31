@@ -33,9 +33,9 @@
                     <th>Status Persetujuan</th>
                     <th>Alasan Persetujuan</th>
                     <th>Nama Pemohon</th>
-                    <th>Nama Peninjau</th>
-                    <th>Jabatan Peninjau</th>
                     <th>Nama Penyetuju</th>
+                    <th>Jabatan Pemohon</th>
+                    <th>Jabatan Penyetuju</th>
                     <th width="15%"><i class="fa fa-cog"></i></th>
                     </thead>
                 </table>
