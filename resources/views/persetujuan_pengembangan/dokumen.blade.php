@@ -142,7 +142,7 @@
     </tr>
     <tr>
         <td class="text-center" colspan="2">{{ $persetujuan->nama_pemohon }}<br>{{ $persetujuan->jabatan_pemohon }}</td>
-        <td class="text-center" colspan="2">{{ $persetujuan->nama }}<br>{{ $persetujuan->jabatan}}</td>
+        <td class="text-center" colspan="2">{{ $persetujuan->nama }}<br>{{ $persetujuan->jabatan }}</td>
     </tr>
     <tr>
         <td class="text-center" colspan="2">Tanggal: {{ \Carbon\Carbon::parse($persetujuan->tanggal_disiapkan)->format('d-m-Y') }}</td>

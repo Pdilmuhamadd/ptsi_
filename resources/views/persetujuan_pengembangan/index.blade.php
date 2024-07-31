@@ -187,7 +187,12 @@
     }
 
     function cetakDokumen(url) {
-        if ($('input:checked').length < 1) {
+        var ids = [];
+        $('[name="id_persetujuan_pengembangan[]"]:checked').each(function () {
+            ids.push($(this).val());
+        });
+
+        if (ids.length < 1) {
             alert('Pilih data yang akan dicetak');
             return;
         } else {
@@ -203,11 +208,11 @@
                 'value': '{{ csrf_token() }}'
             }));
 
-            $('input:checked').each(function() {
+            $.each(ids, function(index, id) {
                 form.append($('<input>', {
                     'type': 'hidden',
                     'name': 'id_persetujuan_pengembangan[]',
-                    'value': $(this).val()
+                    'value': id
                 }));
             });
 
@@ -215,5 +220,6 @@
             form.submit();
         }
     }
+
 </script>
 @endpush
