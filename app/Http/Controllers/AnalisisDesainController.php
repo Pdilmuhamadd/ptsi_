@@ -125,11 +125,10 @@ class AnalisisDesainController extends Controller
         set_time_limit(300);
 
         $dataanalisis = AnalisisDesain::whereIn('id_analisis_desain', $request->id_analisis_desain)->get();
+        $no = 1;
 
-        $pdf = PDF::loadView('analisis_desain.dokumen', compact('dataanalisis'));
-
+        $pdf = PDF::loadView('analisis_desain.dokumen', compact('dataanalisis', 'no'));
         $pdf->setPaper('a4', 'portrait');
-
         return $pdf->stream('analisis_desain.pdf');
     }
 

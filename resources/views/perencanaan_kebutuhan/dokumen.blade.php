@@ -83,64 +83,40 @@
 <div class="bordered">
     <table class="table-container">
         <tr>
-            <th>Latar Belakang</th>
-            <td>{{ $kebutuhan->latar_belakang }}</td>
+            <th>Nomor Proyek</th>
+            <td colspan="3">xxxxxxxxxxxxx (Nomor Proyek Perlu disepakati)</td>
         </tr>
         <tr>
-            <th>Tujuan</th>
-            <td>{{ $kebutuhan->tujuan }}</td>
+            <th>Nama Proyek</th>
+            <td>{{ $kebutuhan->nama_proyek }}</td>
         </tr>
         <tr>
-            <th>Target Implementasi Sistem</th>
-            <td>{{ $kebutuhan->target_implementasi }}</td>
+            <th>Deskripsi</th>
+            <td>{{ $kebutuhan->deskripsi }}</td>
         </tr>
         <tr>
-            <th>Fungsi-fungsi Sistem Informasi</th>
-            <td>{{ $kebutuhan->fungsi_sistem }}</td>
+            <th>Pemilik Proyek</th>
+            <td>{{ $kebutuhan->pemilik_proyek }}</td>
         </tr>
         <tr>
-            <th>Jenis Aplikasi</th>
-            <td>{{ $kebutuhan->jenis_aplikasi }}</td>
+            <th>Manajer Proyek</th>
+            <td>{{ $kebutuhan->manajer_proyek }}</td>
         </tr>
         <tr>
-            <th>Pengguna</th>
-            <td>{{ $kebutuhan->pengguna }}</td>
+            <th>Stakeholders</th>
+            <td>{{ $kebutuhan->stakeholders }}</td>
         </tr>
         <tr>
-            <th>Uraian Permintaan Tambahan/Khusus</th>
-            <td>{{ $kebutuhan->uraian_tambahan }}</td>
-        </tr>
-    </table>
-
-    <div class="section-title">Lampiran</div>
-    <table class="table-container">
-        <tr>
-            <th>Proposal Teknis</th>
-            <td>{{ $kebutuhan->proposal_teknis }}</td>
+            <th>Kebutuhan Fungsional</th>
+            <td>{{ $kebutuhan->kebutuhan_fungsional }}</td>
         </tr>
         <tr>
-            <th>Alur Proses Bisnis yang Existing</th>
-            <td>{{ $kebutuhan->alur_proses_existing }}</td>
+            <th>Kebutuhan Non-Fungsional</th>
+            <td>{{ $kebutuhan->kebutuhan_nonfungsional }}</td>
         </tr>
         <tr>
-            <th>Alur Proses Bisnis untuk Perbaikan atau Otomasi</th>
-            <td>{{ $kebutuhan->alur_proses_perbaikan }}</td>
-        </tr>
-        <tr>
-            <th>Prosedur & Instruksi Kerja</th>
-            <td>{{ $kebutuhan->prosedur_instruksi }}</td>
-        </tr>
-    </table>
-
-    <div class="section-title">Status kebutuhan</div>
-    <table class="table-container">
-        <tr>
-            <th>Alasan</th>
-            <td>{{ $kebutuhan->alasan_kebutuhan }}</td>
-        </tr>
-        <tr>
-            <th>Status</th>
-            <td>{{ $kebutuhan->status_kebutuhan }}</td>
+            <th>Lampiran</th>
+            <td>{{ $kebutuhan->lampiran }}</td>
         </tr>
     </table>
 

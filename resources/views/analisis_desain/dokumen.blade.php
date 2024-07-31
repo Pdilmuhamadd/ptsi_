@@ -59,8 +59,7 @@
                     <img src="{{ asset('path_to_logo_image.png') }}" alt="Logo" width="100">
                 </td>
                 <td rowspan="4" class="text-center">
-                    <h2>Perencanaan Proyek</h2>
-                    <h2>Pengembangan Sistem Informasi</h2>
+                    <h2>ANALISIS & DESAIN SISTEM INFORMASI</h2>
                 </td>
                 <td>No. Dokumen</td>
                 <td>FP-DTI03-08</td>
@@ -83,64 +82,36 @@
     <div class="bordered">
         <table class="table-container">
             <tr>
-                <th>Latar Belakang</th>
-                <td>{{ $analisis->latar_belakang }}</td>
+                <th>Nomor Proyek</th>
+                <td colspan="3">xxxxxxxxxxxxx (Nomor Proyek Perlu disepakati)</td>
             </tr>
             <tr>
-                <th>Tujuan</th>
-                <td>{{ $analisis->tujuan }}</td>
+                <th>Nama Proyek</th>
+                <td colspan="3">{{ $analisis->nama_proyek }}</td>
             </tr>
             <tr>
-                <th>Target Implementasi Sistem</th>
-                <td>{{ $analisis->target_implementasi }}</td>
+                <th>Deskripsi</th>
+                <td colspan="3">{{ $analisis->deskripsi_proyek }}</td>
             </tr>
             <tr>
-                <th>Fungsi-fungsi Sistem Informasi</th>
-                <td>{{ $analisis->fungsi_sistem }}</td>
+                <th>Manajer Proyek</th>
+                <td colspan="3">{{ $analisis->manajer_proyek }}</td>
             </tr>
             <tr>
-                <th>Jenis Aplikasi</th>
-                <td>{{ $analisis->jenis_aplikasi }}</td>
+                <th>Kebutuhan Fungsional dan Deskripsi</th>
+                <td colspan="3">{{ $analisis->kebutuhan_fungsi }}</td>
             </tr>
             <tr>
-                <th>Pengguna</th>
-                <td>{{ $analisis->pengguna }}</td>
+                <th>Arsitektur Sistem Informasi</th>
+                <td colspan="3">{{ $analisis->gambaran_arsitektur }}</td>
             </tr>
             <tr>
-                <th>Uraian Permintaan Tambahan/Khusus</th>
-                <td>{{ $analisis->uraian_tambahan }}</td>
-            </tr>
-        </table>
-
-        <div class="section-title">Lampiran</div>
-        <table class="table-container">
-            <tr>
-                <th>Proposal Teknis</th>
-                <td>{{ $analisis->proposal_teknis }}</td>
+                <th>Desain Detil</th>
+                <td colspan="3">{{ $analisis->detil_arsitektur }}</td>
             </tr>
             <tr>
-                <th>Alur Proses Bisnis yang Existing</th>
-                <td>{{ $analisis->alur_proses_existing }}</td>
-            </tr>
-            <tr>
-                <th>Alur Proses Bisnis untuk Perbaikan atau Otomasi</th>
-                <td>{{ $analisis->alur_proses_perbaikan }}</td>
-            </tr>
-            <tr>
-                <th>Prosedur & Instruksi Kerja</th>
-                <td>{{ $analisis->prosedur_instruksi }}</td>
-            </tr>
-        </table>
-
-        <div class="section-title">Status Persetujuan</div>
-        <table class="table-container">
-            <tr>
-                <th>Alasan</th>
-                <td>{{ $analisis->alasan_persetujuan }}</td>
-            </tr>
-            <tr>
-                <th>Status</th>
-                <td>{{ $analisis->status_persetujuan }}</td>
+                <th>Lampiran</th>
+                <td colspan="3">{{ $analisis->lampiran_mockup }}</td>
             </tr>
         </table>
 
