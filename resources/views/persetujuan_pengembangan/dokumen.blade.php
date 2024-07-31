@@ -83,6 +83,10 @@
 <h3 class="text-center bold">INFO KEBUTUHAN SISTEM INFORMASI</h3>
 <table>
     <tr>
+        <td>Nomor Proyek</td>
+        <td>{{ $persetujuan->nomor_proyek }}</td>
+    </tr>
+    <tr>
         <td>Latar Belakang</td>
         <td>{{ $persetujuan->latar_belakang }}</td>
     </tr>
@@ -92,11 +96,11 @@
     </tr>
     <tr>
         <td>Target Implementasi Sistem</td>
-        <td>{{ $persetujuan->target_implementasi }}</td>
+        <td>{{ $persetujuan->target_implementasi_sistem }}</td>
     </tr>
     <tr>
         <td>Fungsi-fungsi Sistem Informasi</td>
-        <td>{{ $persetujuan->fungsi_sistem }}</td>
+        <td>{{ $persetujuan->fungsi_sistem_informasi }}</td>
     </tr>
     <tr>
         <td>Jenis Aplikasi</td>
@@ -108,11 +112,11 @@
     </tr>
     <tr>
         <td>Uraian Permintaan Tambahan/Khusus</td>
-        <td>{{ $persetujuan->uraian_tambahan }}</td>
+        <td>{{ $persetujuan->uraian_permintaan_tambahan }}</td>
     </tr>
     <tr>
         <td>Lampiran</td>
-        <td>{{ $persetujuan->lampiran}}</td>
+        <td>{{ $persetujuan->lampiran }}</td>
     </tr>
 </table>
 
@@ -120,11 +124,11 @@
 <table>
     <tr>
         <td>Status Persetujuan</td>
-        <td>{{ $persetujuan->status_persetujuan}}</td>
+        <td>{{ $persetujuan->nama_persetujuan }}</td>
     </tr>
     <tr>
         <td>Alasan</td>
-        <td>{{ $persetujuan->alasan_persetujuan}}</td>
+        <td>{{ $persetujuan->nama_alasan }}</td>
     </tr>
 </table>
 <table class="table">
@@ -137,8 +141,8 @@
         <td colspan="2" style="height: 100px;"></td>
     </tr>
     <tr>
-        <td class="text-center" colspan="2">{{ $persetujuan->namapemohon }}<br>{{$persetujuan->jabatanpeninjau}}</td>
-        <td class="text-center" colspan="2">{{ $persetujuan->namapeninjau }}<br>{{$persetujuan->namapenyetuju}}</td>
+        <td class="text-center" colspan="2">{{ $persetujuan->nama_pemohon }}<br>{{ $persetujuan->jabatan_pemohon }}</td>
+        <td class="text-center" colspan="2">{{ $persetujuan->nama }}<br>{{ $persetujuan->jabatan}}</td>
     </tr>
     <tr>
         <td class="text-center" colspan="2">Tanggal: {{ \Carbon\Carbon::parse($persetujuan->tanggal_disiapkan)->format('d-m-Y') }}</td>

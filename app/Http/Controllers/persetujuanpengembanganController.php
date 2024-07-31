@@ -137,10 +137,13 @@ class PersetujuanPengembanganController extends Controller
     {
         set_time_limit(300);
 
-        $datapersetujuan = PersetujuanPengembangan::whereIn('id_persetujuan_pengembangan', $request->id_persetujuan_pengembangan)->get();
-        $no  = 1;
+        $datapersetujuan = PersetujuanPengembangan::leftJoin('trx_permintaan_pengembangan', 'trx_permintaan_pengembangan.id_permintaan_pengembangan', '=', 'trx_persetujuan_pengembangan.id_permintaan_pengembangan')
+            ->leftJoin('mst_persetujuan', 'mst_persetujuan.id_mst_persetujuan', '=', 'trx_persetujuan_pengembangan.id_mst_persetujuan')
+            ->leftJoin('mst_persetujuanalasan', 'mst_persetujuanalasan.id_mst_persetujuanalasan', '=', 'trx_persetujuan_pengembangan.id_mst_persetujuanalasan')
+            ->select('trx_permintaan_pengembangan.*', 'trx_persetujuan_pengembangan.*', 'mst_persetujuan.nama_persetujuan', 'mst_persetujuanalasan.nama_alasan')
+            ->get();
 
-        $pdf = PDF::loadView('persetujuan_pengembangan.dokumen', compact('datapersetujuan', 'no'));
+        $pdf = PDF::loadView('persetujuan_pengembangan.dokumen', compact('datapersetujuan'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('persetujuan.pdf');
     }
