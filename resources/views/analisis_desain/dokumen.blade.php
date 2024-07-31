@@ -83,35 +83,35 @@
         <table class="table-container">
             <tr>
                 <th>Nomor Proyek</th>
-                <td colspan="3">xxxxxxxxxxxxx (Nomor Proyek Perlu disepakati)</td>
+                <td>xxxxxxxxxxxxx (Nomor Proyek Perlu disepakati)</td>
             </tr>
             <tr>
                 <th>Nama Proyek</th>
-                <td colspan="3">{{ $analisis->nama_proyek }}</td>
+                <td>{{ $analisis->nama_proyek }}</td>
             </tr>
             <tr>
                 <th>Deskripsi</th>
-                <td colspan="3">{{ $analisis->deskripsi_proyek }}</td>
+                <td>{{ $analisis->deskripsi_proyek }}</td>
             </tr>
             <tr>
                 <th>Manajer Proyek</th>
-                <td colspan="3">{{ $analisis->manajer_proyek }}</td>
+                <td>{{ $analisis->manajer_proyek }}</td>
             </tr>
             <tr>
                 <th>Kebutuhan Fungsional dan Deskripsi</th>
-                <td colspan="3">{{ $analisis->kebutuhan_fungsi }}</td>
+                <td>{{ $analisis->kebutuhan_fungsi }}</td>
             </tr>
             <tr>
                 <th>Arsitektur Sistem Informasi</th>
-                <td colspan="3">{{ $analisis->gambaran_arsitektur }}</td>
+                <td>{{ $analisis->gambaran_arsitektur }}</td>
             </tr>
             <tr>
                 <th>Desain Detil</th>
-                <td colspan="3">{{ $analisis->detil_arsitektur }}</td>
+                <td>{{ $analisis->detil_arsitektur }}</td>
             </tr>
             <tr>
                 <th>Lampiran</th>
-                <td colspan="3">{{ $analisis->lampiran_mockup }}</td>
+                <td>{{ $analisis->lampiran_mockup }}</td>
             </tr>
         </table>
 

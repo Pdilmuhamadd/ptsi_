@@ -84,7 +84,7 @@
     <table class="table-container">
         <tr>
             <th>Nomor Proyek</th>
-            <td colspan="3">xxxxxxxxxxxxx (Nomor Proyek Perlu disepakati)</td>
+            <td>xxxxxxxxxxxxx (Nomor Proyek Perlu disepakati)</td>
         </tr>
         <tr>
             <th>Nama Proyek</th>
