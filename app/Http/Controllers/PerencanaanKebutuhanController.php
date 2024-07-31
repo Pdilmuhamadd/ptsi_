@@ -128,9 +128,11 @@ class PerencanaanKebutuhanController extends Controller
 
     public function cetakDokumen(Request $request)
     {
+        set_time_limit(300);
+
         $datakebutuhan = PerencanaanKebutuhan::whereIn('id_perencanaan_kebutuhan', $request->id_perencanaan_kebutuhan)->get();
         $no  = 1;
-    
+
         $pdf = PDF::loadView('perencanaan_kebutuhan.dokumen', compact('datakebutuhan', 'no'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('PerencanaanKebutuhan.pdf');

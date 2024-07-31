@@ -49,7 +49,7 @@
                     <i class="fa fa-pencil-square-o"></i> <span>Analisis & Desain</span>
                 </a>
             </li>
-            <li class="header">TRANSAKSI</li>
+            {{-- <li class="header">TRANSAKSI</li>
             <li>
                 <a href="{{ route('pengeluaran.index') }}">
                     <i class="fa fa-money"></i> <span>Pengeluaran</span>
@@ -80,7 +80,7 @@
                 <a href="{{ route('laporan.index') }}">
                     <i class="fa fa-file-pdf-o"></i> <span>Laporan</span>
                 </a>
-            </li>
+            </li> --}}
             <li class="header">SYSTEM</li>
             <li>
                 <a href="{{ route('user.index') }}">
