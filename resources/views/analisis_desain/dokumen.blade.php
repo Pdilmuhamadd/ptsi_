@@ -51,59 +51,93 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Daftar Analisis dan Desain Sistem Informasi</h1>
-        <p>No. Dokumen: FP-DTI03-0D</p>
-        <p>No. Revisi: 0</p>
-        <p>Tanggal Revisi: 2024</p>
-        <p>Halaman: 1</p>
-    </div>
 
-    @foreach ($dataanalisis as $analisis)
-        <div class="bordered">
-            <table class="table-container">
-                <tr>
-                    <th>Nama Proyek</th>
-                    <td>{{ $analisis->nama_proyek }}</td>
-                </tr>
-                <tr>
-                    <th>Deskripsi Proyek</th>
-                    <td>{{ $analisis->deskripsi_proyek }}</td>
-                </tr>
-                <tr>
-                    <th>Manajer Proyek</th>
-                    <td>{{ $analisis->manajer_proyek }}</td>
-                </tr>
-                <tr>
-                    <th>Kebutuhan Fungsional</th>
-                    <td>{{ $analisis->kebutuhan_fungsi }}</td>
-                </tr>
-                <tr>
-                    <th>Lampiran Mockup</th>
-                    <td>{{ $analisis->lampiran_mockup }}</td>
-                </tr>
-            </table>
-            <div class="section-title">Persetujuan oleh</div>
-            <table class="table-container">
-                <tr>
-                    <th>Nama Pemohon</th>
-                    <td>{{ $analisis->nama_pemohon }}</td>
-                </tr>
-                <tr>
-                    <th>Nama Peninjau</th>
-                    <td>{{ $analisis->nama}}</td>
-                </tr>
-                <tr>
-                    <th>Jabatan Peninjau</th>
-                    <td>{{ $analisis->jabatan }}</td>
-                </tr>
-            </table>
-            <div class="text-right"><strong>Tanggal:</strong> {{ \Carbon\Carbon::parse($analisis->created_at)->format('d M Y') }}</div>
-        </div>
+@foreach($dataanalisis as $analisis)
+<div class="header">
+    <table>
+        <tr>
+            <td rowspan="4">
+                <img src="{{ asset('path_to_logo_image.png') }}" alt="Logo" width="100">
+            </td>
+            <td rowspan="4" class="text-center">
+                <h2>ANALISIS & DESAIN SISTEM INFORMASI</h2>
+            </td>
+            <td>No. Dokumen</td>
+            <td>FP-DTI03-08</td>
+        </tr>
+        <tr>
+            <td>No. Revisi</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>Tanggal Revisi</td>
+            <td>2024</td>
+        </tr>
+        <tr>
+            <td>Halaman</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
 
-        @if ($loop->iteration % 3 == 0)
-            <div class="page-break"></div>
-        @endif
-    @endforeach
+<table>
+    <tr>
+        <th>Nomor Proyek</th>
+        <td>xxxxxxxxxxxxx (Nomor Proyek Perlu disepakati)</td>
+    </tr>
+    <tr>
+        <th>Nama Proyek</th>
+        <td>{{ $analisis->nama_proyek }}</td>
+    </tr>
+    <tr>
+        <th>Deskripsi</th>
+        <td>{{ $analisis->deskripsi_proyek }}</td>
+    </tr>
+    <tr>
+        <th>Manajer Proyek</th>
+        <td>{{ $analisis->manajer_proyek }}</td>
+    </tr>
+    <tr>
+        <th>Kebutuhan Fungsional dan Deskripsi</th>
+        <td>{{ $analisis->kebutuhan_fungsi }}</td>
+    </tr>
+    <tr>
+        <th>Arsitektur Sistem Informasi</th>
+        <td>{{ $analisis->gambaran_arsitektur }}</td>
+    </tr>
+    <tr>
+        <th>Desain Detil</th>
+        <td>{{ $analisis->detil_arsitektur }}</td>
+    </tr>
+    <tr>
+        <th>Lampiran</th>
+        <td>{{ $analisis->lampiran_mockup }}</td>
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <th class="text-center" colspan="2">Disiapkan oleh</th>
+        <th class="text-center" colspan="2">Disetujui oleh</th>
+    </tr>
+    <tr>
+        <td colspan="2" style="height: 100px;"></td>
+        <td colspan="2" style="height: 100px;"></td>
+    </tr>
+    <tr>
+        <td class="text-center" colspan="2">{{ $analisis->nama_pemohon }}<br>{{ $analisis->jabatan_pemohon }}</td>
+        <td class="text-center" colspan="2">{{ $analisis->nama }}<br>{{ $analisis->jabatan }}</td>
+    </tr>
+    <tr>
+        <td class="text-center" colspan="2">Tanggal: {{ \Carbon\Carbon::parse($analisis->tanggal_disiapkan)->format('d-m-Y') }}</td>
+        <td class="text-center" colspan="2">Tanggal: {{ \Carbon\Carbon::parse($analisis->tanggal_disetujui)->format('d-m-Y') }}</td>
+    </tr>
+</table>
+
+@if (!$loop->last)
+<div class="page-break"></div>
+@endif
+@endforeach
+
 </body>
 </html>
