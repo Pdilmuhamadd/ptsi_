@@ -6,7 +6,6 @@ use App\Models\AnalisisDesain;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-
 class AnalisisDesainController extends Controller
 {
     /**
@@ -26,9 +25,9 @@ class AnalisisDesainController extends Controller
         return datatables()
             ->of($trx_analisis_desain)
             ->addIndexColumn()
-            ->addColumn('select_all', function ($trx_persetujuan_pengembangan) {
+            ->addColumn('select_all', function ($trx_analisis_desain) {
                 return '
-                    <input type="checkbox" name="id_persetujuan_pengembangan[]" value="'. $trx_persetujuan_pengembangan->id_persetujuan_pengembangan .'">
+                    <input type="checkbox" name="id_analisis_desain[]" value="'. $trx_analisis_desain->id_analisis_desain .'">
                 ';
             })
             ->addColumn('aksi', function ($trx_analisis_desain) {
@@ -125,11 +124,11 @@ class AnalisisDesainController extends Controller
         set_time_limit(300);
 
         $dataanalisis = AnalisisDesain::whereIn('id_analisis_desain', $request->id_analisis_desain)->get();
-        $no = 1;
+        $no  = 1;
 
         $pdf = PDF::loadView('analisis_desain.dokumen', compact('dataanalisis', 'no'));
         $pdf->setPaper('a4', 'portrait');
-        return $pdf->stream('analisis_desain.pdf');
+        return $pdf->stream('analisis.pdf');
     }
 
     public function deleteSelected(Request $request)
