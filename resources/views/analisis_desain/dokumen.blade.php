@@ -12,37 +12,38 @@
             color: #333;
         }
         .header {
+            text-align: center;
             margin-bottom: 20px;
         }
-        .header h2 {
+        .header h1 {
+            margin: 0;
+        }
+        .header p {
             margin: 5px 0;
         }
-        table {
+        .table-container {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
-        table, th, td {
+        .table-container, .table-container th, .table-container td {
             border: 1px solid black;
         }
-        th, td {
+        .table-container th, .table-container td {
             padding: 8px;
             text-align: left;
         }
-        .no-border {
-            border: none;
+        .section-title {
+            font-weight: bold;
+            margin-top: 20px;
         }
-        .text-center {
-            text-align: center;
+        .bordered {
+            border: 1px solid #333;
+            padding: 10px;
+            margin-bottom: 20px;
         }
         .text-right {
             text-align: right;
-        }
-        .text-left {
-            text-align: left;
-        }
-        .bold {
-            font-weight: bold;
         }
         .page-break {
             page-break-after: always;
