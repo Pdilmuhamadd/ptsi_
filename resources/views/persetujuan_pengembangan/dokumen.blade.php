@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cetak Dokumen</title>
+    <title>Cetak Dokumen Persetujuan Pengembangan</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,11 +56,10 @@
     <table>
         <tr>
             <td rowspan="4">
-                <img src="{{ asset('path_to_logo_image.png') }}" alt="Logo" width="100">
+                <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/logo_ptsi.png'))) }}" alt="Logo" width="100">
             </td>
             <td rowspan="4" class="text-center">
-                <h2>Persetujuan Permintaan</h2>
-                <h2>Pengembangan Sistem Informasi</h2>
+                <h2>Persetujuan Permintaan Pengembangan Sistem Informasi</h2>
             </td>
             <td>No. Dokumen</td>
             <td>FP-DTI03-08</td>

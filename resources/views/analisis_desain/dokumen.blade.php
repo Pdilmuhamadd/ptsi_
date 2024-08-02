@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cetak Dokumen</title>
+    <title>Cetak Dokumen Analisis Desain</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,13 +56,13 @@
     <table>
         <tr>
             <td rowspan="4">
-                <img src="{{ asset('path_to_logo_image.png') }}" alt="Logo" width="100">
+                <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/logo_ptsi.png'))) }}" alt="Logo" width="100">
             </td>
             <td rowspan="4" class="text-center">
-                <h2>ANALISIS & DESAIN SISTEM INFORMASI</h2>
+                <h2>Analisis & Desain Sistem Informasi</h2>
             </td>
             <td>No. Dokumen</td>
-            <td>FP-DTI03-08</td>
+            <td>FP-DTI03-0D</td>
         </tr>
         <tr>
             <td>No. Revisi</td>
@@ -79,6 +79,7 @@
     </table>
 </div>
 
+<h3 class="text-center bold">ANALISIS & DESAIN SISTEM INFORMASI</h3>
 <table>
     <tr>
         <th>Nomor Proyek</th>

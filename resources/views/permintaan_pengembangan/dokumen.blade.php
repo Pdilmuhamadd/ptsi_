@@ -7,153 +7,143 @@ use Carbon\Carbon;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Permintaan Pengembangan Sistem Informasi</title>
+    <title>Cetak Dokumen Permintaan Pengembangan Sistem Informasi</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 20px;
+            color: #333;
         }
-        .page-break {
-            page-break-after: always;
+        .header {
+            margin-bottom: 20px;
+        }
+        .header h2 {
+            margin: 5px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .no-border {
+            border: none;
         }
         .text-center {
             text-align: center;
         }
+        .text-right {
+            text-align: right;
+        }
         .text-left {
             text-align: left;
         }
-        .text-right{
-            text-align: right;
+        .bold {
+            font-weight: bold;
         }
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .table, .table th, .table td {
-            border: 1px solid black;
-        }
-        .table th, .table td {
-            padding: 5px;
-        }
-        .header-table, .header-table td {
-            padding: 5px;
-        }
-        .header-table {
-            width: 100%;
-        }
-        .logo {
-            width: 100px;
-        }
-        .doc-info {
-            text-align: right;
-            width: 250px;
-            font-size: 12px;
-        }
-        .doc-info p {
-            margin: 2px 0;
+        .page-break {
+            page-break-after: always;
         }
     </style>
 </head>
 <body>
-    <!-- Page 1 -->
-    <table class="header-table">
+
+@foreach($datapermintaan as $permintaan)
+<div class="header">
+    <table>
         <tr>
-            <td>
-                <img src="{{ asset('img/logo_ptsi.png') }}" alt="Logo" class="logo">
+            <td rowspan="4">
+                <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/logo_ptsi.png'))) }}" alt="Logo" width="100">
             </td>
-            <td class="text-center">
-                <h3>Permintaan Pengembangan Sistem Informasi</h3>
+            <td rowspan="4" class="text-center">
+                <h2>Permintaan Pengembangan Sistem Informasi</h2>
             </td>
-            <td class="doc-info">
-                <p>No. Dokumen: FP-DTI03-04</p>
-                <p>No. Revisi: 04</p>
-                <p>Tanggal Revisi: 2024</p>
-                <p>Halaman: 1</p>
-            </td>
+            <td>No. Dokumen</td>
+            <td>FP-DTI03-04</td>
+        </tr>
+        <tr>
+            <td>No. Revisi</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>Tanggal Revisi</td>
+            <td>2024</td>
+        </tr>
+        <tr>
+            <td>Halaman</td>
+            <td>1</td>
         </tr>
     </table>
+</div>
 
-    <br>
-    <h3 class="text-center bold">INFO KEBUTUHAN SISTEM INFORMASI</h3>
-    <h3 class="text-right"><strong>NO: {{ $datapermintaan->first()->nomor_proyek }}</strong></h3>
-    <table class="table">
-        @foreach ($datapermintaan as $permintaan)
-        <tr>
-            <td class="text-left" width="30%">Latar Belakang</td>
-            <td class="text-left">{{ $permintaan->latar_belakang }}</td>
-        </tr>
-        <tr>
-            <td class="text-left">Tujuan</td>
-            <td class="text-left">{{ $permintaan->tujuan }}</td>
-        </tr>
-        <tr>
-            <td class="text-left">Target Implementasi Sistem</td>
-            <td class="text-left">{{ $permintaan->target_implementasi_sistem }}</td>
-        </tr>
-        <tr>
-            <td class="text-left">Fungsi-fungsi Sistem Informasi</td>
-            <td class="text-left">{{ $permintaan->fungsi_sistem_informasi }}</td>
-        </tr>
-        <tr>
-            <td class="text-left">Jenis Aplikasi</td>
-            <td class="text-left">{{ $permintaan->jenis_aplikasi }}</td>
-        </tr>
-        <tr>
-            <td class="text-left">Pengguna</td>
-            <td class="text-left">{{ $permintaan->pengguna }}</td>
-        </tr>
-        <tr>
-            <td class="text-left">Uraian Permintaan Tambahan/Khusus</td>
-            <td class="text-left">{{ $permintaan->uraian_permintaan_tambahan }}</td>
-        </tr>
-        <tr>
-            <td class="text-left">Lampiran</td>
-            <td class="text-left">{{ $permintaan->lampiran }}</td>
-        </tr>
-        @endforeach
-    </table>
+<h3 class="text-center bold">INFO KEBUTUHAN SISTEM INFORMASI</h3>
+<h4 class="text-right"><strong>NO: {{ $datapermintaan->first()->nomor_proyek }}</strong></h4>
+<table>
+    <tr>
+        <td>Latar Belakang</td>
+        <td>{{ $permintaan->latar_belakang }}</td>
+    </tr>
+    <tr>
+        <td>Tujuan</td>
+        <td>{{ $permintaan->tujuan }}</td>
+    </tr>
+    <tr>
+        <td>Target Implementasi Sistem</td>
+        <td>{{ $permintaan->target_implementasi_sistem }}</td>
+    </tr>
+    <tr>
+        <td>Fungsi-fungsi Sistem Informasi</td>
+        <td>{{ $permintaan->fungsi_sistem_informasi }}</td>
+    </tr>
+    <tr>
+        <td>Jenis Aplikasi</td>
+        <td>{{ $permintaan->jenis_aplikasi }}</td>
+    </tr>
+    <tr>
+        <td>Pengguna</td>
+        <td>{{ $permintaan->pengguna }}</td>
+    </tr>
+    <tr>
+        <td>Uraian Permintaan Tambahan/Khusus</td>
+        <td>{{ $permintaan->uraian_permintaan_tambahan }}</td>
+    </tr>
+    <tr>
+        <td>Lampiran</td>
+        <td>{{ $permintaan->lampiran }}</td>
+    </tr>
+</table>
 
-    <!-- Page Break -->
-    <div class="page-break"></div>
+<table class="table">
+    <tr>
+        <th class="text-center" colspan="2">Disiapkan oleh</th>
+        <th class="text-center" colspan="2">Disetujui oleh</th>
+    </tr>
+    <tr>
+        <td colspan="2" style="height: 100px;"></td>
+        <td colspan="2" style="height: 100px;"></td>
+    </tr>
+    <tr>
+        <td class="text-center" colspan="2">{{ $permintaan->nama_pemohon }}<br>{{$permintaan->jabatan_pemohon}}</td>
+        <td class="text-center" colspan="2">{{ $permintaan->nama }}<br>{{$permintaan->jabatan}}</td>
+    </tr>
+    <tr>
+        <td class="text-center" colspan="2">Tanggal: {{ \Carbon\Carbon::parse($permintaan->tanggal_disiapkan)->format('d-m-Y') }}</td>
+        <td class="text-center" colspan="2">Tanggal: {{ \Carbon\Carbon::parse($permintaan->tanggal_disetujui)->format('d-m-Y') }}</td>
+    </tr>
+</table>
 
-    <!-- Page 2 -->
-    <table class="header-table">
-        <tr>
-            <td>
-                <img src="{{ asset('img/logo_ptsi.png') }}" alt="Logo" class="logo">
-            </td>
-            <td class="text-center">
-                <h3>Permintaan Pengembangan Sistem Informasi</h3>
-            </td>
-            <td class="doc-info">
-                <p>No. Dokumen: FP-DTI03-04</p>
-                <p>No. Revisi: 04</p>
-                <p>Tanggal Revisi: 2024</p>
-                <p>Halaman: 2</p>
-            </td>
-        </tr>
-    </table>
+@if (!$loop->last)
+<div class="page-break"></div>
+@endif
 
-    <br>
+@endforeach
 
-    <table class="table">
-        <tr>
-            <th class="text-center" colspan="2">Disiapkan oleh</th>
-            <th class="text-center" colspan="2">Disetujui oleh</th>
-        </tr>
-        <tr>
-            <td colspan="2" style="height: 100px;"></td>
-            <td colspan="2" style="height: 100px;"></td>
-        </tr>
-        <tr>
-            <td class="text-center" colspan="2">{{ $permintaan->nama_pemohon }}<br>{{$permintaan->jabatan_pemohon}}</td>
-            <td class="text-center" colspan="2">{{ $permintaan->nama }}<br>{{$permintaan->jabatan}}</td>
-        </tr>
-        <tr>
-            <td class="text-center" colspan="2">Tanggal: {{ \Carbon\Carbon::parse($permintaan->tanggal_disiapkan)->format('d-m-Y') }}</td>
-            <td class="text-center" colspan="2">Tanggal: {{ \Carbon\Carbon::parse($permintaan->tanggal_disetujui)->format('d-m-Y') }}</td>
-        </tr>
-    </table>
 </body>
 </html>
