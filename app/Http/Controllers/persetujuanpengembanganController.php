@@ -18,7 +18,10 @@ class PersetujuanPengembanganController extends Controller
      */
     public function index()
     {
-        $trx_permintaan_pengembangan = PermintaanPengembangan::all()->pluck('nomor_proyek', 'id_permintaan_pengembangan');
+        $nomor_proyek_terpakai = PersetujuanPengembangan::pluck('id_permintaan_pengembangan')->toArray();
+
+        $trx_permintaan_pengembangan = PermintaanPengembangan::whereNotIn('id_permintaan_pengembangan', $nomor_proyek_terpakai)->pluck('nomor_proyek', 'id_permintaan_pengembangan');
+
         $mst_persetujuan = Persetujuan::all()->pluck('nama_persetujuan', 'id_mst_persetujuan');
         $mst_persetujuanalasan = PersetujuanAlasan::all()->pluck('nama_alasan', 'id_mst_persetujuanalasan');
 
