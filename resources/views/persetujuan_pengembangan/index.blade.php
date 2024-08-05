@@ -114,21 +114,22 @@
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('post');
+        $('#modal-form [name=id_permintaan_pengembangan]').prop('disabled', false);
         $('#modal-form [name=nama_proyek]').focus();
     }
 
     function editForm(url) {
-        $('#modal-form').modal('show');
-        $('#modal-form .modal-title').text('Edit Persetujuan Pengembangan');
+    $('#modal-form').modal('show');
+    $('#modal-form .modal-title').text('Edit Persetujuan Pengembangan');
 
-        $('#modal-form form')[0].reset();
-        $('#modal-form form').attr('action', url);
-        $('#modal-form [name=_method]').val('put');
-        $('#modal-form [name=nama_proyek]').focus();
+    $('#modal-form form')[0].reset();
+    $('#modal-form form').attr('action', url);
+    $('#modal-form [name=_method]').val('put');
+    $('#modal-form [name=nama_proyek]').focus();
 
         $.get(url)
             .done((response) => {
-                $('#modal-form [name=id_permintaan_pengembangan]').val(response.id_permintaan_pengembangan);
+                $('#modal-form [name=id_permintaan_pengembangan]').val(response.id_permintaan_pengembangan).prop('disabled', true);
                 $('#modal-form [name=nama_proyek]').val(response.nama_proyek);
                 $('#modal-form [name=deskripsi]').val(response.deskripsi);
                 $('#modal-form [name=id_mst_persetujuan]').val(response.id_mst_persetujuan);
@@ -143,6 +144,7 @@
                 return;
             });
     }
+
 
     function deleteData(url) {
         if (confirm('Yakin ingin menghapus data terpilih?')) {

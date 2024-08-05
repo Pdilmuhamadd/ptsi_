@@ -11,9 +11,14 @@
                     <h4 class="modal-title"></h4>
                 </div>
                     <div class="form-group row">
-                        <label for="nama_proyek" class="col-lg-2 col-lg-offset-1 control-label">Nama Proyek</label>
+                        <label for="id_persetujuan_pengembangan" class="col-lg-2 col-lg-offset-1 control-label">Nama Proyek</label>
                         <div class="col-lg-6">
-                            <input type="text" name="nama_proyek" id="nama_proyek" class="form-control" required autofocus>
+                            <select name="id_persetujuan_pengembangan" id="id_persetujuan_pengembangan" class="form-control" required>
+                                <option value="">Pilih Nama Proyek</option>
+                                @foreach ($trx_persetujuan_pengembangan as $key => $item)
+                                <option value="{{ $key }}">{{ $item }}</option>
+                                @endforeach
+                            </select>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>

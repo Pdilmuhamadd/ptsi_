@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PermintaanPengembangan;
+use App\Models\PersetujuanPengembangan;
 use Illuminate\Http\Request;
 use App\Models\PerencanaanProyek;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -16,12 +16,18 @@ class PerencanaanProyekController extends Controller
      */
     public function index()
     {
-        return view('perencanaan_proyek.index');
+        $nama_proyek_terpakai = PerencanaanProyek::pluck('id_persetujuan_pengembangan')->toArray();
+
+        $trx_persetujuan_pengembangan = PersetujuanPengembangan::whereNotIn('id_persetujuan_pengembangan', $nama_proyek_terpakai)->pluck('nama_proyek', 'id_persetujuan_pengembangan');
+
+        return view('perencanaan_proyek.index',compact('trx_persetujuan_pengembangan'));
     }
 
     public function data()
     {
-        $trx_perencanaan_proyek = PerencanaanProyek::orderBy('id_perencanaan_proyek')->get();
+        $trx_perencanaan_proyek = PerencanaanProyek::leftJoin('trx_persetujuan_pengembangan', 'trx_persetujuan_pengembangan.id_persetujuan_pengembangan', '=', 'trx_perencanaan_proyek.id_perencanaan_proyek')
+            ->select('trx_perencanaan_proyek.*','trx_persetujuan_pengembangan.nama_proyek')
+            ->get();
 
         return datatables()
             ->of($trx_perencanaan_proyek)
@@ -100,7 +106,8 @@ class PerencanaanProyekController extends Controller
      */
     public function update(Request $request, $id_perencanaan_proyek)
     {
-        $trx_perencanaan_proyek = PerencanaanProyek::find($id_perencanaan_proyek)->update($request->all());
+        $trx_perencanaan_proyek = PerencanaanProyek::find($id_perencanaan_proyek);
+        $trx_perencanaan_proyek->update($request->all());
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -130,10 +137,13 @@ class PerencanaanProyekController extends Controller
     {
         set_time_limit(300);
 
-        $dataperencanaan = PerencanaanProyek::whereIn('id_perencanaan_proyek', $request->id_perencanaan_proyek)->get();
-        $no  = 1;
+        $ids = $request->id_perencanaan_proyek;
+        $dataperencanaan = PerencanaanProyek::leftJoin('trx_persetujuan_pengembangan','trx_persetujuan_pengembangan.id_persetujuan_pengembangan', '=', 'trx_perencanaan_proyek.id_persetujuan_pengembangan')
+            ->select('trx_persetujuan_pengembangan.nama_proyek', 'trx_perencanaan_proyek.*')
+            ->whereIn('trx_perencanaan_proyek.id_perencanaan_proyek', $ids)
+            ->get();
 
-        $pdf = PDF::loadView('perencanaan_proyek.dokumen', compact('dataperencanaan', 'no'));
+        $pdf = PDF::loadView('perencanaan_proyek.dokumen', compact('dataperencanaan'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('perencanaan.pdf');
     }

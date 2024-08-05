@@ -48,7 +48,7 @@
                             </select>
                             <span class="help-block with-errors"></span>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="form-group row">
                         <label for="id_mst_persetujuanalasan" class="col-lg-2 col-lg-offset-1 control-label">Alasan Persetujuan</label>
                         <div class="col-lg-6">
