@@ -83,6 +83,10 @@
 <h4 class="text-right"><strong>NO: {{ $datapersetujuan->first()->nomor_proyek }}</strong></h4>
 <table>
     <tr>
+        <td>Nomor Proyek</td>
+        <td>xxxxxxxxxxxxxx (Nomor Proyek Perlu disepakati)</td>
+    </tr>
+    <tr>
         <td>Latar Belakang</td>
         <td>{{ $persetujuan->latar_belakang }}</td>
     </tr>
