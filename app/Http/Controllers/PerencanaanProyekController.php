@@ -25,7 +25,7 @@ class PerencanaanProyekController extends Controller
 
     public function data()
     {
-        $trx_perencanaan_proyek = PerencanaanProyek::leftJoin('trx_persetujuan_pengembangan', 'trx_persetujuan_pengembangan.id_persetujuan_pengembangan', '=', 'trx_perencanaan_proyek.id_perencanaan_proyek')
+        $trx_perencanaan_proyek = PerencanaanProyek::leftJoin('trx_persetujuan_pengembangan', 'trx_persetujuan_pengembangan.id_persetujuan_pengembangan', '=', 'trx_perencanaan_proyek.id_persetujuan_pengembangan')
             ->select('trx_perencanaan_proyek.*','trx_persetujuan_pengembangan.nama_proyek')
             ->get();
 
