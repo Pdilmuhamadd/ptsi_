@@ -11,4 +11,9 @@ class PerencanaanProyek extends Model
     protected $table = 'trx_perencanaan_proyek';
     protected $primaryKey = 'id_perencanaan_proyek';
     protected $guarded = [];
+
+    public function persetujuanpengembangan()
+    {
+        return $this->belongsTo(PersetujuanPengembangan::class, 'id_persetujuan_pengembangan', 'id_persetujuan_pengembangan');
+    }
 }

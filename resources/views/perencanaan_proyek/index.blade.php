@@ -16,7 +16,7 @@
             <div class="box-header with-border">
                 <button onclick="addForm('{{ route('perencanaan_proyek.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
                 <button onclick="deleteSelected('{{ route('perencanaan_proyek.delete_selected') }}')" class="btn btn-danger btn-xs btn-flat"><i class="fa fa-trash"></i> Hapus</button>
-                <button onclick="cetakDokumen('{{ route('perencanaan_proyek.cetakDokumen') }}')" class="btn btn-info btn-xs btn-flat"><i class="fa fa-barcode"></i> Cetak Dokumen</button>
+                <button onclick="cetakDokumen('{{ route('perencanaan_proyek.cetakDokumen') }}')" class="btn btn-info btn-xs btn-flat"><i class="fa fa-download"></i> Cetak Dokumen</button>
             </div>
             <div class="box-body table-responsive">
                     @csrf
