@@ -37,9 +37,11 @@ class PerencanaanProyekController extends Controller
                     <input type="checkbox" name="id_perencanaan_proyek[]" value="'. $trx_perencanaan_proyek->id_perencanaan_proyek .'">
                 ';
             })
-            ->addColumn('aksi', function ($trx_perencanaan_proyek) {
+            ->addColumn('aksi', function ($trx_persetujuan_pengembangan) {
                 return '
                 <div class="btn-group">
+                    <button type="button" onclick="editForm(`'. route('persetujuan_pengembangan.update', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                    <button type="button" onclick="deleteData(`'. route('persetujuan_pengembangan.destroy', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                 </div>
                 ';
             })
