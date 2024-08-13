@@ -12,6 +12,6 @@ class serahterimaaplikasi extends Model
     protected $table = 'trx_serah_terima_aplikasi';
     protected $primaryKey = 'id_serah_terima_aplikasi';
     protected $fillable = [
-        'hari', 'tanggal', 'deskripsi', 'lokasi', 'nama_aplikasi', 'no_permintaan', 'keterangan', 'yang_menyerahkan', 'penerima'
+        'hari', 'tanggal', 'deskripsi', 'lokasi', 'nama_aplikasi', 'no_permintaan', 'keterangan', 'pemberi', 'penerima', 'nik_pemberi', 'nik_penerima'
     ];
 }
