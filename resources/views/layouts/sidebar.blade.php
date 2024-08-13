@@ -51,7 +51,7 @@
             </li>
             <li>
                 <a href="{{ route('serah_terima_aplikasi.index') }}">
-                    <i class="fa fa-pencil-square-o"></i> <span>Berita Acara Serah Terima Pekerjaan Sistem Aplikasi</span>
+                    <i class="fa fa-pencil-square-o"></i> <span>Berita Acara Serah Terima</span>
                 </a>
             </li>
             {{-- <li class="header">TRANSAKSI</li>

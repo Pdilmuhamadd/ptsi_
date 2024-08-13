@@ -90,15 +90,24 @@
 
         $('#modal-form').validator().on('submit', function (e) {
             if (!e.preventDefault()) {
-                $.post($('#modal-form form').attr('action'), $('#modal-form form').serialize())
-                    .done((response) => {
+                let formData = new FormData($('#modal-form form')[0]);
+                formData.append('lampiran', $('input[name="lampiran"]')[0].files[0]);
+
+                $.ajax({
+                    url: $('#modal-form form').attr('action'),
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
                         $('#modal-form').modal('hide');
                         table.ajax.reload();
-                    })
-                    .fail((errors) => {
+                    },
+                    error: function(errors) {
                         alert('Tidak dapat menyimpan data');
                         return;
-                    });
+                    }
+                });
             }
         });
 
