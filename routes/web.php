@@ -20,6 +20,7 @@ use App\Http\Controllers\{
     PersetujuanPengembanganController,
 };
 use App\Http\Controllers\PerencanaanProyekController;
+use App\Http\Controllers\serahterimaaplikasiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,6 +64,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('permintaan_pengembangan/delete_selected', [PermintaanPengembanganController::class, 'deleteSelected'])->name('permintaan_pengembangan.delete_selected');
         Route::post('/permintaan_pengembangan/cetak-dokumen', [PermintaanPengembanganController::class, 'cetakDokumen'])->name('permintaan_pengembangan.cetakDokumen');
         Route::resource('/permintaan_pengembangan', PermintaanPengembanganController::class);
+
+        Route::get('/serahterimaaplikasi', [serahterimaaplikasiController::class, 'index'])->name('serah_terima_aplikasi.index');
+        Route::get('/serahterimaaplikasi/data', [serahterimaaplikasiController::class, 'data'])->name('serah_terima_aplikasi.data');
+        Route::delete('serahterimaaplikasi/delete_selected', [serahterimaaplikasiController::class, 'deleteSelected'])->name('serah_terima_aplikasi.delete_selected');
+        Route::post('/serahterimaaplikasi/cetak-dokumen', [serahterimaaplikasiController::class, 'cetakDokumen'])->name('serah_terima_aplikasi.cetakDokumen');
+        Route::resource('/serahterimaaplikasi', serahterimaaplikasiController::class);
 
         Route::get('/perencanaan_kebutuhan', [PerencanaanKebutuhanController::class, 'index'])->name('perencanaan_kebutuhan.index');
         Route::get('/perencanaan_kebutuhan/data', [PerencanaanKebutuhanController::class, 'data'])->name('perencanaan_kebutuhan.data');
