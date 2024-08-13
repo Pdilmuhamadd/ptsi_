@@ -65,11 +65,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/permintaan_pengembangan/cetak-dokumen', [PermintaanPengembanganController::class, 'cetakDokumen'])->name('permintaan_pengembangan.cetakDokumen');
         Route::resource('/permintaan_pengembangan', PermintaanPengembanganController::class);
 
-        Route::get('/serahterimaaplikasi', [SerahTerimaAplikasiController::class, 'index'])->name('serah_terima_aplikasi.index');
-        Route::get('/serahterimaaplikasi/data', [SerahTerimaAplikasiController::class, 'data'])->name('serah_terima_aplikasi.data');
-        Route::delete('serahterimaaplikasi/delete_selected', [SerahTerimaAplikasiController::class, 'deleteSelected'])->name('serah_terima_aplikasi.delete_selected');
-        Route::post('/serahterimaaplikasi/cetak-dokumen', [SerahTerimaAplikasiController::class, 'cetakDokumen'])->name('serah_terima_aplikasi.cetakDokumen');
-        Route::resource('/serahterimaaplikasi', SerahTerimaAplikasiController::class);
+        Route::get('/serah_terima_aplikasi', [SerahTerimaAplikasiController::class, 'index'])->name('serah_terima_aplikasi.index');
+        Route::get('/serah_terima_aplikasi/data', [SerahTerimaAplikasiController::class, 'data'])->name('serah_terima_aplikasi.data');
+        Route::delete('serah_terima_aplikasi/delete_selected', [SerahTerimaAplikasiController::class, 'deleteSelected'])->name('serah_terima_aplikasi.delete_selected');
+        Route::post('/serah_terima_aplikasi/cetak-dokumen', [SerahTerimaAplikasiController::class, 'cetakDokumen'])->name('serah_terima_aplikasi.cetakDokumen');
+        Route::resource('/serah_terima_aplikasi', SerahTerimaAplikasiController::class);
 
         Route::get('/perencanaan_kebutuhan', [PerencanaanKebutuhanController::class, 'index'])->name('perencanaan_kebutuhan.index');
         Route::get('/perencanaan_kebutuhan/data', [PerencanaanKebutuhanController::class, 'data'])->name('perencanaan_kebutuhan.data');

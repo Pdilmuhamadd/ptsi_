@@ -22,7 +22,7 @@ class CreateTrxserahterimaaplikasiTable extends Migration
             $table->text('nama_aplikasi');
             $table->text('no_permintaan');
             $table->text('keterangan');
-            $table->text('yang_menyerahkan');
+            $table->text('pemberi');
             $table->text('penerima');
             $table->timestamps();
         });
