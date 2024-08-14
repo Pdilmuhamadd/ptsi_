@@ -65,9 +65,11 @@ class PermintaanPengembanganController extends Controller
         if ($request->hasFile('lampiran')) {
             $file = $request->file('lampiran');
 
-            $path = $file->storeAs('assets/lampiran', $file->getClientOriginalName(), 'public');
+            $filename = Str::random(20) . '.' . $file->getClientOriginalExtension();
 
-            $data['lampiran'] = 'storage/' . $path;
+            $path = $file->storeAs('assets/lampiran', $filename, 'public');
+
+            $data['lampiran'] = $filename;
         }
 
         $trx_permintaan_pengembangan = PermintaanPengembangan::create($data);

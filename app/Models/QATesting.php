@@ -12,7 +12,7 @@ class QATesting extends Model
     protected $table = 'trx_qat';
     protected $primaryKey = 'id_qat';
     protected $fillable = [
-        'nomor_proyek','nama_aplikasi','jenis_aplikasi','unit_pemilik','kebutuhan_nonfungsi','lokasi_pengujian','tanggal_pengujian','manual_book', ''
+        'nomor_proyek','nama_aplikasi','jenis_aplikasi','unit_pemilik','kebutuhan_nonfungsi', 'lokasi_pengujian', 'tanggal_pengujian', 'manual_book', 'eksp_wakturesp', 'eksp_throughput', 'eksp_efisiensi',
         'lampiran','nama_pemohon','jabatan_pemohon','tanggal_disiapkan','nama_penyetuju','jabatan','tanggal_disetujui'
     ];
 }
