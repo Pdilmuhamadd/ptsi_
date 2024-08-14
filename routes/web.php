@@ -18,6 +18,7 @@ use App\Http\Controllers\{
     PerencanaanKebutuhanController,
     AnalisisDesainController,
     PersetujuanPengembanganController,
+    UserAcceptanceTestingController,
 };
 use App\Http\Controllers\PerencanaanProyekController;
 use App\Http\Controllers\SerahTerimaAplikasiController;
@@ -82,6 +83,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('analisis_desain/delete_selected', [AnalisisDesainController::class, 'deleteSelected'])->name('analisis_desain.delete_selected');
         Route::post('/analisis_desain/cetak-dokumen', [AnalisisDesainController::class, 'cetakDokumen'])->name('analisis_desain.cetakDokumen');
         Route::resource('/analisis_desain', AnalisisDesainController::class);
+
+        Route::get('/user_acceptance_testing', [UserAcceptanceTestingController::class, 'index'])->name('user_acceptance_testing.index');
+        Route::get('/user_acceptance_testing/data', [UserAcceptanceTestingController::class, 'data'])->name('user_acceptance_testing.data');
+        Route::delete('user_acceptance_testing/delete_selected', [UserAcceptanceTestingController::class, 'deleteSelected'])->name('user_acceptance_testing.delete_selected');
+        Route::post('/user_acceptance_testing/cetak-dokumen', [UserAcceptanceTestingController::class, 'cetakDokumen'])->name('user_acceptance_testing.cetakDokumen');
+        Route::resource('/user_acceptance_testing', UserAcceptanceTestingController::class);
 
         Route::get('/produk/data', [ProdukController::class, 'data'])->name('produk.data');
         Route::post('/produk/delete-selected', [ProdukController::class, 'deleteSelected'])->name('produk.delete_selected');
