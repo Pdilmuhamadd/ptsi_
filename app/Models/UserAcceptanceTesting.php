@@ -12,7 +12,7 @@ class UserAcceptanceTesting extends Model
     protected $table = 'trx_user_acceptance_testing';
     protected $primaryKey = 'id_user_acceptance_testing';
     protected $fillable = [
-        'nomor_proyek','nama_aplikasi','jenis_aplikasi','kebutuhan_fungsional','unit_pemilik_proses_bisnis','lokasi_pengujian','tgl_pengujian','manual_book',
+        'nomor_proyek','nama_aplikasi','jenis_aplikasi','kebutuhan_fungsional', 'kebutuhan_nonfungsional','unit_pemilik_proses_bisnis','lokasi_pengujian','tgl_pengujian','manual_book',
         'nama_penyusun','jabatan_penyusun','tgl_disusun','nama_penyetuju','jabatan_penyetuju','tanggal_disetujui'
     ];
 }

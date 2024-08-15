@@ -126,14 +126,14 @@ class UserAcceptanceTestingController extends Controller
         return response()->json('Data berhasil dihapus', 200);
     }
 
-    public function cetakDokumen(Request $request)
+    public function cetakDokumenPerencanaan(Request $request)
     {
         set_time_limit(300);
 
         $dataUserAcceptanceTesting = UserAcceptanceTesting::whereIn('id_user_acceptance_testing', $request->id_user_acceptance_testing)->get();
         $no  = 1;
 
-        $pdf = PDF::loadView('user_acceptance_testing.dokumen', compact('dataUserAcceptanceTesting', 'no'));
+        $pdf = PDF::loadView('user_acceptance_testing.dokumenperencanaan', compact('dataUserAcceptanceTesting', 'no'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('Perencanaan User Acceptance Testing (UAT).pdf');
     }

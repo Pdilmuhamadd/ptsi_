@@ -50,13 +50,13 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('serah_terima_aplikasi.index') }}">
-                    <i class="fa fa-pencil-square-o"></i> <span>Berita Acara Serah Terima</span>
+                <a href="{{ route('user_acceptance_testing.index') }}">
+                    <i class="fa fa-pencil-square-o"></i> <span>User Acceptance Testing</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('user_acceptance_testing.index') }}">
-                    <i class="fa fa-pencil-square-o"></i> <span>User Acceptance Testing</span>
+                <a href="{{ route('serah_terima_aplikasi.index') }}">
+                    <i class="fa fa-pencil-square-o"></i> <span>Berita Acara Serah Terima</span>
                 </a>
             </li>
             {{-- <li class="header">TRANSAKSI</li>

@@ -33,9 +33,16 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                    <label for="kebutuhan_fungsional" class="col-lg-2 col-lg-offset-1 control-label">Kebutuhan Fungsional</label>
+                        <label for="kebutuhan_fungsional" class="col-lg-2 col-lg-offset-1 control-label">Kebutuhan Fungsional</label>
                         <div class="col-lg-6">
-                            <input type="textarea" name="kebutuhan_fungsional" id="kebutuhan_fungsional" class="form-control" required autofocus></input>
+                            <textarea name="kebutuhan_fungsional" id="kebutuhan_fungsional" class="form-control" required autofocus></textarea>
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="kebutuhan_nonfungsional" class="col-lg-2 col-lg-offset-1 control-label">Kebutuhan Non-Fungsional</label>
+                        <div class="col-lg-6">
+                            <textarea name="kebutuhan_nonfungsional" id="kebutuhan_nonfungsional" class="form-control" required autofocus></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>

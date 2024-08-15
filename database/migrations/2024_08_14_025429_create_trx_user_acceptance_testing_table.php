@@ -14,11 +14,12 @@ class CreateTrxUserAcceptanceTestingTable extends Migration
     public function up()
     {
         Schema::create('trx_user_acceptance_testing', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_user_acceptance_testing');
             $table->text('nomor_proyek');
             $table->text('nama_aplikasi');
             $table->text('jenis_aplikasi');
             $table->text('kebutuhan_fungsional');
+            $table->text('kebutuhan_nonfungsional');
             $table->text('unit_pemilik_proses_bisnis');
             $table->text('lokasi_pengujian');
             $table->date('tgl_pengujian');
