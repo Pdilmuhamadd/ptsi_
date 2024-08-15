@@ -21,7 +21,7 @@
                     <div class="form-group row">
                         <label for="deskripsi" class="col-lg-2 col-lg-offset-1 control-label">Deskripsi</label>
                         <div class="col-lg-6">
-                            <input type="text" name="deskripsi" id="deskripsi" class="form-control" required autofocus>
+                            <textarea type="text" name="deskripsi" id="deskripsi" class="form-control" required autofocus></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -42,21 +42,21 @@
                     <div class="form-group row">
                         <label for="stakeholders" class="col-lg-2 col-lg-offset-1 control-label">Stakeholders</label>
                         <div class="col-lg-6">
-                            <input type="text" name="stakeholders" id="stakeholders" class="form-control" required autofocus></input>
+                            <textarea type="text" name="stakeholders" id="stakeholders" class="form-control" required autofocus></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="kebutuhan_fungsional" class="col-lg-2 col-lg-offset-1 control-label">Kebutuhan Fungsional</label>
                         <div class="col-lg-6">
-                            <input type="text" name="kebutuhan_fungsional" id="kebutuhan_fungsional" class="form-control" required autofocus></input>
+                            <textarea type="text" name="kebutuhan_fungsional" id="kebutuhan_fungsional" class="form-control" required autofocus></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="kebutuhan_nonfungsional" class="col-lg-2 col-lg-offset-1 control-label">Kebutuhan Non-fungsional</label>
                         <div class="col-lg-6">
-                            <input type="text" name="kebutuhan_nonfungsional" id="kebutuhan_nonfungsional" class="form-control" required autofocus></input>
+                            <textarea type="text" name="kebutuhan_nonfungsional" id="kebutuhan_nonfungsional" class="form-control" required autofocus></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>

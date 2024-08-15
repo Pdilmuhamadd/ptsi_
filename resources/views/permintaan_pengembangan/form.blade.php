@@ -21,28 +21,28 @@
                     <div class="form-group row">
                         <label for="latar_belakang" class="col-lg-2 col-lg-offset-1 control-label">Latar Belakang</label>
                         <div class="col-lg-6">
-                            <input type="text" name="latar_belakang" id="latar_belakang" class="form-control" required autofocus>
+                            <textarea type="textarea" name="latar_belakang" id="latar_belakang" class="form-control" required autofocus></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="tujuan" class="col-lg-2 col-lg-offset-1 control-label">Tujuan</label>
                         <div class="col-lg-6">
-                            <input type="text" name="tujuan" id="tujuan" class="form-control" required autofocus>
+                            <textarea type="textarea" name="tujuan" id="tujuan" class="form-control" required autofocus></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
-                    <label for="target_implementasi_sistem" class="col-lg-2 col-lg-offset-1 control-label">Target Implementasi Sistem</label>
+                        <label for="target_implementasi_sistem" class="col-lg-2 col-lg-offset-1 control-label">Target Implementasi Sistem</label>
                         <div class="col-lg-6">
-                            <input type="text" name="target_implementasi_sistem" id="target_implementasi_sistem" class="form-control" required autofocus></input>
+                            <textarea name="target_implementasi_sistem" id="target_implementasi_sistem" class="form-control" rows="4" cols="50" required></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="fungsi_sistem_informasi" class="col-lg-2 col-lg-offset-1 control-label">Fungsi-fungsi Sistem Informasi</label>
                         <div class="col-lg-6">
-                            <input type="text" name="fungsi_sistem_informasi" id="fungsi_sistem_informasi" class="form-control" required autofocus></input>
+                            <textarea type="text" name="fungsi_sistem_informasi" id="fungsi_sistem_informasi" class="form-control" required autofocus></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                     <div class="form-group row">
                         <label for="uraian_permintaan_tambahan" class="col-lg-2 col-lg-offset-1 control-label">Uraian Permintaan Tambahan/Khusus</label>
                         <div class="col-lg-6">
-                            <input type="text" name="uraian_permintaan_tambahan" id="uraian_permintaan_tambahan" class="form-control" required autofocus></input>
+                            <textarea type="textareas" name="uraian_permintaan_tambahan" id="uraian_permintaan_tambahan" class="form-control" required autofocus></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
