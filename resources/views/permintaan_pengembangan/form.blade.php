@@ -49,14 +49,23 @@
                     <div class="form-group row">
                         <label for="jenis_aplikasi" class="col-lg-2 col-lg-offset-1 control-label">Jenis Aplikasi</label>
                         <div class="col-lg-6">
-                            <input type="text" name="jenis_aplikasi" id="jenis_aplikasi" class="form-control" required autofocus></input>
+                            <select name="jenis_aplikasi" id="jenis_aplikasi" class="form-control" required>
+                                <option value="">Pilih Jenis Aplikasi</option>
+                                <option value="mobile">Mobile</option>
+                                <option value="dekstop">Dekstop</option>
+                                <option value="web">Web</option>
+                            </select>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="pengguna" class="col-lg-2 col-lg-offset-1 control-label">Pengguna</label>
                         <div class="col-lg-6">
-                            <input type="text" name="pengguna" id="pengguna" class="form-control" required autofocus></input>
+                            <select name="pengguna" id="pengguna" class="form-control" required>
+                                <option value="">Pilih Pengguna</option>
+                                <option value="internal">Internal</option>
+                                <option value="eksternal">Eksternal</option>
+                            </select>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -103,9 +112,15 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="jabatan" class="col-lg-2 col-lg-offset-1 control-label">Jabatan</label>
+                        <label for="jabatan" class="col-lg-2 col-lg-offset-1 control-label">Jabatan Penyetuju</label>
                         <div class="col-lg-6">
-                            <input type="text" name="jabatan" id="jabatan" class="form-control" required autofocus></input>
+                            <select name="jabatan" id="jabatan" class="form-control" required>
+                                <option value="">Pilih Jabatan</option>
+                                <option value="kepala_sp">Kepala SP</option>
+                                <option value="vp">VP</option>|
+                                <option value="kepala_divisi">Kepala Divisi</option>|
+                                <option value="kepala_cabang">Kepala Cabang</option>|
+                            </select>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>

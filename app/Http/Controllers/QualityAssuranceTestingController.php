@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\QATesting;
+use App\Models\QualityAssuranceTesting;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-class QATestingController extends Controller
+class QualityAssuranceTestingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,26 +15,26 @@ class QATestingController extends Controller
      */
     public function index()
     {
-        return view('qa_testing.index');
+        return view('quality_assurance_testing.index');
     }
 
     public function data()
     {
-        $trx_qat = QATesting::orderBy('id_qat', 'desc')->get();
+        $trx_quality_assurance_testing = QualityAssuranceTesting::orderBy('id_qat', 'desc')->get();
 
         return datatables()
-            ->of($trx_qat)
+            ->of($trx_quality_assurance_testing)
             ->addIndexColumn()
-            ->addColumn('select_all', function ($trx_qat) {
+            ->addColumn('select_all', function ($trx_quality_assurance_testing) {
                 return '
-                    <input type="checkbox" name="id_qat[]" value="'. $trx_qat->id_qat .'">
+                    <input type="checkbox" name="id_qat[]" value="'. $trx_quality_assurance_testing->id_qat .'">
                 ';
             })
-            ->addColumn('aksi', function ($trx_qat) {
+            ->addColumn('aksi', function ($trx_quality_assurance_testing) {
                 return '
                 <div class="btn-group">
-                    <button onclick="editForm(`'. route('qa_testing.update', $trx_qat->id_qat) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                    <button onclick="deleteData(`'. route('qa_testing.destroy', $trx_qat->id_qat) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button onclick="editForm(`'. route('quality_assurance_testing.update', $trx_quality_assurance_testing->id_qat) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                    <button onclick="deleteData(`'. route('quality_assurance_testing.destroy', $trx_quality_assurance_testing->id_qat) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                 </div>
                 ';
             })
@@ -63,8 +63,8 @@ class QATestingController extends Controller
         // dd($request->all());
         // die;
 
-        $trx_qat = QATesting::create($request->all());
-        $trx_qat->save();
+        $trx_quality_assurance_testing = QualityAssuranceTesting::create($request->all());
+        $trx_quality_assurance_testing->save();
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -77,9 +77,9 @@ class QATestingController extends Controller
      */
     public function show($id)
     {
-        $trx_qat = QATesting::find($id);
+        $trx_quality_assurance_testing = QualityAssuranceTesting::find($id);
 
-        return response()->json($trx_qat);
+        return response()->json($trx_quality_assurance_testing);
     }
 
     /**
@@ -102,7 +102,7 @@ class QATestingController extends Controller
      */
     public function update(Request $request, $id_qat)
     {
-        $trx_qat = QATesting::find($id_qat)->update($request->all());
+        $trx_quality_assurance_testing = QualityAssuranceTesting::find($id_qat)->update($request->all());
 
         return response()->json('Data berhasil diperbarui', 200);
     }
@@ -115,8 +115,8 @@ class QATestingController extends Controller
      */
     public function destroy($id_qat)
     {
-        $trx_qat = QATesting::find($id_qat);
-        $trx_qat->delete();
+        $trx_quality_assurance_testing = QualityAssuranceTesting::find($id_qat);
+        $trx_quality_assurance_testing->delete();
 
         return response(null, 204);
     }
@@ -124,7 +124,7 @@ class QATestingController extends Controller
     public function deleteSelected(Request $request)
     {
         $ids = $request->id_qat;
-        QATesting::whereIn('id_qat', $ids)->delete();
+        QualityAssuranceTesting::whereIn('id_qat', $ids)->delete();
         return response()->json('Data berhasil dihapus', 200);
     }
 
@@ -132,10 +132,10 @@ class QATestingController extends Controller
     {
         set_time_limit(300);
 
-        $dataQAT = QATesting::whereIn('id_qat', $request->id_qat)->get();
+        $dataQAT = QualityAssuranceTesting::whereIn('id_qat', $request->id_qat)->get();
         $no  = 1;
 
-        $pdf = PDF::loadView('qa_testing.dokumen', compact('dataQAT', 'no'));
+        $pdf = PDF::loadView('quality_assurance_testing.dokumen', compact('dataQAT', 'no'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('Quality Assurance Testing (QAT).pdf');
     }
