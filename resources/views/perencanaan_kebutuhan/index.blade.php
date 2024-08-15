@@ -77,7 +77,17 @@
                 {data: 'stakeholders'},
                 {data: 'kebutuhan_fungsional'},
                 {data: 'kebutuhan_nonfungsional'},
-                {data: 'lampiran'},
+                {
+                    data:function(row){
+                        return `
+                                    <div>
+                                        <a href="/storage/assets/lampiran/${row.lampiran}" target="_blank">
+                                            Lihat File Lampiran
+                                        </a>
+                                    </div>
+                                `;
+                    }
+                },
                 {data: 'nama_pemohon'},
                 {data: 'jabatan_pemohon'},
                 {data: 'tanggal_disiapkan'},
@@ -90,16 +100,29 @@
 
         $('#modal-form').validator().on('submit', function (e) {
             if (!e.preventDefault()) {
-                $.post($('#modal-form form').attr('action'), $('#modal-form form').serialize())
-                    .done((response) => {
+                let formData = new FormData($('#modal-form form')[0]);
+                formData.append('lampiran', $('input[name="lampiran"]')[0].files[0]);
+
+                $.ajax({
+                    url: $('#modal-form form').attr('action'),
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
                         $('#modal-form').modal('hide');
                         table.ajax.reload();
-                    })
-                    .fail((errors) => {
+                    },
+                    error: function(errors) {
                         alert('Tidak dapat menyimpan data');
                         return;
-                    });
+                    }
+                });
             }
+        });
+
+        $('[name=select_all]').on('click', function () {
+            $(':checkbox').prop('checked', this.checked);
         });
     });
 

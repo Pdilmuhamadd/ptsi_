@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\PerencanaanKebutuhan;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -60,10 +61,18 @@ class PerencanaanKebutuhanController extends Controller
      */
     public function store(Request $request)
     {
-        $trx_perencanaan_kebutuhan = PerencanaanKebutuhan::create($request->all());
+        $data = $request->all();
 
-        $trx_perencanaan_kebutuhan->save();
+        if ($request->hasFile('lampiran')) {
+            $file = $request->file('lampiran');
+            $filename = Str::random(20) . '.' . $file->getClientOriginalExtension();
 
+            $path = $file->storeAs('assets/lampiran', $filename, 'public');
+
+            $data['lampiran'] = $filename;
+        }
+
+        $trx_perencanaan_kebutuhan = PerencanaanKebutuhan::create($data);
         return response()->json('Data berhasil disimpan', 200);
     }
 
@@ -98,11 +107,21 @@ class PerencanaanKebutuhanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_perencanaan_kebutuhan)
     {
-        $trx_perencanaan_kebutuhan = PerencanaanKebutuhan::find($id)->update($request->all());
+        $trx_perencanaan_kebutuhan = PerencanaanKebutuhan::findOrFail($id_perencanaan_kebutuhan);
+        $data = $request->all();
 
-        return response()->json('Data berhasil disimpan', 200);
+        if ($request->hasFile('lampiran')) {
+            $file = $request->file('lampiran');
+
+            $path = $file->storeAs('assets/lampiran', $file->getClientOriginalName(), 'public');
+
+            $data['lampiran'] = 'storage/' . $path;
+        }
+
+        $trx_perencanaan_kebutuhan->update($data);
+        return response()->json('Data berhasil diperbarui', 200);
     }
 
     /**
