@@ -19,6 +19,7 @@ use App\Http\Controllers\{
     AnalisisDesainController,
     PersetujuanPengembanganController,
     UserAcceptanceTestingController,
+    QualityAssuranceTestingController,
 };
 use App\Http\Controllers\PerencanaanProyekController;
 use App\Http\Controllers\SerahTerimaAplikasiController;
@@ -89,6 +90,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('user_acceptance_testing/delete_selected', [UserAcceptanceTestingController::class, 'deleteSelected'])->name('user_acceptance_testing.delete_selected');
         Route::post('/user_acceptance_testing/cetak-dokumen', [UserAcceptanceTestingController::class, 'cetakDokumenPerencanaan'])->name('user_acceptance_testing.cetakDokumenPerencanaan');
         Route::resource('/user_acceptance_testing', UserAcceptanceTestingController::class);
+
+        Route::get('/quality_assurance_testing', [QualityAssuranceTestingController::class, 'index'])->name('quality_assurance_testing.index');
+        Route::get('/quality_assurance_testing/data', [QualityAssuranceTestingController::class, 'data'])->name('quality_assurance_testing.data');
+        Route::delete('quality_assurance_testing/delete_selected', [QualityAssuranceTestingController::class, 'deleteSelected'])->name('quality_assurance_testing.delete_selected');
+        Route::post('/quality_assurance_testing/cetak-dokumen', [QualityAssuranceTestingController::class, 'cetakDokumen'])->name('quality_assurance_testing.cetakDokumen');
+        Route::resource('/quality_assurance_testing', QualityAssuranceTestingController::class);
 
         Route::get('/produk/data', [ProdukController::class, 'data'])->name('produk.data');
         Route::post('/produk/delete-selected', [ProdukController::class, 'deleteSelected'])->name('produk.delete_selected');

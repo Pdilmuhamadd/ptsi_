@@ -55,6 +55,11 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('quality_assurance_testing.index') }}">
+                    <i class="fa fa-pencil-square-o"></i> <span>Quality Assurance Testing</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('serah_terima_aplikasi.index') }}">
                     <i class="fa fa-pencil-square-o"></i> <span>Berita Acara Serah Terima</span>
                 </a>
