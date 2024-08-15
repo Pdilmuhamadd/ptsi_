@@ -54,7 +54,7 @@ class DashboardController extends Controller
         $tanggal_awal = date('Y-m-01');
 
         if (auth()->user()->level == 1) {
-            return view('admin.dashboard', compact('kategori', 'trx_perencanaan_proyek', 'trx_persetujuan_pengembangan' ,'trx_permintaan_pengembangan', 'trx_perencanaan_kebutuhan', 'trx_analisis_desain','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
+            return view('admin.dashboard', compact('kategori', 'trx_perencanaan_proyek', 'trx_persetujuan_pengembangan' ,'trx_permintaan_pengembangan', 'trx_perencanaan_kebutuhan', 'trx_analisis_desain', 'trx_user_acceptance_testing','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
         } else {
             return view('kasir.dashboard');
         }

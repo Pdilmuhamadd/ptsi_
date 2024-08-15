@@ -25,8 +25,8 @@
             </div>
             <a href="{{ route('permintaan_pengembangan.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
-    </div>        
-    
+    </div>
+
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
