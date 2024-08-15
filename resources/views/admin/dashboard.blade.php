@@ -82,11 +82,27 @@
                 <p>Analisis & Desain</p>
             </div>
             <div class="icon">
-                <i class="fa fa-pencil-square-o"></i>
+                <i class="fa fa-clone"></i>
             </div>
             <a href="{{ route('analisis_desain.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+            <div class="inner">
+                <h3>{{ $trx_user_acceptance_testing}}</h3>
+
+                <p>User Acceptance Testing</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-pencil-square-o"></i>
+            </div>
+            <a href="{{ route('user_acceptance_testing.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
     <!-- ./col -->
 </div>
 <!-- ./col -->

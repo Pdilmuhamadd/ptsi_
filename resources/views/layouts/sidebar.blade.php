@@ -46,7 +46,7 @@
             </li>
             <li>
                 <a href="{{ route('analisis_desain.index') }}">
-                    <i class="fa fa-pencil-square-o"></i> <span>Analisis & Desain</span>
+                    <i class="fa fa-clone"></i> <span>Analisis & Desain</span>
                 </a>
             </li>
             <li>
@@ -61,7 +61,7 @@
             </li>
             <li>
                 <a href="{{ route('serah_terima_aplikasi.index') }}">
-                    <i class="fa fa-pencil-square-o"></i> <span>Berita Acara Serah Terima</span>
+                    <i class="fa fa-handshake-o"></i> <span>Berita Acara Serah Terima</span>
                 </a>
             </li>
             {{-- <li class="header">TRANSAKSI</li>

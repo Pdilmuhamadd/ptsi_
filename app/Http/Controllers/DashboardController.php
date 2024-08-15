@@ -14,6 +14,7 @@ use App\Models\PersetujuanPengembangan;
 use App\Models\PerencanaanKebutuhan;
 use App\Models\AnalisisDesain;
 use App\Models\PerencanaanProyek;
+use App\Models\UserAcceptanceTesting;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -27,6 +28,7 @@ class DashboardController extends Controller
         $trx_persetujuan_pengembangan = PersetujuanPengembangan::count();
         $produk = Produk::count();
         $trx_analisis_desain = AnalisisDesain::count();
+        $trx_user_acceptance_testing = UserAcceptanceTesting::count();
         $supplier = Supplier::count();
         $member = Member::count();
 
