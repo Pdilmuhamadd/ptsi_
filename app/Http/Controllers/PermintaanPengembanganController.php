@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\PermintaanPengembangan;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -64,7 +65,6 @@ class PermintaanPengembanganController extends Controller
 
         if ($request->hasFile('lampiran')) {
             $file = $request->file('lampiran');
-
             $filename = Str::random(20) . '.' . $file->getClientOriginalExtension();
 
             $path = $file->storeAs('assets/lampiran', $filename, 'public');
