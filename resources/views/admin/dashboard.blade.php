@@ -108,7 +108,7 @@
         <div class="small-box bg-aqua">
             <div class="inner">
                 <h3>{{ $trx_serah_terima_aplikasi}}</h3>
-                Berita Acara Serah Terima <br>Sistem Aplikasi</br></p>
+                <p>Berita Acara Serah Terima Sistem</p>
             </div>
             <div class="icon">
                 <i class="fa fa-handshake-o"></i>

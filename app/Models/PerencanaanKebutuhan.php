@@ -14,6 +14,6 @@ class PerencanaanKebutuhan extends Model
     protected $fillable = [
         'nama_proyek','deskripsi','pemilik_proyek','manajer_proyek','stakeholders','kebutuhan_fungsional'
         ,'kebutuhan_nonfungsional','lampiran','nama_pemohon','jabatan_pemohon','tanggal_disiapkan'
-        ,'nama','jabatan','tanggal_disetujui'
+        ,'nama','jabatan','tanggal_disetujui','file_pdf'
     ];
 }
