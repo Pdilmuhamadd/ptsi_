@@ -17,6 +17,7 @@
                 <button onclick="addForm('{{ route('user_acceptance_testing.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
                 <button onclick="deleteSelected('{{ route('user_acceptance_testing.delete_selected') }}')" class="btn btn-danger btn-xs btn-flat"><i class="fa fa-trash"></i> Hapus</button>
                 <button onclick="cetakDokumenPerencanaan('{{ route('user_acceptance_testing.cetakDokumenPerencanaan') }}')" class="btn btn-info btn-xs btn-flat"><i class="fa fa-download"></i> Cetak Dok Perencanaan UAT</button>
+                <button onclick="cetakDokumen('{{ route('user_acceptance_testing.cetakDokumen') }}')" class="btn btn-info btn-xs btn-flat"><i class="fa fa-download"></i> Cetak Dokumen UAT</button>
             </div>
             <div class="box-body table-responsive">
                     @csrf

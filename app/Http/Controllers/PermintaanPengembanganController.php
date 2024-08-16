@@ -36,10 +36,17 @@ class PermintaanPengembanganController extends Controller
                 <div class="btn-group">
                     <button onclick="editForm(`'. route('permintaan_pengembangan.update', $trx_permintaan_pengembangan->id_permintaan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
                     <button onclick="deleteData(`'. route('permintaan_pengembangan.destroy', $trx_permintaan_pengembangan->id_permintaan_pengembangan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button onclick="UploadPDF(`'. route('permintaan_pengembangan.store', $trx_permintaan_pengembangan->id_permintaan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
                 </div>
                 ';
             })
-            ->rawColumns(['aksi', 'select_all'])
+            ->addColumn('file_pdf', function ($trx_permintaan_pengembangan) {
+                if ($trx_permintaan_pengembangan->file_pdf) {
+                    return '<a href="/storage/assets/pdf/' . $trx_permintaan_pengembangan->file_pdf . '" target="_blank">Lihat PDF</a>';
+                }
+                return '-';
+            })
+            ->rawColumns(['aksi', 'select_all','file_pdf'])
             ->make(true);
     }
 
@@ -70,6 +77,13 @@ class PermintaanPengembanganController extends Controller
             $path = $file->storeAs('assets/lampiran', $filename, 'public');
 
             $data['lampiran'] = $filename;
+        }
+
+        if ($request->hasFile('file_pdf')) {
+            $file = $request->file('file_pdf');
+            $filename = Str::random(20) . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('assets/pdf', $filename, 'public');
+            $data['file_pdf'] = $filename;
         }
 
         $trx_permintaan_pengembangan = PermintaanPengembangan::create($data);

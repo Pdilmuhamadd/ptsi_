@@ -88,7 +88,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/user_acceptance_testing', [UserAcceptanceTestingController::class, 'index'])->name('user_acceptance_testing.index');
         Route::get('/user_acceptance_testing/data', [UserAcceptanceTestingController::class, 'data'])->name('user_acceptance_testing.data');
         Route::delete('user_acceptance_testing/delete_selected', [UserAcceptanceTestingController::class, 'deleteSelected'])->name('user_acceptance_testing.delete_selected');
-        Route::post('/user_acceptance_testing/cetak-dokumen', [UserAcceptanceTestingController::class, 'cetakDokumenPerencanaan'])->name('user_acceptance_testing.cetakDokumenPerencanaan');
+        Route::post('/user_acceptance_testing/cetak-dokumen-perencanaan', [UserAcceptanceTestingController::class, 'cetakDokumenPerencanaan'])->name('user_acceptance_testing.cetakDokumenPerencanaan');
+        Route::post('/user_acceptance_testing/cetak-dokumen', [UserAcceptanceTestingController::class, 'cetakDokumen'])->name('user_acceptance_testing.cetakDokumen');
         Route::resource('/user_acceptance_testing', UserAcceptanceTestingController::class);
 
         Route::get('/quality_assurance_testing', [QualityAssuranceTestingController::class, 'index'])->name('quality_assurance_testing.index');
