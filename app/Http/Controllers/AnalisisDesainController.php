@@ -35,10 +35,17 @@ class AnalisisDesainController extends Controller
                 <div class="btn-group">
                     <button onclick="editForm(`'. route('analisis_desain.update', $trx_analisis_desain->id_analisis_desain) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
                     <button onclick="deleteData(`'. route('analisis_desain.destroy', $trx_analisis_desain->id_analisis_desain) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button onclick="UploadPDF(`'. route('analisis_desain.store', $trx_analisis_desain->id_analisis_desain) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
                 </div>
                 ';
             })
-            ->rawColumns(['aksi', 'select_all'])
+            ->addColumn('file_pdf', function ($trx_analisis_desain) {
+                if ($trx_analisis_desain->file_pdf) {
+                    return '<a href="/storage/assets/pdf/' . $trx_analisis_desain->file_pdf . '" target="_blank">Lihat PDF</a>';
+                }
+                return '-';
+            })
+            ->rawColumns(['aksi', 'select_all','file_pdf'])
             ->make(true);
     }
 
@@ -60,9 +67,16 @@ class AnalisisDesainController extends Controller
      */
     public function store(Request $request)
     {
-        $trx_analisis_desain = AnalisisDesain::create($request->all());
-        $trx_analisis_desain->save();
+        $data = $request->all();
 
+        if ($request->hasFile('file_pdf')) {
+            $file = $request->file('file_pdf');
+            $filename = Str::random(20) . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('assets/pdf', $filename, 'public');
+            $data['file_pdf'] = $filename;
+        }
+
+        $trx_analisis_desain = AnalisisDesain::create($data);
         return response()->json('Data berhasil disimpan', 200);
     }
 

@@ -13,6 +13,6 @@ class AnalisisDesain extends Model
     protected $primaryKey = 'id_analisis_desain';
 
     protected $fillable = [
-        'nama_proyek', 'deskripsi_proyek', 'manajer_proyek',  'kebutuhan_fungsi',  'gambaran_arsitektur', 'detil_arsitektur', 'lampiran_mockup', 'nama_pemohon', 'jabatan_pemohon', 'tanggal_disiapkan', 'nama', 'jabatan', 'tanggal_disetujui', 'status'
+        'nama_proyek', 'deskripsi_proyek', 'manajer_proyek',  'kebutuhan_fungsi',  'gambaran_arsitektur', 'detil_arsitektur', 'lampiran_mockup', 'nama_pemohon', 'jabatan_pemohon', 'tanggal_disiapkan', 'nama', 'jabatan', 'tanggal_disetujui', 'status', 'file_pdf'
     ];
 }
