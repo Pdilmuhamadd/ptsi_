@@ -123,10 +123,10 @@ class SerahTerimaAplikasiController extends Controller
     {
         set_time_limit(300);
 
-        $SerahTerimaAplikasi = SerahTerimaAplikasi::whereIn('id_serah_terima_aplikasi', $request->id_serah_terima_aplikasi)->get();
+        $dataserahterima = SerahTerimaAplikasi::whereIn('id_serah_terima_aplikasi', $request->id_serah_terima_aplikasi)->get();
         $no  = 1;
 
-        $pdf = PDF::loadView('serah_terima_aplikasi.dokumen', compact('SerahTerimaAplikasi', 'no'));
+        $pdf = PDF::loadView('serah_terima_aplikasi.dokumen', compact('dataserahterima', 'no'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('Berita Acara Serah Terima Aplikasi.pdf');
     }
