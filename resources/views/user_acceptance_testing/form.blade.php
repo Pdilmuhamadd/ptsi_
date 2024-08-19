@@ -110,9 +110,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="tgl_disetujui" class="col-lg-2 col-lg-offset-1 control-label">Tanggal Disetujui</label>
+                        <label for="tanggal_disetujui" class="col-lg-2 col-lg-offset-1 control-label">Tanggal Disetujui</label>
                         <div class="col-lg-6">
-                            <input type="date" name="tgl_disetujui" id="tgl_disetujui" class="form-control" required autofocus></input>
+                            <input type="date" name="tanggal_disetujui" id="tanggal_disetujui" class="form-control" required autofocus></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>

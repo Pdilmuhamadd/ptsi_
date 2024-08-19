@@ -84,7 +84,7 @@
                 {data: 'tgl_disusun'},
                 {data: 'nama_penyetuju'},
                 {data: 'jabatan_penyetuju'},
-                {data: 'tgl_disetujui'},
+                {data: 'tanggal_disetujui'},
                 {data: 'aksi', searchable: false, sortable: false},
             ],
         });
@@ -144,7 +144,7 @@
                 $('#modal-form [name=tgl_disusun]').val(response.tgl_disusun);
                 $('#modal-form [name=nama_penyetuju]').val(response.nama_penyetuju);
                 $('#modal-form [name=jabatan_penyetuju]').val(response.jabatan_penyetuju);
-                $('#modal-form [name=tgl_disetujui]').val(response.tgl_disetujui);
+                $('#modal-form [name=tanggal_disetujui]').val(response.tgl_disetujui);
             })
             .fail((errors) => {
                 alert('Tidak dapat menampilkan data');
