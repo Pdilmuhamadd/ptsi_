@@ -21,7 +21,7 @@
                     <div class="form-group row">
                         <label for="tanggal" class="col-lg-2 col-lg-offset-1 control-label">Tanggal</label>
                         <div class="col-lg-6">
-                            <input type="text" name="tanggal" id="tanggal" class="form-control" required autofocus>
+                            <input type="date" name="tanggal" id="tanggal" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -61,14 +61,14 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="pemberi" class="col-lg-2 col-lg-offset-1 control-label">Pemberi</label>
+                        <label for="pemberi" class="col-lg-2 col-lg-offset-1 control-label">Nama Pemberi</label>
                         <div class="col-lg-6">
                             <input type="text" name="pemberi" id="pemberi" class="form-control" required autofocus></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="penerima" class="col-lg-2 col-lg-offset-1 control-label">Penerima</label>
+                        <label for="penerima" class="col-lg-2 col-lg-offset-1 control-label">Nama Penerima</label>
                         <div class="col-lg-6">
                             <input type="text" name="penerima" id="penerima" class="form-control">
                             <span class="help-block with-errors"></span>
