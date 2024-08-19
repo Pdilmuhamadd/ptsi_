@@ -67,10 +67,10 @@
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
                 {data: 'hari'},
                 {data: 'tanggal'},
-                {data: 'deksripsi'},
+                {data: 'deskripsi'},
                 {data: 'lokasi'},
                 {data: 'nama_aplikasi'},
-                {data: 'nomor_permintaan'},
+                {data: 'no_permintaan'},
                 {data: 'keterangan'},
                 {data: 'pemberi'},
                 {data: 'penerima'},
@@ -126,7 +126,7 @@
                 $('#modal-form [name=deskripsi]').val(response.deskripsi);
                 $('#modal-form [name=lokasi]').val(response.lokasi);
                 $('#modal-form [name=nama_aplikasi]').val(response.nama_aplikasi);
-                $('#modal-form [name=nomor_permintaan]').val(response.nomor_permintaan);
+                $('#modal-form [name=no_permintaan]').val(response.nomor_permintaan);
                 $('#modal-form [name=keterangan]').val(response.keterangan);
                 $('#modal-form [name=pemberi]').val(response.pemberi);
                 $('#modal-form [name=penerima]').val(response.penerima);
