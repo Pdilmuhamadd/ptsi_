@@ -79,33 +79,33 @@
     </table>
 </div>
 
-<h3 class="text-center bold">Yang Bertanda Tangan Dibawah Ini, Menyatakan Bahwa </h3>
+<h3 class="text-center">Yang Bertanda Tangan Dibawah Ini, Menyatakan Bahwa Pada</h3>
 <table>
     <tr>
         <td>Hari</td>
-        <td>{{ $dataserahterima->hari }}</td>
+        <td>{{ $serahterima->hari }}</td>
     </tr>
     <tr>
         <td>Tanggal</td>
-        <td>{{ $dataserahterima->tanggal }}</td>
+        <td>{{ $serahterima->tanggal }}</td>
     </tr>
     <tr>
         <td>Lokasi</td>
-        <td>{{ $dataserahterima->lokasi }}</td>
+        <td>{{ $serahterima->lokasi }}</td>
     </tr>
     <tr>
         <td>Nama Aplikasi</td>
-        <td>{{ $dataserahterima->nama_aplikasi }}</td>
+        <td>{{ $serahterima->nama_aplikasi }}</td>
     </tr>
     <tr>
         <td>Nomor Permintaan</td>
-        <td>{{ $dataserahterima->no_permintaan }}</td>
+        <td>{{ $serahterima->no_permintaan }}</td>
     </tr>
     <tr>
         <td>Keterangan</td>
-        <td>{{ $dataserahterima->keterangan }}</td>
+        <td>{{ $serahterima->keterangan }}</td>
 </table>
-
+<h3 class="text-center">Telah berfungsi dengan baik sesuai dengan kebutuhan dan menerima sistem aplikasi ini untuk dipergunakan sebagaimana mestinya.</h3>
 
 <table class="table">
     <tr>

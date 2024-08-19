@@ -28,7 +28,7 @@
                     <div class="form-group row">
                         <label for="deskripsi" class="col-lg-2 col-lg-offset-1 control-label">Deskripsi</label>
                         <div class="col-lg-6">
-                            <textarea name="deskripsi" id="deskripsi" class="form-control" required autofocus>
+                            <textarea name="deskripsi" id="deskripsi" class="form-control" rows="4" cols="50" required></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                     <div class="form-group row">
                         <label for="keterangan" class="col-lg-2 col-lg-offset-1 control-label">Keterangan</label>
                         <div class="col-lg-6">
-                            <input type="text" name="keterangan" id="keterangan" class="form-control" required autofocus></input>
+                            <textarea name="keterangan" id="keterangan" class="form-control" rows="4" cols="50" required></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
