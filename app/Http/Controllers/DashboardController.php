@@ -16,6 +16,7 @@ use App\Models\AnalisisDesain;
 use App\Models\PerencanaanProyek;
 use App\Models\UserAcceptanceTesting;
 use App\Models\serahterimaaplikasi;
+use App\Models\QualityAssuranceTesting;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -30,6 +31,7 @@ class DashboardController extends Controller
         $produk = Produk::count();
         $trx_analisis_desain = AnalisisDesain::count();
         $trx_user_acceptance_testing = UserAcceptanceTesting::count();
+        $trx_quality_assurance_testing = QualityAssuranceTesting::count();
         $trx_serah_terima_aplikasi = serahterimaaplikasi::count();
         $supplier = Supplier::count();
         $member = Member::count();
@@ -56,7 +58,7 @@ class DashboardController extends Controller
         $tanggal_awal = date('Y-m-01');
 
         if (auth()->user()->level == 1) {
-            return view('admin.dashboard', compact('kategori', 'trx_perencanaan_proyek', 'trx_persetujuan_pengembangan' ,'trx_permintaan_pengembangan', 'trx_perencanaan_kebutuhan', 'trx_analisis_desain', 'trx_user_acceptance_testing','trx_serah_terima_aplikasi','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
+            return view('admin.dashboard', compact('kategori', 'trx_perencanaan_proyek', 'trx_persetujuan_pengembangan' ,'trx_permintaan_pengembangan', 'trx_perencanaan_kebutuhan', 'trx_analisis_desain', 'trx_user_acceptance_testing','trx_quality_assurance_testing','trx_serah_terima_aplikasi','produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
         } else {
             return view('kasir.dashboard');
         }

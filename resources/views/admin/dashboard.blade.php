@@ -107,6 +107,21 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
+                <h3>{{ $trx_quality_assurance_testing}}</h3>
+
+                <p>Quality Assurance Testing</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-pencil-square-o"></i>
+            </div>
+            <a href="{{ route('quality_assurance_testing.index') }}" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+            <div class="inner">
                 <h3>{{ $trx_serah_terima_aplikasi}}</h3>
                 Berita Acara Serah Terima <br>Sistem Aplikasi</br></p>
             </div>
