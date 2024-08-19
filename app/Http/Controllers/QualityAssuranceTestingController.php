@@ -35,10 +35,17 @@ class QualityAssuranceTestingController extends Controller
                 <div class="btn-group">
                     <button onclick="editForm(`'. route('quality_assurance_testing.update', $trx_quality_assurance_testing->id_qat) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
                     <button onclick="deleteData(`'. route('quality_assurance_testing.destroy', $trx_quality_assurance_testing->id_qat) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button onclick="UploadPDF(`'. route('quality_assurance_testing.store', $trx_quality_assurance_testing->id_qat) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
                 </div>
                 ';
             })
-            ->rawColumns(['aksi', 'select_all'])
+            ->addColumn('file_pdf', function ($trx_quality_assurance_testing) {
+                if ($trx_quality_assurance_testing->file_pdf) {
+                    return '<a href="/storage/assets/pdf/' . $trx_quality_assurance_testing->file_pdf . '" target="_blank">Lihat PDF</a>';
+                }
+                return '-';
+            })
+            ->rawColumns(['aksi', 'select_all','file_pdf'])
             ->make(true);
     }
 
@@ -63,9 +70,16 @@ class QualityAssuranceTestingController extends Controller
         // dd($request->all());
         // die;
 
-        $trx_quality_assurance_testing = QualityAssuranceTesting::create($request->all());
-        $trx_quality_assurance_testing->save();
+        $data = $request->all();
 
+        if ($request->hasFile('file_pdf')) {
+            $file = $request->file('file_pdf');
+            $filename = Str::random(20) . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('assets/pdf', $filename, 'public');
+            $data['file_pdf'] = $filename;
+        }
+
+        $trx_permintaan_pengembangan = PermintaanPengembangan::create($data);
         return response()->json('Data berhasil disimpan', 200);
     }
 
