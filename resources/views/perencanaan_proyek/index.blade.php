@@ -40,6 +40,7 @@
                             <th>Nama</th>
                             <th>Jabatan</th>
                             <th>Tanggal Disetujui</th>
+                            <th>File PDF</th>
                             <th width="15%"><i class="fa fa-cog"></i>
                         </thead>
                     </table>
@@ -49,6 +50,7 @@
     </div>
 </div>
 
+@include('perencanaan_proyek.upload')
 @includeIf('perencanaan_proyek.form')
 @endsection
 
@@ -82,6 +84,7 @@
                 {data: 'nama'},
                 {data: 'jabatan'},
                 {data: 'tanggal_disetujui'},
+                {data: 'file_pdf'},
                 {data: 'aksi', searchable: false, sortable: false},
             ],
         });
@@ -219,6 +222,32 @@
             $('body').append(form);
             form.submit();
         }
+    }
+    function UploadPDF(url) {
+        $('#modal-upload').modal('show');
+        $('#modal-upload form').attr('action', url);
+
+        $('#modal-upload form').off('submit').on('submit', function(e) {
+            e.preventDefault();
+
+            let formData = new FormData($(this)[0]);
+
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    $('#modal-upload').modal('hide');
+                    table.ajax.reload();
+                    alert(response);
+                },
+                error: function(errors) {
+                    alert('Tidak dapat mengupload PDF');
+                }
+            });
+        });
     }
 </script>
 @endpush

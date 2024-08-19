@@ -50,6 +50,7 @@ class PersetujuanPengembanganController extends Controller
                 <div class="btn-group">
                     <button type="button" onclick="editForm(`'. route('persetujuan_pengembangan.update', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
                     <button type="button" onclick="deleteData(`'. route('persetujuan_pengembangan.destroy', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button onclick="UploadPDF(`'. route('persetujuan_pengembangan.store', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
                 </div>
                 ';
             })
@@ -77,9 +78,16 @@ class PersetujuanPengembanganController extends Controller
      */
     public function store(Request $request)
     {
-        $trx_persetujuan_pengembangan = PersetujuanPengembangan::create($request->all());
-        $trx_persetujuan_pengembangan->save();
+        $data = $request->all();
 
+        if ($request->hasFile('file_pdf')) {
+            $file = $request->file('file_pdf');
+            $filename = Str::random(20) . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('assets/pdf', $filename, 'public');
+            $data['file_pdf'] = $filename;
+        }
+
+        $trx_persetujuan_pengembangan = PersetujuanPengembangan::create($data);
         return response()->json('Data berhasil disimpan', 200);
     }
 

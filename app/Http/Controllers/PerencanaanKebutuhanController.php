@@ -36,10 +36,17 @@ class PerencanaanKebutuhanController extends Controller
                 <div class="btn-group">
                     <button onclick="editForm(`'. route('perencanaan_kebutuhan.update', $trx_perencanaan_kebutuhan->id_perencanaan_kebutuhan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
                     <button onclick="deleteData(`'. route('perencanaan_kebutuhan.destroy', $trx_perencanaan_kebutuhan->id_perencanaan_kebutuhan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button onclick="UploadPDF(`'. route('perencanaan_kebutuhan.store', $trx_perencanaan_kebutuhan->id_perencanaan_kebutuhan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
                 </div>
                 ';
             })
-            ->rawColumns(['aksi', 'select_all'])
+            ->addColumn('file_pdf', function ($trx_perencanaan_kebutuhan) {
+                if ($trx_perencanaan_kebutuhan->file_pdf) {
+                    return '<a href="/storage/assets/pdf/' . $trx_perencanaan_kebutuhan->file_pdf . '" target="_blank">Lihat PDF</a>';
+                }
+                return '-';
+            })
+            ->rawColumns(['aksi', 'select_all','file_pdf'])
             ->make(true);
     }
 
@@ -70,6 +77,13 @@ class PerencanaanKebutuhanController extends Controller
             $path = $file->storeAs('assets/lampiran', $filename, 'public');
 
             $data['lampiran'] = $filename;
+        }
+
+        if ($request->hasFile('file_pdf')) {
+            $file = $request->file('file_pdf');
+            $filename = Str::random(20) . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('assets/pdf', $filename, 'public');
+            $data['file_pdf'] = $filename;
         }
 
         $trx_perencanaan_kebutuhan = PerencanaanKebutuhan::create($data);

@@ -35,6 +35,7 @@
                     <th>Nama Penyetuju</th>
                     <th>Jabatan Pemohon</th>
                     <th>Jabatan Penyetuju</th>
+                    <th>File PDF</th>
                     <th width="15%"><i class="fa fa-cog"></i></th>
                     </thead>
                 </table>
@@ -43,6 +44,7 @@
     </div>
 </div>
 
+@include('persetujuan_pengembangan.upload')
 @includeIf('persetujuan_pengembangan.form')
 @endsection
 
@@ -71,6 +73,7 @@
                 {data: 'namapeninjau'},
                 {data: 'jabatanpeninjau'},
                 {data: 'namapenyetuju'},
+                {data: 'file_pdf'},
                 {data: 'aksi', searchable: false, sortable: false},
             ],
         });
@@ -221,6 +224,31 @@
             form.submit();
         }
     }
+    function UploadPDF(url) {
+        $('#modal-upload').modal('show');
+        $('#modal-upload form').attr('action', url);
 
+        $('#modal-upload form').off('submit').on('submit', function(e) {
+            e.preventDefault();
+
+            let formData = new FormData($(this)[0]);
+
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    $('#modal-upload').modal('hide');
+                    table.ajax.reload();
+                    alert(response);
+                },
+                error: function(errors) {
+                    alert('Tidak dapat mengupload PDF');
+                }
+            });
+        });
+    }
 </script>
 @endpush
