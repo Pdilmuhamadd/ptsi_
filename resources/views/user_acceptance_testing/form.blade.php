@@ -40,6 +40,13 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="kebutuhan_nonfungsional" class="col-lg-2 col-lg-offset-1 control-label">Kebutuhan Non-Fungsional</label>
+                        <div class="col-lg-6">
+                            <textarea name="kebutuhan_nonfungsional" id="kebutuhan_nonfungsional" class="form-control" required autofocus></textarea>
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="unit_pemilik_proses_bisnis" class="col-lg-2 col-lg-offset-1 control-label">Unit Pemilik Proses Bisnis</label>
                         <div class="col-lg-6">
                             <input type="text" name="unit_pemilik_proses_bisnis" id="unit_pemilik_proses_bisnis" class="form-control" required autofocus></input>
@@ -56,7 +63,7 @@
                     <div class="form-group row">
                         <label for="tgl_pengujian" class="col-lg-2 col-lg-offset-1 control-label">Tanggal Pengujian</label>
                         <div class="col-lg-6">
-                            <input type="text" name="tgl_pengujian" id="tgl_pengujian" class="form-control" required autofocus></input>
+                            <input type="date" name="tgl_pengujian" id="tgl_pengujian" class="form-control" required autofocus></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>

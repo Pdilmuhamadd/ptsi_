@@ -72,7 +72,7 @@
                 {data: 'nama_aplikasi'},
                 {data: 'jenis_aplikasi'},
                 {data: 'unit_pemilik'},
-                {data: 'Kebutuhan_nonfungsional'},
+                {data: 'kebutuhan_nonfungsional'},
                 {data: 'lokasi_pengujian'},
                 {data: 'tgl_pengujian'},
                 {data: 'manual_book'},
@@ -88,24 +88,15 @@
 
         $('#modal-form').validator().on('submit', function (e) {
             if (!e.preventDefault()) {
-                let formData = new FormData($('#modal-form form')[0]);
-                formData.append('lampiran', $('input[name="lampiran"]')[0].files[0]);
-
-                $.ajax({
-                    url: $('#modal-form form').attr('action'),
-                    type: 'POST',
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function(response) {
+                $.post($('#modal-form form').attr('action'), $('#modal-form form').serialize())
+                    .done((response) => {
                         $('#modal-form').modal('hide');
                         table.ajax.reload();
-                    },
-                    error: function(errors) {
+                    })
+                    .fail((errors) => {
                         alert('Tidak dapat menyimpan data');
                         return;
-                    }
-                });
+                    });
             }
         });
 
@@ -140,7 +131,7 @@
                 $('#modal-form [name=nama_aplikasi]').val(response.nama_aplikasi);
                 $('#modal-form [name=jenis_aplikasi]').val(response.jenis_aplikasi);
                 $('#modal-form [name=unit_pemilik]').val(response.unit_pemilik);
-                $('#modal-form [name=Kebutuhan_nonfungsional]').val(response.kebutuhan_nonfungsional);
+                $('#modal-form [name=kebutuhan_nonfungsional]').val(response.kebutuhan_nonfungsional);
                 $('#modal-form [name=lokasi_pengujian]').val(response.lokasi_pengujian);
                 $('#modal-form [name=tgl_pengujian]').val(response.tanggal_pengujian);
                 $('#modal-form [name=manual_book]').val(response.manual_book);

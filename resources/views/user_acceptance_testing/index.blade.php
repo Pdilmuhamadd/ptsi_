@@ -31,6 +31,7 @@
                         <th>Nama Aplikasi</th>
                         <th>Jenis Aplikasi</th>
                         <th>Kebutuhan Fungsional</th>
+                        <th>Kebutuhan NonFungsional</th>
                         <th>Unit Pemilik Proses Bisnis</th>
                         <th>Lokasi Pengujian</th>
                         <th>Tanggal Pengujian</th>
@@ -73,6 +74,7 @@
                 {data: 'nama_aplikasi'},
                 {data: 'jenis_aplikasi'},
                 {data: 'kebutuhan_fungsional'},
+                {data: 'kebutuhan_nonfungsional'},
                 {data: 'unit_pemilik_proses_bisnis'},
                 {data: 'lokasi_pengujian'},
                 {data: 'tgl_pengujian'},
@@ -89,22 +91,15 @@
 
         $('#modal-form').validator().on('submit', function (e) {
             if (!e.preventDefault()) {
-
-                $.ajax({
-                    url: $('#modal-form form').attr('action'),
-                    type: 'POST',
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function(response) {
+                $.post($('#modal-form form').attr('action'), $('#modal-form form').serialize())
+                    .done((response) => {
                         $('#modal-form').modal('hide');
                         table.ajax.reload();
-                    },
-                    error: function(errors) {
+                    })
+                    .fail((errors) => {
                         alert('Tidak dapat menyimpan data');
                         return;
-                    }
-                });
+                    });
             }
         });
 
@@ -139,6 +134,7 @@
                 $('#modal-form [name=nama_aplikasi]').val(response.nama_aplikasi);
                 $('#modal-form [name=jenis_aplikasi]').val(response.jenis_aplikasi);
                 $('#modal-form [name=kebutuhan_fungsional]').val(response.kebutuhan_fungsional);
+                $('#modal-form [name=kebutuhan_nonfungsional]').val(response.kebutuhan_nonfungsional);
                 $('#modal-form [name=unit_pemilik_proses_bisnis]').val(response.unit_pemilik_proses_bisnis);
                 $('#modal-form [name=lokasi_pengujian]').val(response.lokasi_pengujian);
                 $('#modal-form [name=tgl_pengujian]').val(response.tgl_pengujian);
