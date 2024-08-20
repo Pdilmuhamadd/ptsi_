@@ -24,13 +24,6 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="deskripsi" class="col-lg-2 col-lg-offset-1 control-label">Deskripsi</label>
-                        <div class="col-lg-6">
-                            <textarea type="text" name="deskripsi" id="deskripsi" class="form-control" required autofocus></textarea>
-                            <span class="help-block with-errors"></span>
-                        </div>
-                    </div>
-                    <div class="form-group row">
                         <label for="pemilik_proyek" class="col-lg-2 col-lg-offset-1 control-label">Pemilik Proyek</label>
                         <div class="col-lg-6">
                             <input type="text" name="pemilik_proyek" id="pemilik_proyek" class="form-control" required autofocus></input>

@@ -132,7 +132,6 @@
         $.get(url)
             .done((response) => {
                 $('#modal-form [name=id_persetujuan_pengembangan]').val(response.id_persetujuan_pengembangan).prop('disabled', true);
-                $('#modal-form [name=deskripsi]').val(response.deskripsi);
                 $('#modal-form [name=pemilik_proyek]').val(response.pemilik_proyek);
                 $('#modal-form [name=manajer_proyek]').val(response.manajer_proyek);
                 $('#modal-form [name=ruang_lingkup]').val(response.ruang_lingkup);

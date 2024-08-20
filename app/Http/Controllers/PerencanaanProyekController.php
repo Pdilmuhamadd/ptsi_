@@ -37,6 +37,9 @@ class PerencanaanProyekController extends Controller
                     <input type="checkbox" name="id_perencanaan_proyek[]" value="'. $trx_perencanaan_proyek->id_perencanaan_proyek .'">
                 ';
             })
+            ->addColumn('deskripsi', function($trx_persetujuan_pengembangan){
+                return $trx_persetujuan_pengembangan->deskripsi;
+            })
             ->addColumn('aksi', function ($trx_persetujuan_pengembangan) {
                 return '
                 <div class="btn-group">
