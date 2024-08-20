@@ -37,12 +37,12 @@ class PerencanaanProyekController extends Controller
                     <input type="checkbox" name="id_perencanaan_proyek[]" value="'. $trx_perencanaan_proyek->id_perencanaan_proyek .'">
                 ';
             })
-            ->addColumn('aksi', function ($trx_perencanaan_proyek) {
+            ->addColumn('aksi', function ($trx_persetujuan_pengembangan) {
                 return '
                 <div class="btn-group">
-                    <button type="button" onclick="editForm(`'. route('perencanaan_proyek.update', $trx_perencanaan_proyek->id_perencanaan_proyek) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                    <button type="button" onclick="deleteData(`'. route('perencanaan_proyek.destroy', $trx_perencanaan_proyek->id_perencanaan_proyek) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
-                    <button onclick="UploadPDF(`'. route('perencanaan_proyek.store', $trx_perencanaan_proyek->id_perencanaan_proyek) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
+                    <button type="button" onclick="editForm(`'. route('perencanaan_proyek.update', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                    <button type="button" onclick="deleteData(`'. route('perencanaan_proyek.destroy', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button type="button" onclick="UploadPDF(`'. route('perencanaan_proyek.store', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
                 </div>
                 ';
             })
