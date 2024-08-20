@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Models\PersetujuanPengembangan;
 use App\Models\PerencanaanKebutuhan;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -16,12 +17,18 @@ class PerencanaanKebutuhanController extends Controller
      */
     public function index()
     {
-        return view('perencanaan_kebutuhan.index');
+        $nama_proyek_terpakai = PerencanaanKebutuhan::pluck('id_persetujuan_pengembangan')->toArray();
+
+        $trx_persetujuan_pengembangan = PersetujuanPengembangan::whereNotIn('id_persetujuan_pengembangan', $nama_proyek_terpakai)->pluck('nama_proyek', 'id_persetujuan_pengembangan');
+
+        return view('perencanaan_kebutuhan.index',compact('trx_persetujuan_pengembangan'));
     }
 
     public function data()
     {
-        $trx_perencanaan_kebutuhan = PerencanaanKebutuhan::orderBy('id_perencanaan_kebutuhan')->get();
+        $trx_perencanaan_kebutuhan = PersetujuanPengembangan::leftJoin('trx_perencanaan_kebutuhan', 'trx_perencanaan_kebutuhan.id_persetujuan_pengembangan', '=', 'trx_persetujuan_pengembangan.id_persetujuan_pengembangan')
+        ->select('trx_perencanaan_kebutuhan.*', 'trx_persetujuan_pengembangan.*')
+        ->get();
 
         return datatables()
             ->of($trx_perencanaan_kebutuhan)
@@ -31,12 +38,21 @@ class PerencanaanKebutuhanController extends Controller
                     <input type="checkbox" name="id_perencanaan_kebutuhan[]" value="'. $trx_perencanaan_kebutuhan->id_perencanaan_kebutuhan .'">
                 ';
             })
-            ->addColumn('aksi', function ($trx_perencanaan_kebutuhan) {
+            ->addColumn('deskripsi', function($trx_persetujuan_pengembangan){
+                return $trx_persetujuan_pengembangan->deskripsi;
+            })
+            ->addColumn('pemilik_proyek', function($trx_persetujuan_pengembangan){
+                return $trx_persetujuan_pengembangan->pemilik_proyek;
+            })
+            ->addColumn('manajer_proyek', function($trx_persetujuan_pengembangan){
+                return $trx_persetujuan_pengembangan->manajer_proyek;
+            })
+            ->addColumn('aksi', function ($trx_persetujuan_pengembangan) {
                 return '
                 <div class="btn-group">
-                    <button onclick="editForm(`'. route('perencanaan_kebutuhan.update', $trx_perencanaan_kebutuhan->id_perencanaan_kebutuhan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                    <button onclick="deleteData(`'. route('perencanaan_kebutuhan.destroy', $trx_perencanaan_kebutuhan->id_perencanaan_kebutuhan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
-                    <button onclick="UploadPDF(`'. route('perencanaan_kebutuhan.store', $trx_perencanaan_kebutuhan->id_perencanaan_kebutuhan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
+                    <button onclick="editForm(`'. route('perencanaan_kebutuhan.update', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                    <button onclick="deleteData(`'. route('perencanaan_kebutuhan.destroy', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button onclick="UploadPDF(`'. route('perencanaan_kebutuhan.store', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
                 </div>
                 ';
             })

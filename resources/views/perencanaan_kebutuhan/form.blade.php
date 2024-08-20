@@ -12,30 +12,14 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="nama_proyek" class="col-lg-2 col-lg-offset-1 control-label">Nama Proyek</label>
+                        <label for="id_persetujuan_pengembangan" class="col-lg-2 col-lg-offset-1 control-label">Nama Proyek</label>
                         <div class="col-lg-6">
-                            <input type="text" name="nama_proyek" id="nama_proyek" class="form-control" required autofocus>
-                            <span class="help-block with-errors"></span>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="deskripsi" class="col-lg-2 col-lg-offset-1 control-label">Deskripsi</label>
-                        <div class="col-lg-6">
-                            <textarea type="text" name="deskripsi" id="deskripsi" class="form-control" required autofocus></textarea>
-                            <span class="help-block with-errors"></span>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="pemilik_proyek" class="col-lg-2 col-lg-offset-1 control-label">Pemilik Proyek</label>
-                        <div class="col-lg-6">
-                            <input type="text" name="pemilik_proyek" id="pemilik_proyek" class="form-control" required autofocus></input>
-                            <span class="help-block with-errors"></span>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="manajer_proyek" class="col-lg-2 col-lg-offset-1 control-label">Manajer Proyek</label>
-                        <div class="col-lg-6">
-                            <input type="text" name="manajer_proyek" id="manajer_proyek" class="form-control" required autofocus></input>
+                            <select name="id_persetujuan_pengembangan" id="id_persetujuan_pengembangan" class="form-control" required>
+                                <option value="">Pilih Nama Proyek</option>
+                                @foreach ($trx_persetujuan_pengembangan as $key => $item)
+                                <option value="{{ $key }}">{{ $item }}</option>
+                                @endforeach
+                            </select>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>

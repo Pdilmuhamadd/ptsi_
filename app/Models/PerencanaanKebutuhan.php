@@ -11,9 +11,10 @@ class PerencanaanKebutuhan extends Model
 
     protected $table = 'trx_perencanaan_kebutuhan';
     protected $primaryKey = 'id_perencanaan_kebutuhan';
-    protected $fillable = [
-        'nama_proyek','deskripsi','pemilik_proyek','manajer_proyek','stakeholders','kebutuhan_fungsional'
-        ,'kebutuhan_nonfungsional','lampiran','nama_pemohon','jabatan_pemohon','tanggal_disiapkan'
-        ,'nama','jabatan','tanggal_disetujui','file_pdf'
-    ];
+    protected $guarded = [];
+
+    public function persetujuanpengembangan()
+    {
+        return $this->belongsTo(PersetujuanPengembangan::class, 'id_persetujuan_pengembangan', 'id_persetujuan_pengembangan');
+    }
 }
