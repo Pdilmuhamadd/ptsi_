@@ -21,14 +21,14 @@
                     <div class="form-group row">
                         <label for="latar_belakang" class="col-lg-2 col-lg-offset-1 control-label">Latar Belakang</label>
                         <div class="col-lg-6">
-                            <textarea type="textarea" name="latar_belakang" id="latar_belakang" class="form-control" required autofocus></textarea>
+                            <textarea type="textarea" name="latar_belakang" id="latar_belakang" class="form-control" required autofocus placeholder="Latar Belakang atau Deskripsi Proyek"></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="tujuan" class="col-lg-2 col-lg-offset-1 control-label">Tujuan</label>
                         <div class="col-lg-6">
-                            <textarea type="textarea" name="tujuan" id="tujuan" class="form-control" required autofocus></textarea>
+                            <textarea type="textarea" name="tujuan" id="tujuan" class="form-control" required autofocus placeholder="Tujuan Proyek"></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                     <div class="form-group row">
                         <label for="fungsi_sistem_informasi" class="col-lg-2 col-lg-offset-1 control-label">Fungsi-fungsi Sistem Informasi</label>
                         <div class="col-lg-6">
-                            <textarea type="text" name="fungsi_sistem_informasi" id="fungsi_sistem_informasi" class="form-control" required autofocus></textarea>
+                            <textarea type="text" name="fungsi_sistem_informasi" id="fungsi_sistem_informasi" class="form-control" required autofocus placeholder="Fungsi Sistem Informasi"></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                     <div class="form-group row">
                         <label for="uraian_permintaan_tambahan" class="col-lg-2 col-lg-offset-1 control-label">Uraian Permintaan Tambahan/Khusus</label>
                         <div class="col-lg-6">
-                            <textarea type="textareas" name="uraian_permintaan_tambahan" id="uraian_permintaan_tambahan" class="form-control" required autofocus></textarea>
+                            <textarea type="textareas" name="uraian_permintaan_tambahan" id="uraian_permintaan_tambahan" class="form-control" required autofocus placeholder="Permintaan Tambahan"></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                     <div class="form-group row">
                         <label for="nama_pemohon" class="col-lg-2 col-lg-offset-1 control-label">Nama Pemohon</label>
                         <div class="col-lg-6">
-                            <input type="text" name="nama_pemohon" id="nama_pemohon" class="form-control" required autofocus></input>
+                            <input type="text" name="nama_pemohon" id="nama_pemohon" class="form-control" required autofocus placeholder="Masukkan Nama Pemohon"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
