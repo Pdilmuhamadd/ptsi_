@@ -84,7 +84,7 @@
 <table>
     <tr>
         <td>Nomor Proyek</td>
-        <td>xxxxxxxxxxxxxx (Nomor Proyek Perlu disepakati)</td>
+        <td>{{ $perencanaan->nomor_proyek }}</td>
     </tr>
     <tr>
         <td>Nama Proyek</td>
