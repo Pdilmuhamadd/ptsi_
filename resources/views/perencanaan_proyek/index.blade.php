@@ -119,8 +119,9 @@
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('post');
         $('#modal-form [name=id_persetujuan_pengembangan]').prop('disabled', false);
-        $('#modal-form [name=nama_proyek]').focus();
+        $('#modal-form [name=nomor_proyek]').focus();
     }
+
 
     function editForm(url) {
         $('#modal-form').modal('show');
@@ -129,7 +130,8 @@
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('put');
-        $('#modal-form [name=nama_proyek]').focus();
+        $('#modal-form [name=id_persetujuan_pengembangan]').prop('disabled', false);
+        $('#modal-form [name=nomor_proyek]').focus();
 
         $.get(url)
             .done((response) => {
