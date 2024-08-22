@@ -26,7 +26,7 @@
                         <input type="checkbox" name="select_all" id="select_all">
                     </th>
                     <th width="5%">No</th>
-                    <th>Nomor Proyek</th>
+                    <th>Nomor Dokumen</th>
                     <th>Nama Proyek</th>
                     <th>Deskripsi Proyek</th>
                     <th>Status Persetujuan</th>
@@ -64,7 +64,7 @@
             columns: [
                 {data: 'select_all', searchable: false, sortable: false},
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'nomor_proyek'},
+                {data: 'nomor_dokumen'},
                 {data: 'nama_proyek'},
                 {data: 'deskripsi'},
                 {data: 'nama_persetujuan'},

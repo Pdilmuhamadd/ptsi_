@@ -26,7 +26,7 @@
                             <input type="checkbox" name="select_all" id="select_all">
                         </th>
                         <th width="5%">No</th>
-                        <th>Nomor Proyek</th>
+                        <th>Nomor Dokumen</th>
                         <th>Latar Belakang</th>
                         <th>Tujuan</th>
                         <th>Target Implementasi Sistem</th>
@@ -71,7 +71,7 @@
             columns: [
                 {data: 'select_all', searchable: false, sortable: false},
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'nomor_proyek'},
+                {data: 'nomor_dokumen'},
                 {data: 'latar_belakang'},
                 {data: 'tujuan'},
                 {data: 'target_implementasi_sistem'},
@@ -137,7 +137,7 @@
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('post');
-        $('#modal-form [name=nomor_proyek]').focus();
+        $('#modal-form [name=nomor_dokumen]').focus();
     }
 
     function editForm(url) {
@@ -147,11 +147,11 @@
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('put');
-        $('#modal-form [name=nomor_proyek]').focus();
+        $('#modal-form [name=nomor_dokumen]').focus();
 
         $.get(url)
             .done((response) => {
-                $('#modal-form [name=nomor_proyek]').val(response.nomor_proyek);
+                $('#modal-form [name=nomor_dokumen]').val(response.nomor_dokumen);
                 $('#modal-form [name=latar_belakang]').val(response.latar_belakang);
                 $('#modal-form [name=tujuan]').val(response.tujuan);
                 $('#modal-form [name=target_implementasi_sistem]').val(response.target_implementasi_sistem);
