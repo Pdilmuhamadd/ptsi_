@@ -18,9 +18,9 @@ class PersetujuanPengembanganController extends Controller
      */
     public function index()
     {
-        $nomor_proyek_terpakai = PersetujuanPengembangan::pluck('id_permintaan_pengembangan')->toArray();
+        $nomor_dokumen_terpakai = PersetujuanPengembangan::pluck('id_permintaan_pengembangan')->toArray();
 
-        $trx_permintaan_pengembangan = PermintaanPengembangan::whereNotIn('id_permintaan_pengembangan', $nomor_proyek_terpakai)->pluck('nomor_proyek', 'id_permintaan_pengembangan');
+        $trx_permintaan_pengembangan = PermintaanPengembangan::whereNotIn('id_permintaan_pengembangan', $nomor_dokumen_terpakai)->pluck('nomor_dokumen', 'id_permintaan_pengembangan');
 
         $mst_persetujuan = Persetujuan::all()->pluck('nama_persetujuan', 'id_mst_persetujuan');
         $mst_persetujuanalasan = PersetujuanAlasan::all()->pluck('nama_alasan', 'id_mst_persetujuanalasan');
@@ -28,13 +28,12 @@ class PersetujuanPengembanganController extends Controller
         return view('persetujuan_pengembangan.index', compact('trx_permintaan_pengembangan', 'mst_persetujuan', 'mst_persetujuanalasan'));
     }
 
-
     public function data()
     {
         $trx_persetujuan_pengembangan = PersetujuanPengembangan::leftJoin('trx_permintaan_pengembangan', 'trx_permintaan_pengembangan.id_permintaan_pengembangan', '=', 'trx_persetujuan_pengembangan.id_permintaan_pengembangan')
             ->leftJoin('mst_persetujuan', 'mst_persetujuan.id_mst_persetujuan', '=', 'trx_persetujuan_pengembangan.id_mst_persetujuan')
             ->leftJoin('mst_persetujuanalasan', 'mst_persetujuanalasan.id_mst_persetujuanalasan', '=', 'trx_persetujuan_pengembangan.id_mst_persetujuanalasan')
-            ->select('trx_persetujuan_pengembangan.*', 'trx_permintaan_pengembangan.nomor_proyek', 'mst_persetujuan.nama_persetujuan', 'mst_persetujuanalasan.nama_alasan')
+            ->select('trx_persetujuan_pengembangan.*', 'trx_permintaan_pengembangan.nomor_dokumen', 'mst_persetujuan.nama_persetujuan', 'mst_persetujuanalasan.nama_alasan')
             ->get();
 
         return datatables()

@@ -84,7 +84,7 @@ use Carbon\Carbon;
 </div>
 
 <h3 class="text-center bold">INFO KEBUTUHAN SISTEM INFORMASI</h3>
-<h4 class="text-right"><strong>NO: {{ $datapermintaan->first()->nomor_proyek }}</strong></h4>
+<h4 class="text-right"><strong>NO: {{ $datapermintaan->first()->nomor_dokumen }}</strong></h4>
 <table>
     <tr>
         <td>Latar Belakang</td>

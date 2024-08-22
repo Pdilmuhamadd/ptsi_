@@ -80,6 +80,7 @@
 </div>
 
 <h3 class="text-center bold">PERANCANAAN KEBUTUHAN SISTEM INFORMASI</h3>
+<h4 class="text-right"><strong>NO: {{--{{ $datapermintaan->first()->nomor_dokumen }}--}}</strong></h4>
 <div class="bordered">
     <table class="table-container">
         <tr>

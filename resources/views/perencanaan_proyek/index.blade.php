@@ -22,10 +22,11 @@
                     @csrf
                     <table class="table table-stiped table-bordered">
                             <thead>
-                            <th width="5%">
+                            <th width="2%">
                                 <input type="checkbox" name="select_all" id="select_all">
                             </th>
-                            <th width="5%">No</th>
+                            <th width="2%">No</th>
+                            <th>Nomor Proyek</th>
                             <th>Nama Proyek</th>
                             <th>Deskripsi</th>
                             <th>Pemilik Proyek</th>
@@ -70,6 +71,7 @@
             columns: [
                 {data: 'select_all', searchable: false, sortable: false},
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
+                {data: 'nomor_proyek'},
                 {data: 'nama_proyek'},
                 {data: 'deskripsi'},
                 {data: 'pemilik_proyek'},
@@ -117,8 +119,9 @@
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('post');
         $('#modal-form [name=id_persetujuan_pengembangan]').prop('disabled', false);
-        $('#modal-form [name=nama_proyek]').focus();
+        $('#modal-form [name=nomor_proyek]').focus();
     }
+
 
     function editForm(url) {
         $('#modal-form').modal('show');
@@ -127,10 +130,12 @@
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('put');
-        $('#modal-form [name=nama_proyek]').focus();
+        $('#modal-form [name=id_persetujuan_pengembangan]').prop('disabled', false);
+        $('#modal-form [name=nomor_proyek]').focus();
 
         $.get(url)
             .done((response) => {
+                $('#modal-form [name=nomor_proyek]').val(response.nomor_proyek);
                 $('#modal-form [name=id_persetujuan_pengembangan]').val(response.id_persetujuan_pengembangan).prop('disabled', true);
                 $('#modal-form [name=pemilik_proyek]').val(response.pemilik_proyek);
                 $('#modal-form [name=manajer_proyek]').val(response.manajer_proyek);

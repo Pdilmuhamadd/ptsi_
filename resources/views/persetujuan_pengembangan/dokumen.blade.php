@@ -80,12 +80,8 @@
 </div>
 
 <h3 class="text-center bold">INFO KEBUTUHAN SISTEM INFORMASI</h3>
-<h4 class="text-right"><strong>NO: {{ $datapersetujuan->first()->nomor_proyek }}</strong></h4>
+<h4 class="text-right"><strong>NO: {{ $datapersetujuan->first()->nomor_dokumen }}</strong></h4>
 <table>
-    <tr>
-        <td>Nomor Proyek</td>
-        <td>xxxxxxxxxxxxxx (Nomor Proyek Perlu disepakati)</td>
-    </tr>
     <tr>
         <td>Latar Belakang</td>
         <td>{{ $persetujuan->latar_belakang }}</td>

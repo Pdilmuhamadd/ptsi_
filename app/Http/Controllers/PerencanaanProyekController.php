@@ -156,7 +156,7 @@ class PerencanaanProyekController extends Controller
 
         $ids = $request->id_perencanaan_proyek;
         $dataperencanaan = PerencanaanProyek::leftJoin('trx_persetujuan_pengembangan','trx_persetujuan_pengembangan.id_persetujuan_pengembangan', '=', 'trx_perencanaan_proyek.id_persetujuan_pengembangan')
-            ->select('trx_persetujuan_pengembangan.nama_proyek', 'trx_perencanaan_proyek.*')
+            ->select('trx_persetujuan_pengembangan.nama_proyek', 'trx_persetujuan_pengembangan.deskripsi', 'trx_perencanaan_proyek.*')
             ->whereIn('trx_perencanaan_proyek.id_perencanaan_proyek', $ids)
             ->get();
 
