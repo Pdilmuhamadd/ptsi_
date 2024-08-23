@@ -133,7 +133,7 @@ class UserAcceptanceTestingController extends Controller
         $dataUserAcceptanceTesting = UserAcceptanceTesting::whereIn('id_user_acceptance_testing', $request->id_user_acceptance_testing)->get();
         $no  = 1;
 
-        $pdf = PDF::loadView('user_acceptance_testing.dokumenperencanaan', compact('dataUserAcceptanceTesting', 'no'));
+        $pdf = PDF::loadView('user_acceptance_testing.dokumen', compact('dataUserAcceptanceTesting', 'no'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('User Acceptance Testing (UAT).pdf');
     }

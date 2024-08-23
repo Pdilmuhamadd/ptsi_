@@ -224,5 +224,35 @@
             form.submit();
         }
     }
+
+    function cetakDokumenPerencanaan(url) {
+        if ($('input:checked').length < 1) {
+            alert('Pilih data yang akan dicetak');
+            return;
+        } else {
+            var form = $('<form>', {
+                'method': 'POST',
+                'action': url,
+                'target': '_blank'
+            });
+
+            form.append($('<input>', {
+                'type': 'hidden',
+                'name': '_token',
+                'value': '{{ csrf_token() }}'
+            }));
+
+            $('input:checked').each(function() {
+                form.append($('<input>', {
+                    'type': 'hidden',
+                    'name': 'id_user_acceptance_testing[]',
+                    'value': $(this).val()
+                }));
+            });
+
+            $('body').append(form);
+            form.submit();
+        }
+    }
 </script>
 @endpush
