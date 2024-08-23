@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\QualityAssuranceTesting;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -67,21 +68,19 @@ class QualityAssuranceTestingController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        // die;
-
         $data = $request->all();
-
+    
         if ($request->hasFile('file_pdf')) {
             $file = $request->file('file_pdf');
             $filename = Str::random(20) . '.' . $file->getClientOriginalExtension();
             $path = $file->storeAs('assets/pdf', $filename, 'public');
             $data['file_pdf'] = $filename;
         }
-
-        $trx_permintaan_pengembangan = PermintaanPengembangan::create($data);
+    
+        $trx_quality_assurance_testing = QualityAssuranceTesting::create($data);
         return response()->json('Data berhasil disimpan', 200);
     }
+    
 
     /**
      * Display the specified resource.

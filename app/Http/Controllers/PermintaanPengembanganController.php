@@ -37,6 +37,7 @@ class PermintaanPengembanganController extends Controller
                     <button onclick="editForm(`'. route('permintaan_pengembangan.update', $trx_permintaan_pengembangan->id_permintaan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
                     <button onclick="deleteData(`'. route('permintaan_pengembangan.destroy', $trx_permintaan_pengembangan->id_permintaan_pengembangan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                     <button onclick="UploadPDF(`'. route('permintaan_pengembangan.store', $trx_permintaan_pengembangan->id_permintaan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
+                    <button onclick="viewForm(`'. route('permintaan_pengembangan.view', $trx_permintaan_pengembangan->id_permintaan_pengembangan) .'`)" class="btn btn-xs btn-primary btn-flat"><i class="fa fa-eye"></i></button>
                 </div>
                 ';
             })
@@ -170,4 +171,12 @@ class PermintaanPengembanganController extends Controller
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('permintaan.pdf');
     }
+
+    public function viewForm($id)
+    {
+        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id);
+
+        return response()->json($trx_permintaan_pengembangan);
+    }
+
 }

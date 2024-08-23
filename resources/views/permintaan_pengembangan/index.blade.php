@@ -52,6 +52,7 @@
 </div>
 
 @include('permintaan_pengembangan.upload')
+@include('permintaan_pengembangan.viewform')
 @includeIf('permintaan_pengembangan.form')
 @endsection
 
@@ -138,6 +139,37 @@
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('post');
         $('#modal-form [name=nomor_dokumen]').focus();
+    }
+
+    function viewForm(url) {
+        $('#modal-viewform').modal('show');
+        $('#modal-viewform .modal-title').text('Lihat Permintaan Pengembangan');
+
+        $('#modal-viewform form')[0].reset();
+        $('#modal-viewform input, #modal-viewform textarea, #modal-viewform select').prop('disabled', true);
+
+        $.get(url)
+            .done((response) => {
+                $('#modal-viewform [name=nomor_dokumen]').val(response.nomor_dokumen);
+                $('#modal-viewform [name=latar_belakang]').val(response.latar_belakang);
+                $('#modal-viewform [name=tujuan]').val(response.tujuan);
+                $('#modal-viewform [name=target_implementasi_sistem]').val(response.target_implementasi_sistem);
+                $('#modal-viewform [name=fungsi_sistem_informasi]').val(response.fungsi_sistem_informasi);
+                $('#modal-viewform [name=jenis_aplikasi]').val(response.jenis_aplikasi);
+                $('#modal-viewform [name=pengguna]').val(response.pengguna);
+                $('#modal-viewform [name=uraian_permintaan_tambahan]').val(response.uraian_permintaan_tambahan);
+                $('#modal-viewform [name=lampiran]').val(response.lampiran);
+                $('#modal-viewform [name=nama_pemohon]').val(response.nama_pemohon);
+                $('#modal-viewform [name=jabatan_pemohon]').val(response.jabatan_pemohon);
+                $('#modal-viewform [name=tanggal_disiapkan]').val(response.tanggal_disiapkan);
+                $('#modal-viewform [name=nama]').val(response.nama);
+                $('#modal-viewform [name=jabatan]').val(response.jabatan);
+                $('#modal-viewform [name=tanggal_disetujui]').val(response.tanggal_disetujui);
+            })
+            .fail((errors) => {
+                alert('Tidak dapat menampilkan data');
+                return;
+            });
     }
 
     function editForm(url) {
