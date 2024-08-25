@@ -50,6 +50,7 @@ class PersetujuanPengembanganController extends Controller
                     <button type="button" onclick="editForm(`'. route('persetujuan_pengembangan.update', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
                     <button type="button" onclick="deleteData(`'. route('persetujuan_pengembangan.destroy', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                     <button onclick="UploadPDF(`'. route('persetujuan_pengembangan.store', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
+                    <button onclick="viewForm(`'. route('persetujuan_pengembangan.view', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-primary btn-flat"><i class="fa fa-eye"></i></button>
                 </div>
                 ';
             })
@@ -173,5 +174,28 @@ class PersetujuanPengembanganController extends Controller
         PersetujuanPengembangan::whereIn('id_persetujuan_pengembangan', $ids)->delete();
         return response()->json('Data berhasil dihapus', 200);
     }
+    public function view($id)
+    {
+        $persetujuan = PersetujuanPengembangan::leftJoin('trx_permintaan_pengembangan', 'trx_permintaan_pengembangan.id_permintaan_pengembangan', '=', 'persetujuan_pengembangan.id_permintaan_pengembangan')
+            ->leftJoin('mst_persetujuan', 'mst_persetujuan.id_mst_persetujuan', '=', 'persetujuan_pengembangan.id_mst_persetujuan')
+            ->leftJoin('mst_persetujuanalasan', 'mst_persetujuanalasan.id_mst_persetujuanalasan', '=', 'persetujuan_pengembangan.id_mst_persetujuanalasan')
+            ->select('persetujuan_pengembangan.*', 'trx_permintaan_pengembangan.nomor_dokumen', 'mst_persetujuan.nama_persetujuan', 'mst_persetujuanalasan.nama_alasan')
+            ->where('persetujuan_pengembangan.id_persetujuan_pengembangan', $id)
+            ->firstOrFail();
+
+        return response()->json([
+            'nomor_dokumen' => $persetujuan->nomor_dokumen,
+            'nama_proyek' => $persetujuan->nama_proyek,
+            'deskripsi' => $persetujuan->deskripsi,
+            'nama_persetujuan' => $persetujuan->nama_persetujuan,
+            'nama_alasan' => $persetujuan->nama_alasan,
+            'namapemohon' => $persetujuan->namapemohon,
+            'namapeninjau' => $persetujuan->namapeninjau,
+            'jabatanpeninjau' => $persetujuan->jabatanpeninjau,
+            'namapenyetuju' => $persetujuan->namapenyetuju,
+        ]);
+    }
+
+
 }
 

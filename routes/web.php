@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/persetujuan_pengembangan/data', [PersetujuanPengembanganController::class, 'data'])->name('persetujuan_pengembangan.data');
         Route::delete('persetujuan_pengembangan/delete_selected', [PersetujuanPengembanganController::class, 'deleteSelected'])->name('persetujuan_pengembangan.delete_selected');
         Route::post('/persetujuan_pengembangan/cetak-dokumen', [PersetujuanPengembanganController::class, 'cetakDokumen'])->name('persetujuan_pengembangan.cetakDokumen');
+        Route::get('/persetujuan_pengembangan/{id}/view', [PersetujuanPengembanganController::class, 'view'])->name('persetujuan_pengembangan.view');
         Route::get('/get-alasan-persetujuan/{id}', [PersetujuanPengembanganController::class, 'getAlasanPersetujuan']);
         Route::resource('/persetujuan_pengembangan', PersetujuanPengembanganController::class);
 

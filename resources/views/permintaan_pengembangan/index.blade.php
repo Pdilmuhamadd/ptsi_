@@ -247,14 +247,12 @@
         }
     }
     function viewForm(url) {
-        // Buka modal
         $('#modal-view').modal('show');
-        
-        // Mengambil data dari server
+
         $.get(url)
             .done((response) => {
-                console.log(response);  // Tambahkan ini untuk memastikan data diterima dengan benar
-            
+                console.log(response);
+
                 $('#modal-view [name=nomor_dokumen]').val(response.nomor_dokumen);
                 $('#modal-view [name=latar_belakang]').val(response.latar_belakang);
                 $('#modal-view [name=tujuan]').val(response.tujuan);
@@ -269,7 +267,7 @@
                 $('#modal-view [name=nama]').val(response.nama);
                 $('#modal-view [name=jabatan]').val(response.jabatan);
                 $('#modal-view [name=tanggal_disetujui]').val(response.tanggal_disetujui);
-            
+
                 if (response.lampiran) {
                     $('#modal-view #lampiran-link').attr('href', '/storage/assets/lampiran/' + response.lampiran);
                 } else {
@@ -281,7 +279,7 @@
                 return;
             });
     }
-    
+
 
 
     function UploadPDF(url) {
