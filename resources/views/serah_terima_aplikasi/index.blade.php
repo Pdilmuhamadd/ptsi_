@@ -34,8 +34,8 @@
                         <th>Nomor Permintaan</th>
                         <th>Keterangan</th>
                         <th>Pemberi</th>
-                        <th>Penerima</th>
                         <th>NIK Pemberi</th>
+                        <th>Penerima</th>
                         <th>NIK Penerima</th>
                         <th width="15%"><i class="fa fa-cog"></i>
                         </thead>
@@ -73,8 +73,8 @@
                 {data: 'no_permintaan'},
                 {data: 'keterangan'},
                 {data: 'pemberi'},
-                {data: 'penerima'},
                 {data: 'nik_pemberi'},
+                {data: 'penerima'},
                 {data: 'nik_penerima'},
                 {data: 'aksi', searchable: false, sortable: false},
             ],
