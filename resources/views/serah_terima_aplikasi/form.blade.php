@@ -28,63 +28,63 @@
                     <div class="form-group row">
                         <label for="deskripsi" class="col-lg-2 col-lg-offset-1 control-label">Deskripsi</label>
                         <div class="col-lg-6">
-                            <textarea name="deskripsi" id="deskripsi" class="form-control" rows="4" cols="50" required></textarea>
+                            <textarea name="deskripsi" id="deskripsi" class="form-control" rows="4" cols="50" required autofocus placeholder="Deskripsi Berita Acara"></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                     <label for="lokasi" class="col-lg-2 col-lg-offset-1 control-label">Lokasi</label>
                         <div class="col-lg-6">
-                            <input type="text" name="lokasi" id="lokasi" class="form-control" required autofocus></input>
+                            <input type="text" name="lokasi" id="lokasi" class="form-control" required autofocus placeholder="Lokasi Serah Terima Sistem Informasi"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="nama_aplikasi" class="col-lg-2 col-lg-offset-1 control-label">Nama Aplikasi</label>
                         <div class="col-lg-6">
-                            <input type="text" name="nama_aplikasi" id="nama_aplikasi" class="form-control" required autofocus></input>
+                            <input type="text" name="nama_aplikasi" id="nama_aplikasi" class="form-control" required autofocus placeholder="Input Nama Aplikas"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="no_permintaan" class="col-lg-2 col-lg-offset-1 control-label">Nomor Permintaan</label>
                         <div class="col-lg-6">
-                            <input type="text" name="no_permintaan" id="no_permintaan" class="form-control" required autofocus></input>
+                            <input type="text" name="no_permintaan" id="no_permintaan" class="form-control" required autofocus placeholder="Input Nomor Permintaan"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="keterangan" class="col-lg-2 col-lg-offset-1 control-label">Keterangan</label>
                         <div class="col-lg-6">
-                            <textarea name="keterangan" id="keterangan" class="form-control" rows="4" cols="50" required></textarea>
+                            <textarea name="keterangan" id="keterangan" class="form-control" rows="4" cols="50" required autofocus placeholder="Input Keterangan Berita Acara Serah Terima Sistem Informasi"></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="pemberi" class="col-lg-2 col-lg-offset-1 control-label">Nama Pemberi</label>
                         <div class="col-lg-6">
-                            <input type="text" name="pemberi" id="pemberi" class="form-control" required autofocus></input>
+                            <input type="text" name="pemberi" id="pemberi" class="form-control" required autofocus placeholder="Nama Pemberi Sistem Informasi"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="penerima" class="col-lg-2 col-lg-offset-1 control-label">Nama Penerima</label>
                         <div class="col-lg-6">
-                            <input type="text" name="penerima" id="penerima" class="form-control">
+                            <input type="text" name="penerima" id="penerima" class="form-control" required autofocus placeholder="Nama Penerima Sistem Informasi">
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="nik_pemberi" class="col-lg-2 col-lg-offset-1 control-label">NIK Pemberi</label>
                         <div class="col-lg-6">
-                            <input type="text" name="nik_pemberi" id="nik_pemberi" class="form-control" required autofocus></input>
+                            <input type="text" name="nik_pemberi" id="nik_pemberi" class="form-control" required autofocus placeholder="NIK Pemberi Sistem Informasi"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="nik_penerima" class="col-lg-2 col-lg-offset-1 control-label">NIK Penerima</label>
                         <div class="col-lg-6">
-                            <input type="text" name="nik_penerima" id="nik_penerima" class="form-control">
+                            <input type="text" name="nik_penerima" id="nik_penerima" class="form-control" required autofocus placeholder="NIK Penerima Sistem Informasi">
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
