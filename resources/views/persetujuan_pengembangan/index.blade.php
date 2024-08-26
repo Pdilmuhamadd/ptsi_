@@ -45,6 +45,7 @@
 </div>
 
 @include('persetujuan_pengembangan.upload')
+@include('persetujuan_pengembangan.viewform')
 @includeIf('persetujuan_pengembangan.form')
 @endsection
 
@@ -224,6 +225,36 @@
             form.submit();
         }
     }
+    function viewForm(url) {
+        $('#modal-view').modal('show');
+
+        $.get(url)
+            .done((response) => {
+                console.log(response);
+
+                if (response.error) {
+                    alert(response.error);
+                    return;
+                }
+
+                $('#modal-view [name=id_permintaan_pengembangan]').val(response.nomor_dokumen).prop('disabled', true);
+                $('#modal-view [name=nama_proyek]').val(response.nama_proyek);
+                $('#modal-view [name=deskripsi]').val(response.deskripsi);
+                $('#modal-view [name=id_mst_persetujuan]').val(response.nama_persetujuan);
+                $('#modal-view [name=id_mst_persetujuanalasan]').val(response.nama_alasan);
+                $('#modal-view [name=namapemohon]').val(response.namapemohon);
+                $('#modal-view [name=namapeninjau]').val(response.namapeninjau);
+                $('#modal-view [name=jabatanpeninjau]').val(response.jabatanpeninjau);
+                $('#modal-view [name=namapenyetuju]').val(response.namapenyetuju);
+            })
+            .fail((errors) => {
+                console.log(errors);
+                alert('Tidak dapat menampilkan data');
+            });
+    }
+
+
+
     function UploadPDF(url) {
         $('#modal-upload').modal('show');
         $('#modal-upload form').attr('action', url);

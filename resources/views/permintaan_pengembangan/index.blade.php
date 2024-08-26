@@ -141,37 +141,6 @@
         $('#modal-form [name=nomor_dokumen]').focus();
     }
 
-    function viewForm(url) {
-        $('#modal-viewform').modal('show');
-        $('#modal-viewform .modal-title').text('Lihat Permintaan Pengembangan');
-
-        $('#modal-viewform form')[0].reset();
-        $('#modal-viewform input, #modal-viewform textarea, #modal-viewform select').prop('disabled', true);
-
-        $.get(url)
-            .done((response) => {
-                $('#modal-viewform [name=nomor_dokumen]').val(response.nomor_dokumen);
-                $('#modal-viewform [name=latar_belakang]').val(response.latar_belakang);
-                $('#modal-viewform [name=tujuan]').val(response.tujuan);
-                $('#modal-viewform [name=target_implementasi_sistem]').val(response.target_implementasi_sistem);
-                $('#modal-viewform [name=fungsi_sistem_informasi]').val(response.fungsi_sistem_informasi);
-                $('#modal-viewform [name=jenis_aplikasi]').val(response.jenis_aplikasi);
-                $('#modal-viewform [name=pengguna]').val(response.pengguna);
-                $('#modal-viewform [name=uraian_permintaan_tambahan]').val(response.uraian_permintaan_tambahan);
-                $('#modal-viewform [name=lampiran]').val(response.lampiran);
-                $('#modal-viewform [name=nama_pemohon]').val(response.nama_pemohon);
-                $('#modal-viewform [name=jabatan_pemohon]').val(response.jabatan_pemohon);
-                $('#modal-viewform [name=tanggal_disiapkan]').val(response.tanggal_disiapkan);
-                $('#modal-viewform [name=nama]').val(response.nama);
-                $('#modal-viewform [name=jabatan]').val(response.jabatan);
-                $('#modal-viewform [name=tanggal_disetujui]').val(response.tanggal_disetujui);
-            })
-            .fail((errors) => {
-                alert('Tidak dapat menampilkan data');
-                return;
-            });
-    }
-
     function editForm(url) {
         $('#modal-form').modal('show');
         $('#modal-form .modal-title').text('Edit Permintaan Pengembangan');
@@ -277,6 +246,41 @@
             form.submit();
         }
     }
+    function viewForm(url) {
+        $('#modal-view').modal('show');
+
+        $.get(url)
+            .done((response) => {
+                console.log(response);
+
+                $('#modal-view [name=nomor_dokumen]').val(response.nomor_dokumen);
+                $('#modal-view [name=latar_belakang]').val(response.latar_belakang);
+                $('#modal-view [name=tujuan]').val(response.tujuan);
+                $('#modal-view [name=target_implementasi_sistem]').val(response.target_implementasi_sistem);
+                $('#modal-view [name=fungsi_sistem_informasi]').val(response.fungsi_sistem_informasi);
+                $('#modal-view [name=jenis_aplikasi]').val(response.jenis_aplikasi);
+                $('#modal-view [name=pengguna]').val(response.pengguna);
+                $('#modal-view [name=uraian_permintaan_tambahan]').val(response.uraian_permintaan_tambahan);
+                $('#modal-view [name=nama_pemohon]').val(response.nama_pemohon);
+                $('#modal-view [name=jabatan_pemohon]').val(response.jabatan_pemohon);
+                $('#modal-view [name=tanggal_disiapkan]').val(response.tanggal_disiapkan);
+                $('#modal-view [name=nama]').val(response.nama);
+                $('#modal-view [name=jabatan]').val(response.jabatan);
+                $('#modal-view [name=tanggal_disetujui]').val(response.tanggal_disetujui);
+
+                if (response.lampiran) {
+                    $('#modal-view #lampiran-link').attr('href', '/storage/assets/lampiran/' + response.lampiran);
+                } else {
+                    $('#modal-view #lampiran-link').attr('href', '#').text('Tidak ada lampiran');
+                }
+            })
+            .fail((errors) => {
+                alert('Tidak dapat menampilkan data');
+                return;
+            });
+    }
+
+
 
     function UploadPDF(url) {
         $('#modal-upload').modal('show');

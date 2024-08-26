@@ -50,6 +50,7 @@ class PersetujuanPengembanganController extends Controller
                     <button type="button" onclick="editForm(`'. route('persetujuan_pengembangan.update', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
                     <button type="button" onclick="deleteData(`'. route('persetujuan_pengembangan.destroy', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                     <button onclick="UploadPDF(`'. route('persetujuan_pengembangan.store', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
+                    <button onclick="viewForm(`'. route('persetujuan_pengembangan.view', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-primary btn-flat"><i class="fa fa-eye"></i></button>
                 </div>
                 ';
             })
@@ -172,6 +173,11 @@ class PersetujuanPengembanganController extends Controller
         $ids = $request->id_persetujuan_pengembangan;
         PersetujuanPengembangan::whereIn('id_persetujuan_pengembangan', $ids)->delete();
         return response()->json('Data berhasil dihapus', 200);
+    }
+    public function view($id)
+    {
+        $trx_persetujuan_pengembangan = PersetujuanPengembangan::findOrFail($id);
+        return response()->json($trx_persetujuan_pengembangan);
     }
 }
 

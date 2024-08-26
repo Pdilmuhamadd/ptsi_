@@ -171,12 +171,9 @@ class PermintaanPengembanganController extends Controller
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('permintaan.pdf');
     }
-
-    public function viewForm($id)
+    public function view($id)
     {
-        $trx_permintaan_pengembangan = PermintaanPengembangan::find($id);
-
+        $trx_permintaan_pengembangan = PermintaanPengembangan::findOrFail($id);
         return response()->json($trx_permintaan_pengembangan);
     }
-
 }

@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/persetujuan_pengembangan/data', [PersetujuanPengembanganController::class, 'data'])->name('persetujuan_pengembangan.data');
         Route::delete('persetujuan_pengembangan/delete_selected', [PersetujuanPengembanganController::class, 'deleteSelected'])->name('persetujuan_pengembangan.delete_selected');
         Route::post('/persetujuan_pengembangan/cetak-dokumen', [PersetujuanPengembanganController::class, 'cetakDokumen'])->name('persetujuan_pengembangan.cetakDokumen');
+        Route::get('/persetujuan_pengembangan/{id}/view', [PersetujuanPengembanganController::class, 'view'])->name('persetujuan_pengembangan.view');
         Route::get('/get-alasan-persetujuan/{id}', [PersetujuanPengembanganController::class, 'getAlasanPersetujuan']);
         Route::resource('/persetujuan_pengembangan', PersetujuanPengembanganController::class);
 
@@ -65,7 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/permintaan_pengembangan/data', [PermintaanPengembanganController::class, 'data'])->name('permintaan_pengembangan.data');
         Route::delete('permintaan_pengembangan/delete_selected', [PermintaanPengembanganController::class, 'deleteSelected'])->name('permintaan_pengembangan.delete_selected');
         Route::post('/permintaan_pengembangan/cetak-dokumen', [PermintaanPengembanganController::class, 'cetakDokumen'])->name('permintaan_pengembangan.cetakDokumen');
-        Route::get('permintaan_pengembangan/view/{id}', [PermintaanPengembanganController::class, 'viewForm'])->name('permintaan_pengembangan.view');
+        Route::get('/permintaan_pengembangan/{id}/view', [PermintaanPengembanganController::class, 'view'])->name('permintaan_pengembangan.view');
         Route::resource('/permintaan_pengembangan', PermintaanPengembanganController::class);
 
         Route::get('/serah_terima_aplikasi', [SerahTerimaAplikasiController::class, 'index'])->name('serah_terima_aplikasi.index');
