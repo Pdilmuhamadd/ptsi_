@@ -176,26 +176,8 @@ class PersetujuanPengembanganController extends Controller
     }
     public function view($id)
     {
-        $persetujuan = PersetujuanPengembangan::leftJoin('trx_permintaan_pengembangan', 'trx_permintaan_pengembangan.id_permintaan_pengembangan', '=', 'persetujuan_pengembangan.id_permintaan_pengembangan')
-            ->leftJoin('mst_persetujuan', 'mst_persetujuan.id_mst_persetujuan', '=', 'persetujuan_pengembangan.id_mst_persetujuan')
-            ->leftJoin('mst_persetujuanalasan', 'mst_persetujuanalasan.id_mst_persetujuanalasan', '=', 'persetujuan_pengembangan.id_mst_persetujuanalasan')
-            ->select('persetujuan_pengembangan.*', 'trx_permintaan_pengembangan.nomor_dokumen', 'mst_persetujuan.nama_persetujuan', 'mst_persetujuanalasan.nama_alasan')
-            ->where('persetujuan_pengembangan.id_persetujuan_pengembangan', $id)
-            ->firstOrFail();
-
-        return response()->json([
-            'nomor_dokumen' => $persetujuan->nomor_dokumen,
-            'nama_proyek' => $persetujuan->nama_proyek,
-            'deskripsi' => $persetujuan->deskripsi,
-            'nama_persetujuan' => $persetujuan->nama_persetujuan,
-            'nama_alasan' => $persetujuan->nama_alasan,
-            'namapemohon' => $persetujuan->namapemohon,
-            'namapeninjau' => $persetujuan->namapeninjau,
-            'jabatanpeninjau' => $persetujuan->jabatanpeninjau,
-            'namapenyetuju' => $persetujuan->namapenyetuju,
-        ]);
+        $trx_persetujuan_pengembangan = PersetujuanPengembangan::findOrFail($id);
+        return response()->json($trx_persetujuan_pengembangan);
     }
-
-
 }
 
