@@ -52,6 +52,7 @@
 </div>
 
 @include('perencanaan_kebutuhan.upload')
+@include('perencanaan_kebutuhan.viewform')
 @includeIf('perencanaan_kebutuhan.form')
 @endsection
 
@@ -240,6 +241,35 @@
             $('body').append(form);
             form.submit();
         }
+    }
+    function viewForm(url) {
+        $('#modal-view').modal('show');
+
+        $.get(url)
+            .done((response) => {
+                console.log(response);
+
+                $('#modal-view [name=id_persetujuan_pengembangan]').val(response.id_persetujuan_pengembangan).prop('disabled', true);
+                $('#modal-view [name=stakeholders]').val(response.stakeholders);
+                $('#modal-view [name=kebutuhan_fungsional]').val(response.kebutuhan_fungsional);
+                $('#modal-view [name=kebutuhan_nonfungsional]').val(response.kebutuhan_nonfungsional);
+                $('#modal-view [name=nama_pemohon]').val(response.nama_pemohon);
+                $('#modal-view [name=jabatan_pemohon]').val(response.jabatan_pemohon);
+                $('#modal-view [name=tanggal_disiapkan]').val(response.tanggal_disiapkan);
+                $('#modal-view [name=nama]').val(response.nama);
+                $('#modal-view [name=jabatan]').val(response.jabatan);
+                $('#modal-view [name=tanggal_disetujui]').val(response.tanggal_disetujui);
+
+                if (response.lampiran) {
+                    $('#modal-view #lampiran-link').attr('href', '/storage/assets/lampiran/' + response.lampiran);
+                } else {
+                    $('#modal-view #lampiran-link').attr('href', '#').text('Tidak ada lampiran');
+                }
+            })
+            .fail((errors) => {
+                alert('Tidak dapat menampilkan data');
+                return;
+            });
     }
     function UploadPDF(url) {
         $('#modal-upload').modal('show');

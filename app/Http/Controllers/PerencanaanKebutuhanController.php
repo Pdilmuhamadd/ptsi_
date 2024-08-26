@@ -53,6 +53,7 @@ class PerencanaanKebutuhanController extends Controller
                     <button onclick="editForm(`'. route('perencanaan_kebutuhan.update', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
                     <button onclick="deleteData(`'. route('perencanaan_kebutuhan.destroy', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                     <button onclick="UploadPDF(`'. route('perencanaan_kebutuhan.store', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
+                    <button onclick="viewForm(`'. route('perencanaan_kebutuhan.view', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-primary btn-flat"><i class="fa fa-eye"></i></button>
                 </div>
                 ';
             })
@@ -183,5 +184,11 @@ class PerencanaanKebutuhanController extends Controller
         $pdf = PDF::loadView('perencanaan_kebutuhan.dokumen', compact('datakebutuhan', 'no'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('PerencanaanKebutuhan.pdf');
+    }
+
+    public function view($id)
+    {
+        $trx_perencanaan_kebutuhan = PerencanaanKebutuhan::findOrFail($id);
+        return response()->json($trx_perencanaan_kebutuhan);
     }
 }

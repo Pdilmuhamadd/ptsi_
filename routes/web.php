@@ -80,12 +80,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/perencanaan_kebutuhan/data', [PerencanaanKebutuhanController::class, 'data'])->name('perencanaan_kebutuhan.data');
         Route::delete('perencanaan_kebutuhan/delete_selected', [PerencanaanKebutuhanController::class, 'deleteSelected'])->name('perencanaan_kebutuhan.delete_selected');
         Route::post('/perencanaan_kebutuhan/cetak-dokumen', [PerencanaanKebutuhanController::class, 'cetakDokumen'])->name('perencanaan_kebutuhan.cetakDokumen');
+        Route::get('/perencanaan_kebutuhan/{id}/view', [PerencanaanKebutuhanController::class, 'view'])->name('perencanaan_kebutuhan.view');
         Route::resource('/perencanaan_kebutuhan', PerencanaanKebutuhanController::class);
 
         Route::get('/analisis_desain', [AnalisisDesainController::class, 'index'])->name('analisis_desain.index');
         Route::get('/analisis_desain/data', [AnalisisDesainController::class, 'data'])->name('analisis_desain.data');
         Route::delete('analisis_desain/delete_selected', [AnalisisDesainController::class, 'deleteSelected'])->name('analisis_desain.delete_selected');
         Route::post('/analisis_desain/cetak-dokumen', [AnalisisDesainController::class, 'cetakDokumen'])->name('analisis_desain.cetakDokumen');
+        Route::get('/analisis_desain/{id}/view', [AnalisisDesainController::class, 'view'])->name('analisis_desain.view');
         Route::resource('/analisis_desain', AnalisisDesainController::class);
 
         Route::get('/user_acceptance_testing', [UserAcceptanceTestingController::class, 'index'])->name('user_acceptance_testing.index');

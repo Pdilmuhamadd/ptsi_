@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AnalisisDesain;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -36,6 +37,7 @@ class AnalisisDesainController extends Controller
                     <button onclick="editForm(`'. route('analisis_desain.update', $trx_analisis_desain->id_analisis_desain) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
                     <button onclick="deleteData(`'. route('analisis_desain.destroy', $trx_analisis_desain->id_analisis_desain) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                     <button onclick="UploadPDF(`'. route('analisis_desain.store', $trx_analisis_desain->id_analisis_desain) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
+                    <button onclick="viewForm(`'. route('analisis_desain.view', $trx_analisis_desain->id_analisis_desain) .'`)" class="btn btn-xs btn-primary btn-flat"><i class="fa fa-eye"></i></button>
                 </div>
                 ';
             })
@@ -150,5 +152,11 @@ class AnalisisDesainController extends Controller
         $ids = $request->id_analisis_desain;
         AnalisisDesain::whereIn('id_analisis_desain', $ids)->delete();
         return response()->json('Data berhasil dihapus', 200);
+    }
+
+    public function view($id)
+    {
+        $trx_analisis_desain = AnalisisDesain::findOrFail($id);
+        return response()->json($trx_analisis_desain);
     }
 }

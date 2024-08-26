@@ -52,6 +52,7 @@
 </div>
 
 @include('analisis_desain.upload')
+@include('analisis_desain.viewform')
 @includeIf('analisis_desain.form')
 @endsection
 
@@ -223,6 +224,34 @@
             form.submit();
         }
     }
+
+    function viewForm(url) {
+        $('#modal-view').modal('show');
+
+        $.get(url)
+            .done((response) => {
+                console.log(response);
+
+                $('#modal-view [name=nama_proyek]').val(response.nama_proyek);
+                $('#modal-view [name=deskripsi_proyek]').val(response.deskripsi_proyek);
+                $('#modal-view [name=manajer_proyek]').val(response.manajer_proyek);
+                $('#modal-view [name=kebutuhan_fungsi]').val(response.kebutuhan_fungsi);
+                $('#modal-view [name=gambaran_arsitektur]').val(response.gambaran_arsitektur);
+                $('#modal-view [name=detil_arsitektur]').val(response.detil_arsitektur);
+                $('#modal-view [name=lampiran_mockup]').val(response.lampiran_mockup);
+                $('#modal-view [name=nama_pemohon]').val(response.nama_pemohon);
+                $('#modal-view [name=jabatan_pemohon]').val(response.jabatan_pemohon);
+                $('#modal-view [name=tanggal_disiapkan]').val(response.tanggal_disiapkan);
+                $('#modal-view [name=nama]').val(response.nama);
+                $('#modal-view [name=jabatan]').val(response.jabatan);
+                $('#modal-view [name=tanggal_disetujui]').val(response.tanggal_disetujui);
+            })
+            .fail((errors) => {
+                alert('Tidak dapat menampilkan data');
+                return;
+            });
+    }
+
     function UploadPDF(url) {
         $('#modal-upload').modal('show');
         $('#modal-upload form').attr('action', url);
