@@ -46,6 +46,7 @@ class PerencanaanProyekController extends Controller
                     <button type="button" onclick="editForm(`'. route('perencanaan_proyek.update', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
                     <button type="button" onclick="deleteData(`'. route('perencanaan_proyek.destroy', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                     <button type="button" onclick="UploadPDF(`'. route('perencanaan_proyek.store', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
+                    <button onclick="viewForm(`'. route('perencanaan_proyek.view', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-primary btn-flat"><i class="fa fa-eye"></i></button>
                 </div>
                 ';
             })
@@ -165,4 +166,9 @@ class PerencanaanProyekController extends Controller
         return $pdf->stream('perencanaan.pdf');
     }
 
+    public function view($id)
+    {
+        $trx_perencanaan_proyek = PerencanaanProyek::findOrFail($id);
+        return response()->json($trx_perencanaan_proyek);
+    }
 }

@@ -52,6 +52,7 @@
 </div>
 
 @include('perencanaan_proyek.upload')
+@include('perencanaan_proyek.viewform')
 @includeIf('perencanaan_proyek.form')
 @endsection
 
@@ -253,5 +254,40 @@
             });
         });
     }
+
+function viewForm(url) {
+    $('#modal-view').modal('show');
+
+    $.get(url)
+        .done((response) => {
+            console.log(response); // Logging response for debugging
+
+            if (response.error) {
+                alert(response.error);
+                return;
+            }
+
+            $('#modal-view [name=nomor_proyek]').val(response.nomor_proyek);
+            $('#modal-view [name=id_persetujuan_pengembangan]').val(response.nama_proyek); // Nama proyek dari table trx_persetujuan_pengembangan
+            $('#modal-view [name=pemilik_proyek]').val(response.pemilik_proyek);
+            $('#modal-view [name=manajer_proyek]').val(response.manajer_proyek);
+            $('#modal-view [name=ruang_lingkup]').val(response.ruang_lingkup);
+            $('#modal-view [name=tanggal_mulai]').val(response.tanggal_mulai);
+            $('#modal-view [name=target_selesai]').val(response.target_selesai);
+            $('#modal-view [name=estimasi_biaya]').val(response.estimasi_biaya);
+            $('#modal-view [name=nama_pemohon]').val(response.nama_pemohon);
+            $('#modal-view [name=jabatan_pemohon]').val(response.jabatan_pemohon);
+            $('#modal-view [name=tanggal_disiapkan]').val(response.tanggal_disiapkan);
+            $('#modal-view [name=nama]').val(response.nama);
+            $('#modal-view [name=jabatan]').val(response.jabatan);
+            $('#modal-view [name=tanggal_disetujui]').val(response.tanggal_disetujui);
+        })
+        .fail((errors) => {
+            console.log(errors);
+            alert('Tidak dapat menampilkan data');
+        });
+}
+
+
 </script>
 @endpush
