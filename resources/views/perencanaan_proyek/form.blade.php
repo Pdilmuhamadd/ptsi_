@@ -33,21 +33,21 @@
                     <div class="form-group row">
                         <label for="pemilik_proyek" class="col-lg-2 col-lg-offset-1 control-label">Pemilik Proyek</label>
                         <div class="col-lg-6">
-                            <input type="text" name="pemilik_proyek" id="pemilik_proyek" class="form-control" required autofocus></input>
+                            <input type="text" name="pemilik_proyek" id="pemilik_proyek" class="form-control" required autofocus placeholder="Input Nama Pemilik Proyek"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="manajer_proyek" class="col-lg-2 col-lg-offset-1 control-label">Manajer Proyek</label>
                         <div class="col-lg-6">
-                            <input type="text" name="manajer_proyek" id="manajer_proyek" class="form-control" required autofocus></input>
+                            <input type="text" name="manajer_proyek" id="manajer_proyek" class="form-control" required autofocus placeholder="Input Nama Manajer Proyek"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="ruang_lingkup" class="col-lg-2 col-lg-offset-1 control-label">Ruang Lingkup</label>
                         <div class="col-lg-6">
-                            <textarea type="text" name="ruang_lingkup" id="ruang_lingkup" class="form-control" required autofocus></textarea>
+                            <textarea type="text" name="ruang_lingkup" id="ruang_lingkup" class="form-control" required autofocus placeholder="Input Ruang Lingkup Proyek"></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -68,21 +68,21 @@
                     <div class="form-group row">
                         <label for="estimasi_biaya" class="col-lg-2 col-lg-offset-1 control-label">Estimasi Biaya</label>
                         <div class="col-lg-6">
-                            <input type="text" name="estimasi_biaya" id="estimasi_biaya" class="form-control" required autofocus></input>
+                            <input type="text" name="estimasi_biaya" id="estimasi_biaya" class="form-control" required autofocus placeholder="Input Estimasi Biaya Proyek"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="nama_pemohon" class="col-lg-2 col-lg-offset-1 control-label">Nama Pemohon</label>
                         <div class="col-lg-6">
-                            <input type="text" name="nama_pemohon" id="nama_pemohon" class="form-control" required autofocus></input>
+                            <input type="text" name="nama_pemohon" id="nama_pemohon" class="form-control" required autofocus placeholder="Input Nama Pemohon"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="jabatan_pemohon" class="col-lg-2 col-lg-offset-1 control-label">Jabatan Pemohon</label>
                         <div class="col-lg-6">
-                            <input type="text" name="jabatan_pemohon" id="jabatan_pemohon" class="form-control" required autofocus></input>
+                            <input type="text" name="jabatan_pemohon" id="jabatan_pemohon" class="form-control" required autofocus placeholder="Input Jabatan Pemohon"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -96,14 +96,14 @@
                     <div class="form-group row">
                         <label for="nama" class="col-lg-2 col-lg-offset-1 control-label">Nama</label>
                         <div class="col-lg-6">
-                            <input type="text" name="nama" id="nama" class="form-control" required autofocus></input>
+                            <input type="text" name="nama" id="nama" class="form-control" required autofocus placeholder="Input Nama Penyetuju"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="jabatan" class="col-lg-2 col-lg-offset-1 control-label">Jabatan</label>
                         <div class="col-lg-6">
-                            <input type="text" name="jabatan" id="jabatan" class="form-control" required autofocus></input>
+                            <input type="text" name="jabatan" id="jabatan" class="form-control" required autofocus placeholder="Input Jabatan Penyetuju"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
