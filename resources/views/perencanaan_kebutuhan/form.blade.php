@@ -26,21 +26,21 @@
                     <div class="form-group row">
                         <label for="stakeholders" class="col-lg-2 col-lg-offset-1 control-label">Stakeholders</label>
                         <div class="col-lg-6">
-                            <textarea type="text" name="stakeholders" id="stakeholders" class="form-control" required autofocus></textarea>
+                            <textarea type="text" name="stakeholders" id="stakeholders" class="form-control" required autofocus placeholder="Input Stakeholders Proyek"></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="kebutuhan_fungsional" class="col-lg-2 col-lg-offset-1 control-label">Kebutuhan Fungsional</label>
                         <div class="col-lg-6">
-                            <textarea type="text" name="kebutuhan_fungsional" id="kebutuhan_fungsional" class="form-control" required autofocus></textarea>
+                            <textarea type="text" name="kebutuhan_fungsional" id="kebutuhan_fungsional" class="form-control" required autofocus placeholder="Input Kebutuhan Fungsional (Kebutuhan Struktural)"></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="kebutuhan_nonfungsional" class="col-lg-2 col-lg-offset-1 control-label">Kebutuhan Non-fungsional</label>
                         <div class="col-lg-6">
-                            <textarea type="text" name="kebutuhan_nonfungsional" id="kebutuhan_nonfungsional" class="form-control" required autofocus></textarea>
+                            <textarea type="text" name="kebutuhan_nonfungsional" id="kebutuhan_nonfungsional" class="form-control" required autofocus placeholder="Input Kebutuhan Non-Fungsional (Kebutuhan Non-Struktural)"></textarea>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -54,14 +54,14 @@
                     <div class="form-group row">
                         <label for="nama_pemohon" class="col-lg-2 col-lg-offset-1 control-label">Nama Pemohon</label>
                         <div class="col-lg-6">
-                            <input type="text" name="nama_pemohon" id="nama_pemohon" class="form-control" required autofocus></input>
+                            <input type="text" name="nama_pemohon" id="nama_pemohon" class="form-control" required autofocus placeholder="Input Nama Pemohon"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="jabatan_pemohon" class="col-lg-2 col-lg-offset-1 control-label">Jabatan Pemohon</label>
                         <div class="col-lg-6">
-                            <input type="text" name="jabatan_pemohon" id="jabatan_pemohon" class="form-control" required autofocus></input>
+                            <input type="text" name="jabatan_pemohon" id="jabatan_pemohon" class="form-control" required autofocus placeholder="Input Jabatan Pemohon"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -75,14 +75,14 @@
                     <div class="form-group row">
                         <label for="nama" class="col-lg-2 col-lg-offset-1 control-label">Nama</label>
                         <div class="col-lg-6">
-                            <input type="text" name="nama" id="nama" class="form-control" required autofocus></input>
+                            <input type="text" name="nama" id="nama" class="form-control" required autofocus placeholder="Input Nama Penyetuju"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="jabatan" class="col-lg-2 col-lg-offset-1 control-label">Jabatan</label>
                         <div class="col-lg-6">
-                            <input type="text" name="jabatan" id="jabatan" class="form-control" required autofocus></input>
+                            <input type="text" name="jabatan" id="jabatan" class="form-control" required autofocus placeholder="Input Jabatan Penyetuju"></input>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
