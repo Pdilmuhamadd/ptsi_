@@ -20,29 +20,23 @@
             </div>
             <div class="box-body table-responsive">
                     @csrf
-                    <table class="table table-stiped table-bordered">
+                    <table class="table table-stiped table-bordered" style="font-size: 12px;">
                             <thead>
-                            <th width="2%">
+                            <th style="width: 60px; padding: 4px;">
                                 <input type="checkbox" name="select_all" id="select_all">
                             </th>
-                            <th width="2%">No</th>
-                            <th>Nomor Proyek</th>
+                            <th style="width: 15px; padding: 4px;">No</th>
+                            <th style="width: 80px; padding: 4px;">Nomor Proyek</th>
                             <th>Nama Proyek</th>
-                            <th>Deskripsi</th>
+                            <th style="padding: 4px;">Deskripsi</th>
                             <th>Pemilik Proyek</th>
                             <th>Manajer Proyek</th>
-                            <th>Ruang Lingkup</th>
-                            <th>Tanggal Mulai</th>
-                            <th>Target Selesai</th>
-                            <th>Estimasi Biaya</th>
-                            <th>Nama Pemohon</th>
-                            <th>Jabatan Pemohon</th>
-                            <th>Tanggal Disiapkan</th>
-                            <th>Nama</th>
-                            <th>Jabatan</th>
-                            <th>Tanggal Disetujui</th>
+                            <th style="padding: 4px;">Ruang Lingkup</th>
+                            <th style="width: 130px; padding: 4px;">Tanggal Mulai</th>
+                            <th style="width: 130px; padding: 4px;">Target Selesai</th>
+                            <th style="width: 130px; padding: 4px;">Estimasi Biaya</th>
                             <th>File PDF</th>
-                            <th width="15%"><i class="fa fa-cog"></i>
+                            <th style="width: 80px; padding: 4px;"><i class="fa fa-cog"></i>
                         </thead>
                     </table>
                 </div>
@@ -81,12 +75,6 @@
                 {data: 'tanggal_mulai'},
                 {data: 'target_selesai'},
                 {data: 'estimasi_biaya'},
-                {data: 'nama_pemohon'},
-                {data: 'jabatan_pemohon'},
-                {data: 'tanggal_disiapkan'},
-                {data: 'nama'},
-                {data: 'jabatan'},
-                {data: 'tanggal_disetujui'},
                 {data: 'file_pdf'},
                 {data: 'aksi', searchable: false, sortable: false},
             ],

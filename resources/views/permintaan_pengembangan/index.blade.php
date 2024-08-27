@@ -20,29 +20,24 @@
             </div>
             <div class="box-body table-responsive">
                     @csrf
-                    <table class="table table-stiped table-bordered">
+                    <table class="table table-stiped table-bordered" style="font-size: 12px;">
                         <thead>
-                        <th width="5%">
-                            <input type="checkbox" name="select_all" id="select_all">
-                        </th>
-                        <th width="5%">No</th>
-                        <th>Nomor Dokumen</th>
-                        <th>Latar Belakang</th>
-                        <th>Tujuan</th>
-                        <th>Target Implementasi Sistem</th>
-                        <th>Fungsi Sistem Informasi</th>
-                        <th>Jenis Aplikasi</th>
-                        <th>Pengguna</th>
-                        <th>Uraian Permintaan Tambahan/Khusus</th>
-                        <th>Lampiran</th>
-                        <th>Nama Pemohon</th>
-                        <th>Jabatan Pemohon</th>
-                        <th>Tanggal Disiapkan</th>
-                        <th>Nama</th>
-                        <th>Jabatan</th>
-                        <th>Tanggal Disetujui</th>
-                        <th>File PDF</th>
-                        <th width="15%"><i class="fa fa-cog"></i>
+                        <tr>
+                            <th style="width: 45px; padding: 4px;">
+                                <input type="checkbox" name="select_all" id="select_all">
+                            </th>
+                            <th style="width: 15px; padding: 4px;">No</th>
+                            <th style="width: 80px; padding: 4px;">Nomor Dokumen</th>
+                            <th style="padding: 4px;">Latar Belakang</th>
+                            <th style="padding: 4px;">Tujuan</th>
+                            <th style="width: 130px; padding: 4px;">Jenis Aplikasi</th>
+                            <th style="width: 100px; padding: 4px;">Pengguna</th>
+                            <th style="width: 100px; padding: 4px;">Lampiran</th>
+                            <th style="width: 100px; padding: 4px;">Tanggal Disiapkan</th>
+                            <th style="width: 100px; padding: 4px;">Tanggal Disetujui</th>
+                            <th style="width: 50px; padding: 4px;">File PDF</th>
+                            <th style="width: 80px; padding: 4px;"><i class="fa fa-cog"></i></th>
+                        </tr>
                         </thead>
                     </table>
                 </div>
@@ -75,11 +70,8 @@
                 {data: 'nomor_dokumen'},
                 {data: 'latar_belakang'},
                 {data: 'tujuan'},
-                {data: 'target_implementasi_sistem'},
-                {data: 'fungsi_sistem_informasi'},
                 {data: 'jenis_aplikasi'},
                 {data: 'pengguna'},
-                {data: 'uraian_permintaan_tambahan'},
                 {
                     data:function(row){
                         return `
@@ -91,11 +83,7 @@
                                 `;
                     }
                 },
-                {data: 'nama_pemohon'},
-                {data: 'jabatan_pemohon'},
                 {data: 'tanggal_disiapkan'},
-                {data: 'nama'},
-                {data: 'jabatan'},
                 {data: 'tanggal_disetujui'},
                 {data: 'file_pdf'},
                 {data: 'aksi', searchable: false, sortable: false},

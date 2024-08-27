@@ -20,20 +20,20 @@
             </div>
             <div class="box-body table-responsive">
                 @csrf
-                <table class="table table-stiped table-bordered">
+                <table class="table table-stiped table-bordered" style="font-size: 12px;">
                     <thead>
-                    <th width="5%">
+                    <th style="width: 45px; padding: 4px;">
                         <input type="checkbox" name="select_all" id="select_all">
                     </th>
-                    <th width="5%">No</th>
-                    <th>Nomor Dokumen</th>
+                    <th style="width: 15px; padding: 4px;">No</th>
+                    <th style="width: 80px; padding: 4px;">Nomor Dokumen</th>
                     <th>Nama Proyek</th>
-                    <th>Deskripsi Proyek</th>
+                    <th style="padding: 4px;">Deskripsi Proyek</th>
                     <th>Status Persetujuan</th>
-                    <th>Alasan Persetujuan</th>
+                    <th style="padding: 4px;">Alasan Persetujuan</th>
                     <th>Nama Pemohon</th>
-                    <th>Nama Penyetuju</th>
                     <th>Jabatan Pemohon</th>
+                    <th>Nama Penyetuju</th>
                     <th>Jabatan Penyetuju</th>
                     <th>File PDF</th>
                     <th width="15%"><i class="fa fa-cog"></i></th>
@@ -71,8 +71,8 @@
                 {data: 'nama_persetujuan'},
                 {data: 'nama_alasan'},
                 {data: 'namapemohon'},
-                {data: 'namapeninjau'},
                 {data: 'jabatanpeninjau'},
+                {data: 'namapeninjau'},
                 {data: 'namapenyetuju'},
                 {data: 'file_pdf'},
                 {data: 'aksi', searchable: false, sortable: false},
