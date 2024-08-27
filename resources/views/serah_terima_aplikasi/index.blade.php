@@ -20,7 +20,7 @@
             </div>
             <div class="box-body table-responsive">
                     @csrf
-                    <table class="table table-stiped table-bordered">
+                    <table class="table table-stiped table-bordered" style="font-size: 12px;">
                         <thead>
                         <th width="5%">
                             <input type="checkbox" name="select_all" id="select_all">
@@ -46,6 +46,7 @@
     </div>
 </div>
 
+@include('serah_terima_aplikasi.viewform')
 @includeIf('serah_terima_aplikasi.form')
 @endsection
 
@@ -126,7 +127,7 @@
                 $('#modal-form [name=deskripsi]').val(response.deskripsi);
                 $('#modal-form [name=lokasi]').val(response.lokasi);
                 $('#modal-form [name=nama_aplikasi]').val(response.nama_aplikasi);
-                $('#modal-form [name=no_permintaan]').val(response.nomor_permintaan);
+                $('#modal-form [name=no_permintaan]').val(response.no_permintaan);
                 $('#modal-form [name=keterangan]').val(response.keterangan);
                 $('#modal-form [name=pemberi]').val(response.pemberi);
                 $('#modal-form [name=penerima]').val(response.penerima);
@@ -210,6 +211,31 @@
             $('body').append(form);
             form.submit();
         }
+    }
+
+    function viewForm(url) {
+        $('#modal-view').modal('show');
+
+        $.get(url)
+            .done((response) => {
+                console.log(response);
+
+                $('#modal-view [name=hari]').val(response.hari);
+                $('#modal-view [name=tanggal]').val(response.tanggal);
+                $('#modal-view [name=deskripsi]').val(response.deskripsi);
+                $('#modal-view [name=lokasi]').val(response.lokasi);
+                $('#modal-view [name=nama_aplikasi]').val(response.nama_aplikasi);
+                $('#modal-view [name=no_permintaan]').val(response.no_permintaan);
+                $('#modal-view [name=keterangan]').val(response.keterangan);
+                $('#modal-view [name=pemberi]').val(response.pemberi);
+                $('#modal-view [name=penerima]').val(response.penerima);
+                $('#modal-view [name=nik_pemberi]').val(response.pemberi);
+                $('#modal-view [name=nik_penerima]').val(response.penerima);
+            })
+            .fail((errors) => {
+                alert('Tidak dapat menampilkan data');
+                return;
+            });
     }
 </script>
 @endpush

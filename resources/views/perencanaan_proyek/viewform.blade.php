@@ -19,21 +19,21 @@
                 <div class="form-group row">
                     <label for="id_persetujuan_pengembangan" class="col-lg-2 col-lg-offset-1 control-label">Nama Proyek</label>
                     <div class="col-lg-6">
-                        <textarea name="id_persetujuan_pengembangan" id="id_persetujuan_pengembangan" class="form-control" rows="3" readonly></textarea>
+                        <input type="text" name="id_persetujuan_pengembangan" id="id_persetujuan_pengembangan" class="form-control" readonly>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="pemilik_proyek" class="col-lg-2 col-lg-offset-1 control-label">Pemilik Proyek</label>
                     <div class="col-lg-6">
-                        <textarea name="pemilik_proyek" id="pemilik_proyek" class="form-control" rows="3" readonly></textarea>
+                        <input type="text" name="pemilik_proyek" id="pemilik_proyek" class="form-control" readonly>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="manajer_proyek" class="col-lg-2 col-lg-offset-1 control-label">Manajer Proyek</label>
                     <div class="col-lg-6">
-                        <textarea name="manajer_proyek" id="manajer_proyek" class="form-control" rows="4" readonly></textarea>
+                        <input type="text" name="manajer_proyek" id="manajer_proyek" class="form-control" readonly>
                     </div>
                 </div>
 
@@ -61,7 +61,7 @@
                 <div class="form-group row">
                     <label for="estimasi_biaya" class="col-lg-2 col-lg-offset-1 control-label">Estimasi Biaya</label>
                     <div class="col-lg-6">
-                        <textarea name="estimasi_biaya" id="estimasi_biaya" class="form-control" rows="4" readonly></textarea>
+                        <input type="text" name="estimasi_biaya" id="estimasi_biaya" class="form-control" readonly>
                     </div>
                 </div>
 

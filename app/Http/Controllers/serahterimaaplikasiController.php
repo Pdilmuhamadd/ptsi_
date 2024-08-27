@@ -35,6 +35,7 @@ class SerahTerimaAplikasiController extends Controller
                 <div class="btn-group">
                     <button onclick="editForm(`'. route('serah_terima_aplikasi.update', $trx_serah_terima_aplikasi->id_serah_terima_aplikasi) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
                     <button onclick="deleteData(`'. route('serah_terima_aplikasi.destroy', $trx_serah_terima_aplikasi->id_serah_terima_aplikasi) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button onclick="viewForm(`'. route('serah_terima_aplikasi.view', $trx_serah_terima_aplikasi->id_serah_terima_aplikasi) .'`)" class="btn btn-xs btn-primary btn-flat"><i class="fa fa-eye"></i></button>
                 </div>
                 ';
             })
@@ -136,5 +137,11 @@ class SerahTerimaAplikasiController extends Controller
         $ids = $request->id_serah_terima_aplikasi;
         SerahTerimaAplikasi::whereIn('id_serah_terima_aplikasi', $ids)->delete();
         return response()->json('Data berhasil dihapus', 200);
+    }
+
+    public function view($id)
+    {
+        $trx_serah_terima_aplikasi = SerahTerimaAplikasi::findOrFail($id);
+        return response()->json($trx_serah_terima_aplikasi);
     }
 }

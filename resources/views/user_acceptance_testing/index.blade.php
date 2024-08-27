@@ -21,7 +21,7 @@
             </div>
             <div class="box-body table-responsive">
                     @csrf
-                    <table class="table table-stiped table-bordered">
+                    <table class="table table-stiped table-bordered" style="font-size: 12px;">
                         <thead>
                         <th width="5%">
                             <input type="checkbox" name="select_all" id="select_all">

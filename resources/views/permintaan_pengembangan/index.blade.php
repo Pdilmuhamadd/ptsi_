@@ -148,7 +148,6 @@
                 $('#modal-form [name=jenis_aplikasi]').val(response.jenis_aplikasi);
                 $('#modal-form [name=pengguna]').val(response.pengguna);
                 $('#modal-form [name=uraian_permintaan_tambahan]').val(response.uraian_permintaan_tambahan);
-                $('#modal-form [name=lampiran]').val(response.lampiran);
                 $('#modal-form [name=nama_pemohon]').val(response.nama_pemohon);
                 $('#modal-form [name=jabatan_pemohon]').val(response.jabatan_pemohon);
                 $('#modal-form [name=tanggal_disiapkan]').val(response.tanggal_disiapkan);
@@ -267,8 +266,6 @@
                 return;
             });
     }
-
-
 
     function UploadPDF(url) {
         $('#modal-upload').modal('show');

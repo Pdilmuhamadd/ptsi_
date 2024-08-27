@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalViewLabel">Lihat Persetujuan Pengembangan</h5>
+                <h4 class="modal-title" id="modalViewLabel">Lihat Persetujuan Pengembangan</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -19,7 +19,7 @@
                 <div class="form-group row">
                     <label for="nama_proyek" class="col-lg-2 col-lg-offset-1 control-label">Nama Proyek</label>
                     <div class="col-lg-6">
-                        <textarea name="nama_proyek" id="nama_proyek" class="form-control" rows="3" readonly></textarea>
+                        <input type="text" name="nama_proyek" id="nama_proyek" class="form-control" readonly>
                     </div>
                 </div>
 
@@ -61,7 +61,7 @@
                 <div class="form-group row">
                     <label for="jabatanpeninjau" class="col-lg-2 col-lg-offset-1 control-label">Jabatan Pemohon</label>
                     <div class="col-lg-6">
-                        <textarea name="jabatanpeninjau" id="jabatanpeninjau" class="form-control" rows="4" readonly></textarea>
+                        <input type="text" name="jabatanpeninjau" id="jabatanpeninjau" class="form-control" readonly>
                     </div>
                 </div>
 

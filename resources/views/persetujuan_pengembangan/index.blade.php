@@ -232,28 +232,21 @@
             .done((response) => {
                 console.log(response);
 
-                if (response.error) {
-                    alert(response.error);
-                    return;
-                }
-
-                $('#modal-view [name=id_permintaan_pengembangan]').val(response.nomor_dokumen).prop('disabled', true);
+                $('#modal-view [name=id_permintaan_pengembangan]').val(response.id_permintaan_pengembangan)
                 $('#modal-view [name=nama_proyek]').val(response.nama_proyek);
                 $('#modal-view [name=deskripsi]').val(response.deskripsi);
-                $('#modal-view [name=id_mst_persetujuan]').val(response.nama_persetujuan);
-                $('#modal-view [name=id_mst_persetujuanalasan]').val(response.nama_alasan);
+                $('#modal-view [name=id_mst_persetujuan]').val(response.id_mst_persetujuan);
+                $('#modal-view [name=id_mst_persetujuanalasan]').val(response.id_mst_persetujuanalasan);
                 $('#modal-view [name=namapemohon]').val(response.namapemohon);
                 $('#modal-view [name=namapeninjau]').val(response.namapeninjau);
                 $('#modal-view [name=jabatanpeninjau]').val(response.jabatanpeninjau);
                 $('#modal-view [name=namapenyetuju]').val(response.namapenyetuju);
             })
             .fail((errors) => {
-                console.log(errors);
                 alert('Tidak dapat menampilkan data');
+                return;
             });
     }
-
-
 
     function UploadPDF(url) {
         $('#modal-upload').modal('show');

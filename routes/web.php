@@ -74,6 +74,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/serah_terima_aplikasi/data', [SerahTerimaAplikasiController::class, 'data'])->name('serah_terima_aplikasi.data');
         Route::delete('serah_terima_aplikasi/delete_selected', [SerahTerimaAplikasiController::class, 'deleteSelected'])->name('serah_terima_aplikasi.delete_selected');
         Route::post('/serah_terima_aplikasi/cetak-dokumen', [SerahTerimaAplikasiController::class, 'cetakDokumen'])->name('serah_terima_aplikasi.cetakDokumen');
+        Route::get('/serah_terima_aplikasi/{id}/view', [SerahTerimaAplikasiController::class, 'view'])->name('serah_terima_aplikasi.view');
         Route::resource('/serah_terima_aplikasi', SerahTerimaAplikasiController::class);
 
         Route::get('/perencanaan_kebutuhan', [PerencanaanKebutuhanController::class, 'index'])->name('perencanaan_kebutuhan.index');
