@@ -27,7 +27,8 @@ class PerencanaanKebutuhanController extends Controller
     public function data()
     {
         $trx_perencanaan_kebutuhan = PersetujuanPengembangan::leftJoin('trx_perencanaan_kebutuhan', 'trx_perencanaan_kebutuhan.id_persetujuan_pengembangan', '=', 'trx_persetujuan_pengembangan.id_persetujuan_pengembangan')
-        ->select('trx_perencanaan_kebutuhan.*', 'trx_persetujuan_pengembangan.*')
+        ->leftJoin('trx_perencanaan_kebutuhan', 'trx_perencanaan_kebutuhan.id_perencanaan_proyek', '=', 'trx_perencanaan_proyek.id_perencanaan_proyek')
+        ->select('trx_perencanaan_kebutuhan.*', 'trx_persetujuan_pengembangan.*','trx_perencanaan_proyek.*')
         ->get();
 
         return datatables()
@@ -41,11 +42,11 @@ class PerencanaanKebutuhanController extends Controller
             ->addColumn('deskripsi', function($trx_persetujuan_pengembangan){
                 return $trx_persetujuan_pengembangan->deskripsi;
             })
-            ->addColumn('pemilik_proyek', function($trx_persetujuan_pengembangan){
-                return $trx_persetujuan_pengembangan->pemilik_proyek;
+            ->addColumn('pemilik_proyek', function($trx_perencanaan_proyek){
+                return $trx_perencanaan_proyek->pemilik_proyek;
             })
-            ->addColumn('manajer_proyek', function($trx_persetujuan_pengembangan){
-                return $trx_persetujuan_pengembangan->manajer_proyek;
+            ->addColumn('manajer_proyek', function($trx_perencanaan_proyek){
+                return $trx_perencanaan_proyek->manajer_proyek;
             })
             ->addColumn('aksi', function ($trx_persetujuan_pengembangan) {
                 return '

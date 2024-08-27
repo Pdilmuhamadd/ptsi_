@@ -33,7 +33,12 @@ class PersetujuanPengembanganController extends Controller
         $trx_persetujuan_pengembangan = PersetujuanPengembangan::leftJoin('trx_permintaan_pengembangan', 'trx_permintaan_pengembangan.id_permintaan_pengembangan', '=', 'trx_persetujuan_pengembangan.id_permintaan_pengembangan')
             ->leftJoin('mst_persetujuan', 'mst_persetujuan.id_mst_persetujuan', '=', 'trx_persetujuan_pengembangan.id_mst_persetujuan')
             ->leftJoin('mst_persetujuanalasan', 'mst_persetujuanalasan.id_mst_persetujuanalasan', '=', 'trx_persetujuan_pengembangan.id_mst_persetujuanalasan')
-            ->select('trx_persetujuan_pengembangan.*', 'trx_permintaan_pengembangan.nomor_dokumen', 'mst_persetujuan.nama_persetujuan', 'mst_persetujuanalasan.nama_alasan')
+            ->select(
+                'trx_persetujuan_pengembangan.*',
+                'trx_permintaan_pengembangan.nomor_dokumen',
+                'mst_persetujuan.nama_persetujuan as status_persetujuan',
+                'mst_persetujuanalasan.nama_alasan as alasan_persetujuan'
+            )
             ->get();
 
         return datatables()
@@ -57,8 +62,6 @@ class PersetujuanPengembanganController extends Controller
             ->rawColumns(['aksi', 'select_all'])
             ->make(true);
     }
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -161,7 +164,6 @@ class PersetujuanPengembanganController extends Controller
         return $pdf->stream('persetujuan.pdf');
     }
 
-
     public function getAlasanPersetujuan($id_mst_persetujuan)
     {
         $alasan = PersetujuanAlasan::where('id_mst_persetujuan', $id_mst_persetujuan)->pluck('nama_alasan', 'id_mst_persetujuanalasan');
@@ -176,7 +178,17 @@ class PersetujuanPengembanganController extends Controller
     }
     public function view($id)
     {
-        $trx_persetujuan_pengembangan = PersetujuanPengembangan::findOrFail($id);
+        $trx_persetujuan_pengembangan = PersetujuanPengembangan::leftJoin('trx_permintaan_pengembangan', 'trx_permintaan_pengembangan.id_permintaan_pengembangan', '=', 'trx_persetujuan_pengembangan.id_permintaan_pengembangan')
+        ->leftJoin('mst_persetujuan', 'mst_persetujuan.id_mst_persetujuan', '=', 'trx_persetujuan_pengembangan.id_mst_persetujuan')
+        ->leftJoin('mst_persetujuanalasan', 'mst_persetujuanalasan.id_mst_persetujuanalasan', '=', 'trx_persetujuan_pengembangan.id_mst_persetujuanalasan')
+        ->select(
+            'trx_persetujuan_pengembangan.*',
+            'trx_permintaan_pengembangan.nomor_dokumen',
+            'mst_persetujuan.nama_persetujuan as status_persetujuan',
+            'mst_persetujuanalasan.nama_alasan as alasan_persetujuan'
+        )
+        ->findOrFail($id);
+
         return response()->json($trx_persetujuan_pengembangan);
     }
 }

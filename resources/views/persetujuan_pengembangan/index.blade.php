@@ -68,8 +68,8 @@
                 {data: 'nomor_dokumen'},
                 {data: 'nama_proyek'},
                 {data: 'deskripsi'},
-                {data: 'nama_persetujuan'},
-                {data: 'nama_alasan'},
+                {data: 'status_persetujuan'},
+                {data: 'alasan_persetujuan'},
                 {data: 'namapemohon'},
                 {data: 'jabatanpeninjau'},
                 {data: 'namapeninjau'},
@@ -232,11 +232,11 @@
             .done((response) => {
                 console.log(response);
 
-                $('#modal-view [name=id_permintaan_pengembangan]').val(response.id_permintaan_pengembangan)
+                $('#modal-view [name=id_permintaan_pengembangan]').val(response.nomor_dokumen)
                 $('#modal-view [name=nama_proyek]').val(response.nama_proyek);
                 $('#modal-view [name=deskripsi]').val(response.deskripsi);
-                $('#modal-view [name=id_mst_persetujuan]').val(response.id_mst_persetujuan);
-                $('#modal-view [name=id_mst_persetujuanalasan]').val(response.id_mst_persetujuanalasan);
+                $('#modal-view [name=id_mst_persetujuan]').val(response.status_persetujuan);
+                $('#modal-view [name=id_mst_persetujuanalasan]').val(response.alasan_persetujuan);
                 $('#modal-view [name=namapemohon]').val(response.namapemohon);
                 $('#modal-view [name=namapeninjau]').val(response.namapeninjau);
                 $('#modal-view [name=jabatanpeninjau]').val(response.jabatanpeninjau);

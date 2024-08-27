@@ -72,7 +72,7 @@
             columns: [
                 {data: 'select_all', searchable: false, sortable: false},
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'id_perencanaan_kebutuhan'},
+                {data: 'nomor_proyek'},
                 {data: 'nama_proyek'},
                 {data: 'deskripsi'},
                 {data: 'pemilik_proyek'},
@@ -138,7 +138,6 @@
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('post');
-        $('#modal-form [name=id_persetujuan_pengembangan]').prop('disabled', false);
         $('#modal-form [name=nama_proyek]').focus();
     }
 
@@ -154,6 +153,7 @@
         $.get(url)
             .done((response) => {
                 $('#modal-form [name=id_persetujuan_pengembangan]').val(response.id_persetujuan_pengembangan).prop('disabled', true);
+                $('#modal-form [name=id_perencanaan_proyek]').val(response.id_perencanaan_proyek).prop('disabled', true);
                 $('#modal-form [name=stakeholders]').val(response.stakeholders);
                 $('#modal-form [name=kebutuhan_fungsional]').val(response.kebutuhan_fungsional);
                 $('#modal-form [name=kebutuhan_nonfungsional]').val(response.kebutuhan_nonfungsional);
