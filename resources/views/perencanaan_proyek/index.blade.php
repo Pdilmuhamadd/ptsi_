@@ -111,7 +111,6 @@
         $('#modal-form [name=nomor_proyek]').focus();
     }
 
-
     function editForm(url) {
         $('#modal-form').modal('show');
         $('#modal-form .modal-title').text('Edit Perencanaan Proyek');
@@ -250,7 +249,8 @@
                 console.log(response);
 
                 $('#modal-view [name=nomor_proyek]').val(response.nomor_proyek);
-                $('#modal-view [name=id_persetujuan_pengembangan]').val(response.id_persetujuan_pengembangan).prop('disabled', true);
+                $('#modal-view [name=id_persetujuan_pengembangan]').val(response.nama_proyek);
+                $('#modal-view [name=deskripsi]').val(response.deskripsi);
                 $('#modal-view [name=pemilik_proyek]').val(response.pemilik_proyek);
                 $('#modal-view [name=manajer_proyek]').val(response.manajer_proyek);
                 $('#modal-view [name=ruang_lingkup]').val(response.ruang_lingkup);
@@ -269,7 +269,6 @@
                 return;
             });
     }
-
 
 </script>
 @endpush

@@ -25,7 +25,7 @@ class PerencanaanProyekController extends Controller
 
     public function data()
     {
-        $trx_perencanaan_proyek = PersetujuanPengembangan::leftJoin('trx_perencanaan_proyek', 'trx_perencanaan_proyek.id_persetujuan_pengembangan', '=', 'trx_persetujuan_pengembangan.id_persetujuan_pengembangan')
+        $trx_perencanaan_proyek = PerencanaanProyek::leftJoin('trx_persetujuan_pengembangan', 'trx_persetujuan_pengembangan.id_persetujuan_pengembangan', '=', 'trx_perencanaan_proyek.id_persetujuan_pengembangan')
         ->select('trx_perencanaan_proyek.*', 'trx_persetujuan_pengembangan.*')
         ->get();
 
@@ -41,12 +41,13 @@ class PerencanaanProyekController extends Controller
                 return $trx_persetujuan_pengembangan->deskripsi;
             })
             ->addColumn('aksi', function ($trx_persetujuan_pengembangan) {
+                $id_proyek = $trx_persetujuan_pengembangan->id_perencanaan_proyek;
                 return '
                 <div class="btn-group">
-                    <button type="button" onclick="editForm(`'. route('perencanaan_proyek.update', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                    <button type="button" onclick="deleteData(`'. route('perencanaan_proyek.destroy', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
-                    <button type="button" onclick="UploadPDF(`'. route('perencanaan_proyek.store', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
-                    <button onclick="viewForm(`'. route('perencanaan_proyek.view', $trx_persetujuan_pengembangan->id_persetujuan_pengembangan) .'`)" class="btn btn-xs btn-primary btn-flat"><i class="fa fa-eye"></i></button>
+                    <button type="button" onclick="editForm(`'. route('perencanaan_proyek.update', $id_proyek) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                    <button type="button" onclick="deleteData(`'. route('perencanaan_proyek.destroy', $id_proyek) .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button type="button" onclick="UploadPDF(`'. route('perencanaan_proyek.store', $id_proyek) .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-upload"></i></button>
+                    <button type="button" onclick="viewForm(`'. route('perencanaan_proyek.view', $id_proyek) .'`)" class="btn btn btn-xs btn-primary btn-flat"><i class="fa fa-eye"></i></button>
                 </div>
                 ';
             })
@@ -168,7 +169,14 @@ class PerencanaanProyekController extends Controller
 
     public function view($id)
     {
-        $trx_perencanaan_proyek = PerencanaanProyek::findOrFail($id);
+        $trx_perencanaan_proyek = PerencanaanProyek::leftJoin('trx_persetujuan_pengembangan', 'trx_persetujuan_pengembangan.id_persetujuan_pengembangan', '=', 'trx_perencanaan_proyek.id_persetujuan_pengembangan')
+        ->select(
+            'trx_perencanaan_proyek.*',
+            'trx_persetujuan_pengembangan.nama_proyek as nama_proyek',
+            'trx_persetujuan_pengembangan.deskripsi as deskripsi',
+        )
+        ->findOrFail($id);
+
         return response()->json($trx_perencanaan_proyek);
     }
 }

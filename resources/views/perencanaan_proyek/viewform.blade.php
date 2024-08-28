@@ -17,9 +17,16 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="id_persetujuan_pengembangan" class="col-lg-2 col-lg-offset-1 control-label">Nama Proyek</label>
+                    <label for="nama_proyek" class="col-lg-2 col-lg-offset-1 control-label">Nama Proyek</label>
                     <div class="col-lg-6">
-                        <input type="text" name="id_persetujuan_pengembangan" id="id_persetujuan_pengembangan" class="form-control" readonly>
+                        <input type="text" name="id_persetujuan_pengembangan" id="nama_proyek" class="form-control" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="deskripsi" class="col-lg-2 col-lg-offset-1 control-label">Deskripsi</label>
+                    <div class="col-lg-6">
+                        <textarea name="deskripsi" id="deskripsi" class="form-control" rows="3" readonly></textarea>
                     </div>
                 </div>
 
