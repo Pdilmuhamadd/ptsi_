@@ -28,10 +28,10 @@
                             <th style="width: 15px; padding: 4px;">No</th>
                             <th style="width: 80px; padding: 4px;">Nomor Proyek</th>
                             <th>Nama Proyek</th>
-                            <th style="padding: 4px;">Deskripsi</th>
+                            <th style="width: 150px;;">Deskripsi</th>
                             <th>Pemilik Proyek</th>
                             <th>Manajer Proyek</th>
-                            <th style="padding: 4px;">Ruang Lingkup</th>
+                            <th style="width: 150px;">Ruang Lingkup</th>
                             <th style="width: 130px; padding: 4px;">Tanggal Mulai</th>
                             <th style="width: 130px; padding: 4px;">Target Selesai</th>
                             <th style="width: 130px; padding: 4px;">Estimasi Biaya</th>
